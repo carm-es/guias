@@ -1,17 +1,21 @@
 
-## Proyectos Java
+# Proyectos Java
 
 Este documento es una guía para el desarrollo de proyectos Java para la CARM. En él se describen la serie de recomendaciones técnicas que deberán tenerse siempre en cuenta a la hora de trabajar en este tipo de proyectos:
 
 
-### Estilo del código fuente
+## Estilo del código fuente
 
-La codificación de clases Java, se realizará **siguiendo el [documento de buenas prácticas](Buenas-Practicas-de-codificacion.md)**.
+La codificación de ficheros ```.java``` se detalla en la [Guía de estilo para código Java](Guia-codigo-java.md).
 
-Para poder cumplir estas recomendaciones de una manera cómoda, es deseable que instale en [plantilla la Guía de estilo de Google para Java](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) en su IDE de desarrollo y el [plugin de SonarLint](https://www.sonarlint.org/eclipse/): La versión de [Eclipse IDE for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/) suele incluirla.
+Tras leerlo, usted deberá:
+
+1. Tener configurado su **IDE con la hoja de estilos de Google ```java-google-style.xml```**
+2. Tener instalado y **habilitado el [plugin de SonarLint](https://www.sonarlint.org/eclipse/) en su IDE**
 
 
-### Código bajo control de versiones
+
+## Código bajo control de versiones
 
 Las entregas de código fuente de cualquier proyecto deberán estar **siempre justificadas en un ticket GLPI o un *issue* de GitLab/GitHub**, y además [deberá respetarse](https://www.campusmvp.es/recursos/post/los-10-mandamientos-del-control-de-codigo-fuente.aspx):
 
@@ -27,6 +31,6 @@ Las entregas de código fuente de cualquier proyecto deberán estar **siempre ju
 El flujo de trabajo [utilizará la estrategia OneFlow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow), siguiendo las pautas que se indican en la misma y optando la variante (**```develop``` + ```master```**).
 
 
-### Política de versionado
+## Política de versionado
 
 La política de versionado se describe en el documento [Políticas de versionado](../Politicas-de-versionado.md) siguiendo el patrón ```[Mayor].[Menor].[Parche]-[SNAPSHOT]```.
