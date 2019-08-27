@@ -72,7 +72,7 @@ orientado a otros lenguajes de programación *(C, C++, PHP, etc)*, se utiliza en
 
 Para el desarrollo de aplicaciones Java es recomendable **instalar la versión [Eclipse IDE for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/)** que ya incluirá todos los plugins que necesitará *(maven, git, svn, sonarlint, etc)*
 
-[[imagenes/GuiaCodigoJava-001.png]]
+![Pantallazo](imagenes/GuiaCodigoJava-001.png)
 
 
 ### Configura tu IDE
