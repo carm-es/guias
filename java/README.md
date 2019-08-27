@@ -1,17 +1,17 @@
 
 # Proyectos Java
 
-Este documento es una guía para el desarrollo de proyectos Java para la CARM. En él se describen la serie de recomendaciones técnicas que deberán tenerse siempre en cuenta a la hora de trabajar en este tipo de proyectos:
+Este documento es una guía para el desarrollo de proyectos Java para la CARM. En él se describen una serie de recomendaciones técnicas a tener en cuenta a la hora de trabajar en este tipo de proyectos.
 
 
 ## Estilo del código fuente
 
-La codificación de ficheros ```.java``` se detalla en la [Guía de estilo para código Java](Guia-codigo-java.md).
 
-Tras leerlo, usted deberá:
+Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se explica cómo deben escribirse los ficheros ```.java``` y qué herramientas debe usar para ello:
 
-1. Tener configurado su **IDE con la hoja de estilos de Google ```java-google-style.xml```**
-2. Tener instalado y **habilitado el [plugin de SonarLint](https://www.sonarlint.org/eclipse/) en su IDE**
+1. Instalar [Eclipse IDE for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/)
+2. Configurar la [plantilla de estilo de código Java de Google](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) para cada proyecto de la CARM
+3. Habilitar el [plugin SonarLint](https://www.sonarlint.org/eclipse/) por proyecto
 
 
 
