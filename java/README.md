@@ -10,17 +10,18 @@ Este documento es una guía para el desarrollo de proyectos Java para la CARM. E
 Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se explica cómo deben escribirse los ficheros ```.java``` y qué herramientas debe usar para ello:
 
 1. Instalar [Eclipse IDE for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/)
-2. Configurar la [plantilla de estilo de código Java de Google](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) para cada proyecto de la CARM
-3. Habilitar el [plugin SonarLint](https://www.sonarlint.org/eclipse/) por proyecto
+2. **Configurar la [plantilla de estilo de código Java de Google](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) para cada proyecto** de la CARM
+3. **Habilitar el [plugin SonarLint](https://www.sonarlint.org/eclipse/)** por proyecto
 
 ## Control de versiones
 
-Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se explica cómo deben gestionarse todos los ficheros de un proyecto, y qué herramientas debe usar para ello:
+Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se explica cómo deben gestionarse todos los ficheros de un proyecto, y qué herramientas usar:
 
 1. Cliente Git a su elección
 2. Cliente Git de Eclipse
 3. Operaciones más habituales en Git
 4. Cuenta de acceso a [GitLab de la CARM](https://gitlab.carm.es) o [GitHub](https://github.com/carm-es/)
+5. Cómo **usar correctamente el control de versiones**.
 
 
 ## Código bajo control de versiones
