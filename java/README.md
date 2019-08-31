@@ -4,7 +4,7 @@
 Este documento es una guía para el desarrollo de proyectos Java para la CARM. En él se describen una serie de recomendaciones técnicas a tener en cuenta a la hora de trabajar en este tipo de proyectos.
 
 
-## Estilo del código fuente
+## Estilo del código fuente *(los .java)*
 
 
 Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se explica cómo deben escribirse los ficheros ```.java``` y qué herramientas debe usar para ello:
@@ -13,7 +13,7 @@ Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se exp
 2. **Configurar la [plantilla de estilo de código Java de Google](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) para cada proyecto** de la CARM
 3. **Habilitar el [plugin SonarLint](https://www.sonarlint.org/eclipse/)** por proyecto
 
-## Control de versiones
+## Control de versiones *(el Git)*
 
 Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se explica cómo deben gestionarse todos los ficheros de un proyecto, y qué herramientas usar:
 
@@ -24,7 +24,7 @@ Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se e
 5. Cómo **usar correctamente el control de versiones**.
 
 
-## Gestión del cambio
+## Gestión del cambio *(los Issues)*
 
 Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál es el punto de partida que
 nos mueve a cambiar el código fuente de un proyecto y cómo debe 
@@ -35,7 +35,7 @@ nos mueve a cambiar el código fuente de un proyecto y cómo debe
 3. Cómo referenciarlos mediante **menciones**,
 4. Cómo **agruparlos** para planificar su trabajo 
 
-## Flujo de trabajo
+## Flujo de trabajo  *(las ramas)*
 
 Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método que hemos establecido para a partir de un Issue
 aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
