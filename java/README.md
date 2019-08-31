@@ -35,6 +35,18 @@ nos mueve a cambiar el código fuente de un proyecto y cómo debe
 3. Cómo referenciarlos mediante **menciones**,
 4. Cómo **agruparlos** para planificar su trabajo 
 
+## Flujo de trabajo
+
+Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método que hemos establecido para a partir de un Issue
+aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
+
+1. Las **ramas** que tendrá el proyecto
+2. El **ciclo de vida** de las ramas y su relación con los Issues
+3. Cómo deben **nombrarse**: ```{tipo}/{usuario o grupo}/{2-3 palabras resumen}-{mención al issue}``` 
+4. Cuánto **deben durar** (2 semanas)
+
+
+
 ## Código bajo control de versiones
 
 Las entregas de código fuente de cualquier proyecto deberán estar **siempre justificadas en un ticket GLPI o un *issue* de GitLab/GitHub**, y además [deberá respetarse](https://www.campusmvp.es/recursos/post/los-10-mandamientos-del-control-de-codigo-fuente.aspx):
