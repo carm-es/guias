@@ -45,6 +45,16 @@ aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
 3. Cómo deben **nombrarse**: ```{tipo}/{usuario o grupo}/{2-3 palabras resumen}-{mención al issue}``` 
 4. Cuánto **deben durar** (2 semanas)
 
+## Entrega de código *(los commits)*
+
+Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo debe
+realizarse la actividad de entrega de código dentro del flujo de trabajo del proyecto. Conocerá:
+
+1. **Qué debe contener** un commit
+2. **Cuándo** hacer un commit
+3. Cómo debe **escribir los mensajes de los commits**
+4. Cómo escribir los **mensajes en los pull/merge request**
+
 
 
 ## Código bajo control de versiones
