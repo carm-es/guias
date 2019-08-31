@@ -24,6 +24,17 @@ Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se e
 5. Cómo **usar correctamente el control de versiones**.
 
 
+## Gestión del cambio
+
+Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál es el punto de partida que
+nos mueve a cambiar el código fuente de un proyecto y cómo debe 
+**quedar registrado** para resultar eficaz. Después de ello sabrá, 
+
+1. Cómo y cuando **crear Issues**,
+2. Cómo clasificarlos mediante **Etiquetas**,
+3. Cómo referenciarlos mediante **menciones**,
+4. Cómo **agruparlos** para planificar su trabajo 
+
 ## Código bajo control de versiones
 
 Las entregas de código fuente de cualquier proyecto deberán estar **siempre justificadas en un ticket GLPI o un *issue* de GitLab/GitHub**, y además [deberá respetarse](https://www.campusmvp.es/recursos/post/los-10-mandamientos-del-control-de-codigo-fuente.aspx):
