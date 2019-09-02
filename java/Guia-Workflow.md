@@ -9,8 +9,10 @@ La discusión está en la rama desde la que se parte y a la que se fusionan, y q
 
 * [¿Qué estrategia de control de versiones seguir en un equipo Scrum?](https://www.javiergarzas.com/2014/05/control-versiones-scrum.html)
 * [Git: Trabajando con ramas](https://www.nocountryforgeeks.com/tutorial-git-flow/)
-* [5 types of Git workflow that will help you deliver better code](https://buddy.works/blog/5-types-of-git-workflows)
+* [Estrategias de branching – No solo existe git-flow]( https://jesuslc.com/2015/12/30/estrategias-de-branching-no-solo-existe-git-flow/)
 * [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+* [4 branching workflows for Git](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf)
+* [5 types of Git workflow that will help you deliver better code](https://buddy.works/blog/5-types-of-git-workflows)
 * [OneFlow - a Git branching model and workflow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
 
 Para el desarrollo de proyectos Java en CARM apostamos por la **estrategia [OneFlow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow) con la variante ```develop + master ```**, que establece:
