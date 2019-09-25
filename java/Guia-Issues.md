@@ -56,7 +56,7 @@ Las etiquetas mínimas serán las que proponen [GitHub](https://help.github.com/
 * <span style="background-color:red; color: white;">&nbsp;critical </span>: Por culpa de ese issue, los usuarios no pueden trabajar
 * <span style="background-color:blue; color: white;">&nbsp;discussion </span>: Actas de reunión, debates o hilos de conversación donde se debate el rumbo de cambios que debe tomar la aplicación
 * <span style="background-color:blue; color: white;">&nbsp;suggestion </span>: Propuesta de cambio de mejora para la aplicación, una nueva funcionalidad
-* <span style="background-color:green; color: white;">&nbsp;discussion </span>: Mejora o feature por implementar, nuevas funcionalidades 
+* <span style="background-color:green; color: white;">&nbsp;enhancement </span>: Mejora o feature por implementar, nuevas funcionalidades 
 * <span style="background-color:gray; color: white;">&nbsp;documentation </span>: Indica una necesidad de mejoras o adiciones a la documentación
 * <span style="background-color:gray; color: white;">&nbsp;support </span>: Preguntas sobre el uso de la aplicación, dudas... 
 
