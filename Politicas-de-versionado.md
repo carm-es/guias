@@ -1,6 +1,6 @@
 > *Documento copiado desde [https://github.com/kosme10/standards/wiki/Buenas-Practicas-de-codificacion](https://github.com/kosme10/standards/wiki/Politicas-de-versionado.md)*
 
-# Politicas de versionado
+# Políticas de versionado
 
 ## Desarrollo de una nueva funcionalidad
 Toda nueva funcionalidad se desarrollará sobre la carpeta trunk correspondiente. Cuando se desarrolle una nueva funcionalidad de una versión en producción o mantenimiento, se hará un branch a partir de la rama correspondiente: ```master``` o ```develop```.
@@ -15,36 +15,36 @@ Regex | [ 0-9 ].[ 0-9 ].[ 0-9 ]-[ SNAPSHOT / ALPHA / BETA / CR / GA ].[0-9]
 
 
 **Versión Mayor**
-- Cambios radicales en los requerimientos y funcionalidad (cambios disruptivos).
+- Cambios radicales en los requisitos y funcionalidad (cambios disruptivos)
 - Cambios de frameworks de base
 - Cambios en el núcleo del proyecto
-- Cambios en la API pública del proyecto.
-- Cambios de Plataforma.
-- Si se incrementa vuelve los valores de versión menor y parche a cero.
+- Cambios en la API pública del proyecto
+- Cambios de plataforma
+- Si se incrementa vuelve los valores de versión menor y parche a cero
 - Regex: [ 0-9 ]
 - Ejemplo: **X.y.z**
 
 **Versión Menor**
 - Nueva funcionalidad
-- Cambios incrementales no-disruptivos.
-- Si se incrementa vuele los valores de versión parche  a cero.
+- Cambios incrementales no-disruptivos
+- Si se incrementa vuelve los valores de versión parche a cero
 - Regex: [ 0-9 ]
 - Ejemplo: **x.Y.z**
 
 **Versión Parche**
-- Arreglo (FIX) sobre una versión concreta.
+- Arreglo (FIX) sobre una versión concreta
 - Regex: [ 0-9 ]
 - Ejemplo: **x.y.Z**
 
 **Calificador**
 - Indica el nivel de madurez en función del “Roadmap” del producto.
-- El Product Owner define en que estado de madurez se encuentra el proyecto en función de las funcionalidades cubiertas y los resultados de pruebas en QA.
+- El Product Owner define en qué estado de madurez se encuentra el proyecto en función de las funcionalidades cubiertas y los resultados de pruebas en QA.
 - Se utilizaran los siguientes calificadores:
-  - SNAPSHOT: Indica que el código esta en pleno desarrollo.
+  - SNAPSHOT: Indica que el código está en pleno desarrollo.
   - ALPHA (opcional): Pruebas de integración entre desarrolladores.
   - BETA: Listo para pasar a QA. Listo para iniciar pruebas funcionales.
   - CR (Candidate Release): Incluye todas las correcciones solicitadas por QA.
-  - GA (General Availibility): Listo para despliegue productivo luego que se verifico que la versión de CR en QA no presenta errores.
+  - GA (General Availibility): Listo para despliegue productivo luego que se verificó que la versión de CR en QA no presenta errores.
 - Regex: [ SNAPSHOT | ALPHA | BETA | CR | GA ]
 - Ejemplos:
   - x.y.z-ALPHA
@@ -76,7 +76,6 @@ También se puede buscar etiquetas de acuerdo a un patrón en particular.
 #### Crear etiquetas
 Git usa dos tipos principales de etiquetas: ligeras y anotadas. Una etiqueta ligera es muy parecida a una rama que no cambia (un puntero a una confirmación específica). Sin embargo, las etiquetas anotadas son almacenadas como objetos completos en la base de datos de Git. Generalmente se recomienda crear etiquetas anotadas para disponer de toda esta información.
 
-
 Para crear **etiquetas anotadas**
 ```
 $ git tag -a v1.4 -m 'my version 1.4'
@@ -86,7 +85,7 @@ v1.3
 v1.4
 ```
 
-Para crear **etiquetas lijeras**
+Para crear **etiquetas ligeras**
 ```
 $ git tag v1.4-lw
 $ git tag
@@ -97,7 +96,7 @@ v1.4-lw
 v1.5
 ```
 
-Se puede incluso etiquetar mas tarde.
+Se puede incluso etiquetar más tarde.
 ```
 $ git log --pretty=oneline
 15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
