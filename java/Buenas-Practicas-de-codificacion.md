@@ -5,7 +5,7 @@
 - [Organización del código](#organización-del-código)
     - [Sentencias Package e Import](#sentencias-package-e-import)
     - [Declaraciones de Clases e Interfaces](#declaraciones-de-clases-e-interfaces)
-- [Estructura del Código](#estructura-del-código)
+- [Estructura del código](#estructura-del-código)
 	- [Encabezados de la Clase](#encabezados-de-la-clase)
 	- [Encabezados del Método](#encabezados-del-método)
 	- [Indentación](#indentación)
@@ -92,7 +92,7 @@ La siguiente tabla describe las partes de la declaración de una clase o interfa
 
 Orden | Partes de la declaración | Notas
 --- | --- | ---
-1 | Comentario de documentación de la clase o Interfaz | Ver [Comentarios de Documentacion](#comentarios-de-documentacion)
+1 | Comentario de documentación de la clase o Interfaz | Ver [Comentarios de Documentación](#comentarios-de-documentación)
 2 | Sentencia class o interface |
 3 | Comentario de implementación de la clase o interfaz si fuera necesario (/\*...\*/) | Este comentario debe contener cualquier información aplicable a toda la clase o interfaz que no fuera apropiada para estar en los comentarios de documentación de la clase o interfaz.
 4 | Variables de clase (static) | Primero las variables de clase pública, después las protegidas, después las de nivel de paquete (sin modificador de acceso), y después las privadas.
@@ -102,7 +102,7 @@ Orden | Partes de la declaración | Notas
 8 | Comentario de documentación del método (/\*\*...\*/) | [Comentarios de Documentación](#comentarios-de-documentación)
 9 | Métodos | Estos métodos se deben agrupar por funcionalidad más que por visión o accesibilidad. Por ejemplo, un método de clase privado puede estar entre dos métodos públicos de instancia. El objetivo es hacer el código más legible y comprensible.
 
-# Estructura del Código
+# Estructura del código
 
 Una buena estrategia de estructuración debe representar con precisión y consistentemente la estructura lógica del código, debe hacer el código legible y fácil de mantener. Las reglas de esta sección están ideadas para cumplir con esos criterios.
 
