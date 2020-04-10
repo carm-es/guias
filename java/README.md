@@ -5,12 +5,12 @@ Este documento es una guía para el desarrollo de proyectos Java para la CARM. E
 
 ## Estilo del código fuente *(los .java)*
 
-
 Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se explica cómo deben escribirse los ficheros ```.java``` y qué herramientas debe usar para ello:
 
 1. Instalar [Eclipse IDE for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/)
 2. **Configurar la [plantilla de estilo de código Java de Google](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) para cada proyecto** de la CARM
 3. **Habilitar el [plugin SonarLint](https://www.sonarlint.org/eclipse/)** por proyecto
+
 
 ## Control de versiones *(el Git)*
 
@@ -25,29 +25,27 @@ Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se e
 
 ## Gestión del cambio *(los Issues)*
 
-Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál es el punto de partida que
-nos mueve a cambiar el código fuente de un proyecto y cómo debe 
-**quedar registrado** para resultar eficaz. Después de ello sabrá, 
+Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál es el punto de partida que nos mueve a cambiar el código fuente de un proyecto y cómo debe **quedar registrado** para resultar eficaz. Después de ello sabrá, 
 
 1. Cómo y cuando **crear Issues**,
 2. Cómo clasificarlos mediante **Etiquetas**,
 3. Cómo referenciarlos mediante **menciones**,
 4. Cómo **agruparlos** para planificar su trabajo 
 
+
 ## Flujo de trabajo  *(las ramas)*
 
-Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método que hemos establecido para a partir de un Issue
-aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
+Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método que hemos establecido para, a partir de un Issue, aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
 
 1. Las **ramas** que tendrá el proyecto
 2. El **ciclo de vida** de las ramas y su relación con los Issues
 3. Cómo deben **nombrarse**: ```{tipo}/{usuario o grupo}/{2-3 palabras resumen}-{mención al issue}``` 
 4. Cuánto **deben durar** (2 semanas)
 
+
 ## Entrega de código *(los commits)*
 
-Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo debe
-realizarse la actividad de entrega de código dentro del flujo de trabajo del proyecto. Conocerá:
+Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo debe realizarse la actividad de entrega de código dentro del flujo de trabajo del proyecto. Conocerá:
 
 1. **Qué debe contener** un commit
 2. **Cuándo** hacer un commit
@@ -57,4 +55,4 @@ realizarse la actividad de entrega de código dentro del flujo de trabajo del pr
 
 
 ### ...y todavía faltaría...
-> Esta guía **aún está a desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
+> Esta guía **está aún está en desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
