@@ -16,10 +16,10 @@
 	- [Clases Anónimas](#clases-anónimas)
 - [Comentarios](#comentarios)
 	- [Comentarios de implementación](#comentarios-de-implementación)
-    - [Comentarios de Documentación](#comentarios-de-documentación)
+    - [Comentarios de documentación](#comentarios-de-documentación)
 - [Hábitos de programación](#hábitos-de-programación)
 	- [Visibilidad (Alcance)](#visibilidad-alcance)
-	- [Granularidad del código (Tamaño del Método)](#granularidad-del-código-tamano-del-método)
+	- [Granularidad del código (Tamaño del Método)](#granularidad-del-código-tamaño-del-método)
 	- [Variables](#variables)
 	- [Referencias a variables y métodos de clase](#referencias-a-variables-y-métodos-de-clase)
 	- [Constantes](#constantes)
@@ -92,14 +92,14 @@ La siguiente tabla describe las partes de la declaración de una clase o interfa
 
 Orden | Partes de la declaración | Notas
 --- | --- | ---
-1 | Comentario de documentación de la clase o Interfaz | Ver [Comentarios de Documentación](#comentarios-de-documentación)
+1 | Comentario de documentación de la clase o Interfaz | Ver [Comentarios de documentación](#comentarios-de-documentación)
 2 | Sentencia class o interface |
 3 | Comentario de implementación de la clase o interfaz si fuera necesario (/\*...\*/) | Este comentario debe contener cualquier información aplicable a toda la clase o interfaz que no fuera apropiada para estar en los comentarios de documentación de la clase o interfaz.
 4 | Variables de clase (static) | Primero las variables de clase pública, después las protegidas, después las de nivel de paquete (sin modificador de acceso), y después las privadas.
 5 | Variables de instancia | Primero las públicas, después las protegidas, después las de nivel de paquete (sin modificador de acceso), y después las privadas.
 6 | Bloques estáticos | Si bloques estáticos deben utilizarse fuera de los métodos, los mismos debe utilizarse para la inicialización de variables estáticas y estos mismos deben ubicarse antes de la declaración de constructores.
 7 | Constructores |
-8 | Comentario de documentación del método (/\*\*...\*/) | [Comentarios de Documentación](#comentarios-de-documentación)
+8 | Comentario de documentación del método (/\*\*...\*/) | [Comentarios de documentación](#comentarios-de-documentación)
 9 | Métodos | Estos métodos se deben agrupar por funcionalidad más que por visión o accesibilidad. Por ejemplo, un método de clase privado puede estar entre dos métodos públicos de instancia. El objetivo es hacer el código más legible y comprensible.
 
 # Estructura del código
@@ -455,7 +455,7 @@ else {
 //}
 ```
 
-##### Comentarios de Documentación
+##### Comentarios de documentación
 
 **Nota**: Vea "Ejemplo de archivo fuente Java" para conocer los ejemplos de los formatos de comentarios descritos aquí.
 
