@@ -23,7 +23,7 @@ La [guía del *"Uso del Control de Versiones (SCM)"*](Guia-SCM.md#reglas-de-uso-
 > *El hecho de que los commits no contengan cambios funcionalmente completos, nos dice que estás usando el SCM como servidor de backup de tu directorio de trabajo...*
 
 ## Mensaje de los commits
-Como sucede con el nombre de las ramas o el estilo del código fuente, existen diferentes criterios personales para escribir los mensajes de los commits:
+Como sucede con el nombre de las ramas o el estilo del código fuente, existen diferentes criterios para escribir los mensajes de los commits:
 
 * [Guía de estilo para Git](https://github.com/jeko2000/git-style-guide#commits)
 * [Commits Convencionales](https://www.conventionalcommits.org/es/v1.0.0-beta.3/)
@@ -41,9 +41,9 @@ Pie del mensaje [Opcional]
 Si quieres ajustarte a la norma tendrás que **usar un editor para escribir los mensajes de los commits y NO usar la consola ```git commit -m "blah, blah..."```**.
 
 ### El título del mensaje
-La primera línea del mensaje del commit, debe ser descriptiva y concisa. Idealmente, esta línea **NO debe tener más de 50 caracteres**. Debe hacer uso correcto de mayúsculas y también **debe estar escrita en imperativo**. 
+La primera línea del mensaje del commit debe ser descriptiva y concisa. Idealmente, esta línea **NO debe tener más de 50 caracteres**. Debe hacer uso correcto de mayúsculas y también **debe estar escrita en infinitivo**. 
 
-* bien:  *"Marcar registros como obsoletos"*, *"Corregir visualización en IExplore"*
+* bien:  *"Marcar registros como obsoletos"*, *"Corregir visualización en Internet Explorer"*
 * mal: *"Arreglo ActiveModel::Mensajes"*, *"Se entrega la documentación"*
 
 El **tipo** podrá ser alguno de los siguientes:
@@ -52,7 +52,7 @@ El **tipo** podrá ser alguno de los siguientes:
 * **```fix```**:  Los cambios solucionan un bug.
 * **```docs```**:  Las modificaciones introducen cambios en la documentación.
 * **```style```**:  Se aplica formato, comas y puntos faltantes, etc; Sin cambios en el código.
-* **```refactor```**:  Refactorización del código: Algo que ya está funcionando, se reescribe para optimizarlo, simplificarlo, etc...
+* **```refactor```**:  Refactorización del código: Algo que ya está funcionando se reescribe para optimizarlo, simplificarlo, etc...
 * **```test```**:  Se añaden o modifican pruebas; Sin cambios en el codigo de la aplicación.
 * **```chore```**:  Actualización de tareas de build, configuraciones, etc; Sin cambios en el código de la aplicación.
 
