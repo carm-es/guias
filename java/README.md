@@ -52,6 +52,15 @@ Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo d
 3. Cómo debe **escribir los mensajes de los commits**
 4. Cómo escribir los **mensajes en los pull/merge request**
 
+## Construcción automatizada *(maven)*
+
+Lea la guía para la [Construcción automatizada *(build)*](Guia-Maven.md), que describe cómo transformar el código fuente
+de su aplicación en un paquete distribuible para instalar. Además, encontrará: 
+
+1. Qué debe **incluir en el ```pom.xml```** de su proyecto
+2. Cómo **configurar maven** para poder compilar proyectos de la CARM
+3. Qué **mínimos debe cubrir** su construcción automatizada
+
 
 
 ### ...y todavía faltaría...
