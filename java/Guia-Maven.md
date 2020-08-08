@@ -2,14 +2,14 @@
 
 Una vez hemos realizado y entregado nuestros cambios al repositorio de código fuente que conforma nuestra aplicación, necesitaremos convertir esas instrucciones en lenguaje Java a código binario que un ordenador sea capaz de interpretar y ejecutar. Habitualmente llamamos a este proceso **compilación** o **build**. 
 
-Para ello, se requieren de herramientas informáticas *(compiladores)* y de otros componentes y frameworks de terceros, que requerirá nuestra aplicación durante su construcción o más tarde, cuando sea ejecutada por nuestros usuarios *(dependecias)*. Por estos requisitos, es habitual que el proceso de construcción se acabe ejecutando en el equipo del desarrollador de la aplicación que es, quien en última instancia tiene conocimiento de todos, y requiera además, aplicar tareas manuales para lograrlo, pero entonces nos encontramos con: 
+Para ello, se requieren de herramientas informáticas *(compiladores)* y de otros componentes y frameworks de terceros, que necesitará nuestra aplicación durante su construcción o más tarde, cuando sea ejecutada por nuestros usuarios *(dependencias)*. Por estos requisitos, es habitual que el proceso de construcción se realice en el equipo del programador que es, quien en última instancia conoce todos esos requisitos, y requiera además, realizar tareas manuales para conseguirlo. Pero entonces, nos encontramos con: 
 
 1. El equipo y la configuración de cada desarrollador, podría dar origen a binarios  diferentes para un mismo código fuente
-2. Cualquier tarea manual, es susceptible de incluir errores humanos.
+2. Cualquier tarea manual, es siempre susceptible de incluir errores humanos.
 
-Es necesario **asegurar que un build, siempre que se realice de la misma forma, genere el mismo resultado, sin depender de quién ni cómo lo lleve a cabo**. Así, cuando cambien los desarrolladores o simplemente cambien sus equipos de trabajo, siempre puedan construir una versión ejecutable de la aplicación que distribuir para poder instalar.
+Es necesario **asegurar que un build, siempre que se realice de la misma forma, genere el mismo resultado sin depender de quién ni cómo lo lleve a cabo**. Así, cuando cambien los desarrolladores o sus equipos de trabajo, siempre puedan construir una versión ejecutable de su aplicación que poder distribuir e instalar.
 
-La solución consiste en **utilizar una herramienta de build** que, a partir de una serie de instrucciones incluidas en el repositorio de la aplicación, ejecute con apenas un único comando todo el proceso de construcción de un software. Estas instrucciones las escribirá el desarrollador de la aplicación y modelan todos los pasos que deben aplicarse de forma automática, sintetizando así su conocimiento de cómo se compila la aplicación.
+La solución consiste en **utilizar una herramienta de build** que, a partir de una serie de instrucciones incluidas en el repositorio de la aplicación junto a su código fuente, ejecute con apenas un único comando, todo el proceso de construcción del software. Estas instrucciones las escribirá el desarrollador de la aplicación, y modelan todos los pasos que deben aplicarse de forma automática, sintetizando así su conocimiento de cómo se construye la aplicación.
 
 ## Maven
 La **construcción automatizada**, consiste 
@@ -18,18 +18,16 @@ que los desarrolladores de software realizan para construir el binario** de su a
 
 Estas tareas suelen incluir como mínimo:
 
-* Descarga y gestión de dependencias
-* Compilado del código fuente a código binario.
-* Empaquetado de ese código binario.
-* Ejecución de pruebas (tests) a la aplicación
+* Descarga y gestión de **dependencias**
+* **Compilado** del código fuente a código binario.
+* **Empaquetado** de ese código binario.
+* Ejecución de pruebas **(tests)** a la aplicación
 
-La última de las tareas que suele realizarse es el despliegue, mediante la cual estos paquetes que incluyen los binarios se llevan a un repositorio desde el cual
-los usuarios de la aplicación pueden descargar e instalar la aplicación. 
-
+La última de las tareas que suele realizarse es el **despliegue**, que permite llevar estos paquetes que incluyen los binarios a un repositorio desde el que los usuarios de la aplicación pueden descargar e instalar la aplicación. 
 
 Por lo general, las herramientas que nos permiten implementar esta construcción
-automatizada, utilizan un lenguaje específico con el que desarrollador programará 
-las secuencias de comandos que automatizan el build.
+automatizada, utilizan un **lenguaje específico con el que desarrollador programará 
+las secuencias de comandos que automatizan el *build***.
 
 * Sintaxis basada en la definición de propiedades *(make, cmake)*
 * Sintaxis basada en XML *(ant, maven, msbuild)*
@@ -39,7 +37,7 @@ en la **CARM seguimos apostando y soportando [Maven 3](http://maven.apache.org/)
 
 ![Workflow](imagenes/GuiaMaven-001.png)
 
-Si necesitas saber más de maven, hay suficiente documentación en Internet pero puedes empezar por:
+Si necesitas saber más de maven, hay suficiente documentación en Internet pero siempre puedes empezar por:
 * [Qué es maven](https://www.genbeta.com/desarrollo/que-es-maven)
 * [Maven en 10 minutos](https://www.javiergarzas.com/2014/06/maven-en-10-min.html)
 * [Diferencias entre Maven 2 y 3](http://www.juntadeandalucia.es/servicios/madeja/contenido/recurso/681)
@@ -148,7 +146,7 @@ que actualizará la versión de los ficheros ```pom.xml```, creará una nueva et
 
 En la guía sobre el [Repositorio de artefactos](Guia-Nexus.md),  se describe cómo se organizan todos los artefactos que se generan en el proceso de construcción y sus dependencias externas [en un servidor Nexus interno](https://nexus.carm.es).
 
-Es por ello, que habrá que **configurar Maven para decirle la URL desde la que encontrar las dependencias CARM**, editando el fichero ```$M2_HOME/conf/settings.xml``` y añadiendo un nuevo perfil (dentro del tag <profiles>):
+Es por ello, que habrá que **configurar Maven para decirle la URL desde la que encontrar las dependencias CARM**, editando el fichero ```$M2_HOME/conf/settings.xml``` y añadiendo un nuevo perfil (dentro del tag ```<profiles>```):
 
 ```xml
 <profile>
