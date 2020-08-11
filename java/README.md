@@ -62,6 +62,13 @@ de su aplicación en un paquete distribuible para instalar. Además, encontrará
 3. Qué **mínimos debe cubrir** su construcción automatizada
 
 
+## Repositorio de artefactos *(nexus)*
+
+Lea la guía sobre el [Repositorio de artefactos](Guia-Nexus.md) para 
+descubrir dónde acaban todos los paquetes que se construyen automáticamente, y
+
+1. Qué hacer cuando **necesite un ```.jar``` que no está internet**
+
 
 ### ...y todavía faltaría...
 > Esta guía **está aún está en desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
