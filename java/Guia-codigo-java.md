@@ -28,12 +28,16 @@ Si no tuvieras tanto tiempo para leer, procura no dejar [de ojear este extracto 
 Sobre el formato de los ficheros que escribas:
 
 1. Evita los **comentarios en línea (```//```)** en medio de los métodos, de las clases... *no es necesario que expliques en detalle tus ideas, prográmalas para que las entienda cualquiera*
-2. **Líneas** de no más de **80 caracteres**, *para que podamos leer tu código los carcas que aún usamos el vi*
+2. **Líneas** de no más de **100 caracteres**, *para que podamos leer tu código los carcas que aún usamos el vi*.
 3. Evita los **espacios al final de las líneas**, *se ven muy mal luego en git, afean tu trabajo*
 4. Procura **escribir bien**, sin faltas de ortografía, *no hablan bien de ti*
 5. Usa **una línea en blanco** para separar bloques de código, *a los que tenemos presbicia y usamos vi, se nos amontona todo en pantalla*
 6. Usa **espacios en blanco entre los operadores** lógicos en la condiciones, excepto en los operadores unarios, *la presbicia...tú ya sabes...*
 7. Usa el **fin de línea *Unix-style* (```\n```)**, *los carcas seguimos usando el linux de cuando estábamos en la facultad... nos hace sentir modernos*
+
+Comprueba si tu proyecto tiene un directorio ```.mvn/``` con la definición del
+estilo en *.XML* e impórtala en tu IDE.
+
 
 ### Poniendo nombres
 A la hora de poner nombre a las clases, métodos, variables... que escribas:
