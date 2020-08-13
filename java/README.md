@@ -69,6 +69,18 @@ descubrir dónde acaban todos los paquetes que se construyen automáticamente, y
 
 1. Qué hacer cuando **necesite un ```.jar``` que no está internet**
 
+## Calidad del código *(sonarqube)**
+
+Lea la guía [Calidad del Software](Guia-Sonar.md)
+para conocer los criterios mínimos de calidad que exigimos en las
+entregas de código fuente, y
+
+1. Quién, cómo y cuándo se **actualizan  estos criterios**,
+2. Cuándo **rechazaremos su código** fuente,
+3. Cómo **autoevaluar su proyecto** antes de entregar
+
+
+
 
 ### ...y todavía faltaría...
 > Esta guía **está aún está en desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
