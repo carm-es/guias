@@ -69,7 +69,7 @@ descubrir dónde acaban todos los paquetes que se construyen automáticamente, y
 
 1. Qué hacer cuando **necesite un ```.jar``` que no está internet**
 
-## Calidad del código *(sonarqube)**
+## Calidad del código *(sonarqube)*
 
 Lea la guía [Calidad del Software](Guia-Sonar.md)
 para conocer los criterios mínimos de calidad que exigimos en las
