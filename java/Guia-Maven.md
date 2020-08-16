@@ -131,7 +131,10 @@ Para cumplir con el requisito de que cualquier proyecto Java debe poder construi
 	<url>https://inside.carm.es</url>
 	<url>https://idecri.carm.es</url>
 	```
+9. **Incluirá el tag ```license```**, como recoge la [documentación oficial de Maven](https://maven.apache.org/pom.html#Licenses), usando 
+un identificador válido de [SPDX License List](https://spdx.org/licenses/) aprobado por la FSF.
 
+10. **Incluirá el tag ```inceptionYear```**, con el año del primer commit, o el año en el que se puso en marcha la aplicación.
 
 El ```pom.xml``` que se construya **deberá funcionar correctamente sin errores para la ejecución de los comandos**:
 

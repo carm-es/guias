@@ -52,6 +52,13 @@ Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo d
 3. Cómo debe **escribir los mensajes de los commits**
 4. Cómo escribir los **mensajes en los pull/merge request**
 
+## Licencia del software
+
+Lea la guía [Licencias de software](Guia-Licencias.md) para conocer las 
+licencias software que admitimos para tu código, cuando uses
+recursos materiales o personales de la CARM.
+
+
 ## Construcción automatizada *(maven)*
 
 Lea la guía para la [Construcción automatizada *(build)*](Guia-Maven.md), que describe cómo transformar el código fuente
