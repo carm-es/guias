@@ -40,6 +40,7 @@ en la **CARM seguimos apostando y soportando [Maven 3](http://maven.apache.org/)
 Si necesitas saber más de maven, hay suficiente documentación en Internet pero siempre puedes empezar por:
 * [Qué es maven](https://www.genbeta.com/desarrollo/que-es-maven)
 * [Maven en 10 minutos](https://www.javiergarzas.com/2014/06/maven-en-10-min.html)
+* [Introducción a Maven](https://wiki.uqbar.org/wiki/articles/maven.html)
 * [Diferencias entre Maven 2 y 3](http://www.juntadeandalucia.es/servicios/madeja/contenido/recurso/681)
 * [Diferencias entre make, maven, rake, gradle](https://justcodeit.io/build-automation-tools-make-cmake-rake-gradle-maven/)
   
