@@ -1,4 +1,4 @@
-# Licencias de software
+﻿# Licencias de software
 
 Todo software tiene siempre una **licencia de uso**, que no deja de ser 
 **un contrato entre 
@@ -86,5 +86,23 @@ Las motivaciones que nos llevan a adquirir este compromiso son:
 2. **Colaboración**: Los esfuerzos en grandes proyectos se pueden compartir con lo que se gana experiencia y se reducen costos.
 3. **Accesible a todos**: Las aplicaciones pagadas por los ciudadanos deben estar disponibles para todos
 4. **Estimular la innovación**: Con procesos transparentes los otros no tienen que reinventar la rueda.
+
+**En GitLab**, estando en los *Detalles del repositorio*, 
+
+1. Si nos aparece el icono ```[+] Añadir LICENSE```, significará que no se configuró ninguna licencia para el proyecto.
+
+	![Sin licencia](imagenes/GuiaLicencias-001.png)
+   
+2. Pulsar en el icono anterior y acceder al asistente que nos permite añadir una licencia desde [una de las plantillas predeterminadas *(disponibles en https://choosealicense.com)*](https://choosealicense.com/appendix/). **Almacenar como fichero ```LICENSE```**
+
+	![Selección desde plantilla](imagenes/GuiaLicencias-002.png)
+
+3. Pasado un tiempo los cambios aparecen reflejados en los detalles del proyecto.
+
+	![Con licencia](imagenes/GuiaLicencias-003.png)
+
+
+
+
 
 
