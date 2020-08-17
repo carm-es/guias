@@ -52,7 +52,18 @@ Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo d
 3. Cómo debe **escribir los mensajes de los commits**
 4. Cómo escribir los **mensajes en los pull/merge request**
 
-## Licencia del software
+
+## Números de versión
+
+Lea la guía sobre los [Números de versión](Guia-Versiones.md) para 
+saber cómo y cuándo numerar las distintas versiones de su aplicación:
+
+1. **Usamos ```[Major].[Minor].[Patch]```** asociado a *```[NºSprint].[NºFeature].[NºHotfix]```*
+2. Los cambios se aplican: al **aceptar los *MergeRequest* y al comenzar un nuevo sprint**
+3. Cómo **planficar la nueva versión**, mediante los *hitos* y *tableros* de GitLab.
+
+
+## Licencia del software *(libre)*
 
 Lea la guía [Licencias de software](Guia-Licencias.md) para conocer las 
 licencias software que admitimos para tu código, cuando uses
