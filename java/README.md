@@ -97,6 +97,13 @@ entregas de código fuente, y
 2. Cuándo **rechazaremos su código** fuente,
 3. Cómo **autoevaluar su proyecto** antes de entregar
 
+## Integración continua *(gitlab-ci)*
+
+Lea la guía sobre [Integración continua](Guia-CI.md), para saber cómo hemos automatizado todo el proceso de publicación 
+de una versión con cada cambio en el
+repositorio de código fuente y,
+
+1. **Cómo escribir ```.gitlab-ci.yml```** en su proyecto, para poder usarlo
 
 
 
