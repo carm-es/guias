@@ -105,6 +105,15 @@ repositorio de código fuente y,
 
 1. **Cómo escribir ```.gitlab-ci.yml```** en su proyecto, para poder usarlo
 
+## Despliegue de aplicaciones *(jenkins)*
+
+Lea la guía sobre el [Despliegue de aplicaciones](Guia-CD.md), para saber cómo instalar una versión de su aplicación
+en nuestros servidores, y además:
+
+1. De **cuántos entornos** disponemos *(pruebas y producción*)
+2. Qué es **Jenkins** y por qué lo usamos
+3. **Qué necesita** para desplegar su aplicación con Jenkins
+
 
 
 ### ...y todavía faltaría...
