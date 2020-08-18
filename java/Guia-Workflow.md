@@ -17,10 +17,19 @@ La discusión está en la rama desde la que se parte y a la que se fusionan, y q
 
 Para el desarrollo de proyectos Java en CARM apostamos por la **estrategia [OneFlow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow) con la variante ```develop + master ```**, que establece:
 
-1. La rama ```master``` contiene el código estable instalado en los servidores de producción.
-2. La rama  ```develop```, parte de  ```master``` y se convierte en su siguiente versión/release mediante Pull/Merge Request del resto de ramas.
-3. A partir de un Issue, se crea una rama para el desarrollo de una nueva funcionalidad o corrección de un bug, partiendo de ```develop```.
-4. Mientras la rama de desarrollo no se fusione en  ```develop```, cualquier sugerencia, corrección, decisión, anotación se realizará a través del Issue asociado.
+1. La **rama protegida ```master```** contiene el código estable instalado en los servidores de producción.
+2. La **rama protegida  ```develop``` parte de  ```master```** y en ella se integran todas las ramas *feature* y *bugfix* que constituirán la próxima versión. 
+3. La **rama por defecto del proyecto es  ```develop```**.
+4. Para implementar los **issues de tipo *bug***, se crea una nueva rama que parte de ```master```, y una vez implementado **debe fusionarse vía *Pull/Merge Request* en ```master``` y ```develop```**.
+5. Para implementar los **issues de tipo *feature***, se crea una nueva rama que parte de ```develop```, y una vez implementado **debe fusionarse vía *Pull/Merge Request* en ```develop```**. 
+
+Luego, cuando se está preparado para **publicar una nueva release de la aplicación** (que integra *features* y *bugfixes* en ```develop```), Oneflow con variante ```develop + master```  permite:
+
+6. Crear una **rama ```release``` que parte de ```develop``` y que habrá que convertir en ```master```** a través de *Pull/Merge Request*
+7. O bien **convertir ```develop``` en ```master```**  a través de *Pull/Merge Request*
+
+Una vez  ```master``` se instala en los servidores de producción con la nueva versión, se convierte en ```develop``` y se repite todo el ciclo.
+
 
 
 ## Nombre de las ramas
