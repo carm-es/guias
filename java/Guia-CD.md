@@ -61,7 +61,7 @@ El **entorno de desarrollo** se  asume que es el equipo de trabajo del desarroll
 
 Esta herramienta, proviene de otra similar llamada Hudson, ideada por Kohsuke Kawaguchi, que trabajaba en Sun. Después de que Oracle comprara Sun, la comunidad de Hudson decidió renombrar el proyecto a Jenkins y migrar [el código a Github](https://github.com/jenkinsci). 
 
-A pesar que en la CARM [apostemos por GitLab-CI para la integración continua ello](Guia-CI.md),  decidimos **usar [Jenkins](https://jenkins.carm.es) para orquestar el despliegue de aplicaciones en los diferentes entornos**, y así disponer una consola de gestión de despliegues central (https://jenkins.carm.es) que unifica la forma en la que desplegar las aplicaciones. Además, se configuran autorizaciones diferentes a GitLab para poder controlar quién puede desplegar qué y sobre qué entornos.
+A pesar que en la CARM [apostemos por GitLab-CI para la integración continua](Guia-CI.md),  decidimos **usar [Jenkins](https://jenkins.carm.es) para orquestar el despliegue de aplicaciones en los diferentes entornos**, y así disponer una consola de gestión de despliegues central (https://jenkins.carm.es) que unifica la forma en la que desplegar las aplicaciones. Además, se configuran autorizaciones diferentes a GitLab para poder controlar quién puede desplegar qué y sobre qué entornos.
 
 Por tanto, Jenkins se encarga de copiar los artefactos desde Nexus a los servidores de aplicaciones, la configuración de las aplicaciones y reiniciar el servicio, con los siguientes **condicionantes**:
 

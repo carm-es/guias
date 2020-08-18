@@ -113,6 +113,7 @@ en nuestros servidores, y además:
 1. De **cuántos entornos** disponemos *(pruebas y producción*)
 2. Qué es **Jenkins** y por qué lo usamos
 3. **Qué necesita** para desplegar su aplicación con Jenkins
+4. Qué **tipo de artefactos de Nexus** puede desplegar en cada entorno
 
 
 
