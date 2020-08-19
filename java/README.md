@@ -118,7 +118,7 @@ en nuestros servidores, y además:
 
 ## Configuración de las aplicaciones
 
-Lea la guía [Configuración de las aplicaciones] para saber cómo y dónde
+Lea la guía [Configuración de las aplicaciones](Guia-Configuracion.md) para saber cómo y dónde
 debe escribir la configuración de su aplicación dependiendo del
 entorno donde se despliegue:
 
