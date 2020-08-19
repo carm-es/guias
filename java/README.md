@@ -116,6 +116,16 @@ en nuestros servidores, y además:
 4. Qué **tipo de artefactos de Nexus** puede desplegar en cada entorno
 
 
+## Configuración de las aplicaciones
+
+Lea la guía [Configuración de las aplicaciones] para saber cómo y dónde
+debe escribir la configuración de su aplicación dependiendo del
+entorno donde se despliegue:
+
+1. Cómo diferenciar la **configuración por entornos**
+2. Cómo **declarar parámetros *"sensibles"*** a la seguridad *(secretos)*
+3. Qué **configuraciones puede incluir en el ```.war```** 
+
 
 ### ...y todavía faltaría...
 > Esta guía **está aún está en desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
