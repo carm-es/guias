@@ -11,10 +11,12 @@ Otras comunidades autónomas ya han hecho algo similar:
 
 2. El *Govern de les Illes Balears* publica también las [recomendaciones técnicas](http://governib.github.io/) a seguir en el desarrollo de aplicaciones en [GitHUB](https://github.com/GovernIB/)
 
-3. Y, por supuesto, la Junta de Andalucía en su MArco de DEsarrollo de la Junta de Andalucía: *[MADEJA](http://www.juntadeandalucia.es/servicios/madeja/contenido)* 
+3. El *Gobierno de Cantabria* tiene publicados sus [Estándares de desarrollo](https://amap.cantabria.es/amap/bin/view/Main/) en una Web propia 
+
+4. Y, por supuesto, la Junta de Andalucía en su MArco de DEsarrollo de la Junta de Andalucía: *[MADEJA](http://www.juntadeandalucia.es/servicios/madeja/contenido)* 
 
 
-En los tres casos encontraremos directrices comunes sobre cómo gestionar el control de versiones y organizar el código en él (ramas/trunk/ tags), cómo construir los artefactos o qué documentación se debe elaborar y se describe el marco de trabajo y las herramientas que se usarán para ello. No hay que insistir en la **necesidad e importancia de este tipo de recomendaciones** en un entorno que cada vez es más dinámico, hay más contratación externa y los equipos cuentan con una alta rotación laboral y su continuidad se limita a meses: *Es necesario definir claramente las reglas del juego para todos y difundirlas*.
+En los cuatro casos encontraremos directrices comunes sobre cómo gestionar el control de versiones y organizar el código en él (ramas/trunk/ tags), cómo construir los artefactos o qué documentación se debe elaborar y se describe el marco de trabajo y las herramientas que se usarán para ello. No hay que insistir en la **necesidad e importancia de este tipo de recomendaciones** en un entorno que cada vez es más dinámico, hay más contratación externa y los equipos cuentan con una alta rotación laboral y su continuidad se limita a meses: *Es necesario definir claramente las reglas del juego para todos y difundirlas*.
 
 
 Si se leen las recomendaciones de cada una de estas instituciones y se profundiza en documentos similares en Internet, se podrán detectar unos puntos comunes que son los que describe la guía:
@@ -29,45 +31,69 @@ Si se leen las recomendaciones de cada una de estas instituciones y se profundiz
 
 ...y, para todo ello, se describen las herramientas que se usarán en cada una de las instituciones.
 
-## Octubre 2019: ¿en qué punto estamos?
-Ponernos en 2019 a elaborar una guía de buenas prácticas para el desarrollo de aplicaciones, sin tener presente la integración continua como referencia, sería perder el tiempo. En [Continuous Development: How Iterative Processes Can Improve Your Code](https://deploybot.com/blog/continuous-development) se describen las líneas generales de todo el proceso que se resume en la siguiente figura:
+## Septiembre 2020: ¿en qué punto estamos?
 
-![Integración continua](imagenes/TODO-02.png)
+Cuando comenzamos a desarrollar esta guía de buenas prácticas, nos fijamos como principal objetivo adaptar las prácticas que propone la integración y entrega continua *(CI/CD)* a la realidad del desarrollo Java en la CARM con las herramientas de las que disponíamos: Desde entonces **hemos estado trabajando en modelar el proceso**:
 
-La parte que afecta de lleno al desarrollo de aplicaciones es la izquierda del gráfico, lo que se conoce como **integración continua (CI), que cuenta con 2 fases claramente independientes (*code* y *build*)** y otras dos compartidas con el despliegue continuo (*plan* y *testing*). En el desarrollo de la guía, nos hemos centrado deliberadamente en estas dos fases que son responsabilidad directa del equipo de desarrollo, y podríamos decir que la **tenemos acabada a un 60%**, cubriendo por completo todo el proceso de codificación y trabajando de facto en el de construcción aunque sin documentar/publicar, a falta de detalles.
+![CI/CD](imagenes/TODO-03.png)
 
-Un buen libro para introducirse en todos estos términos es [Continuous Delivery de Jez Humble y David Farley](https://www.amazon.es/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/). El [resumen que hace de él Samuel Casanova](https://samuelcasanova.com/2017/12/resumen-continuous-delivery/) puede iniciarnos de forma rápida.
+En **la parte de desarrollo *(dev)***, tenemos:
 
-![Continuous Delivery](imagenes/TODO-01.jpg)
+* Totalmente **acabada y documentada**: ```code```, ```build```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. Apenas requiere mantenimiento.
+* Por **acabar de documentar**: ```plan```. *La tenemos documentada, pero aplicada en muy pocos proyectos, y sería precipitado suponer que está acabada: Preferimos esperar a que se use en más proyectos y recibir feedback.*
+* Todo **por hacer**: ```test```. *Estamos en fase de recopilación de links, lectura, compresión, pruebas en unos pocos proyectos... aún es pronto para documentar*
+
+En **la parte de operaciones *(ops)***, disponemos:
+
+* Totalmente **acabada y documentada**: ```release```, ```deploy```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. El  **```deploy``` es totalmente manual**:
+
+	* Tanto el despliegue de una aplicación en un entorno determinado
+	* Como las acciones que debe realizar el equipo de operaciones para que un proyecto pueda desplegarse desde Jenkins.
+
+En el Verano de 2020, se empieza a trabajar en:
+
+1. **Automatizar el deploy en el entorno de pruebas** mediante GitLab-CI con ayuda de contenedores Dockers y un cluster  Swarm
+2. **Cambiar la gestión de la configuración de las aplicaciones**, para usar  [Vault](https://www.vaultproject.io/).
+3. **Generar automáticamente imágenes Docker** de las aplicaciones, de la misma manera que generamos ```.war```
+
+Para todo ello, hemos estado usando como material de apoyo y referencia:
+
+1.  El artículo *[Continuous Development: How Iterative Processes Can Improve Your Code](https://deploybot.com/blog/continuous-development)*,  a modo introductorio.
+
+2.  El libro  [Continuous Delivery de Jez Humble y David Farley](https://www.amazon.es/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/)   y el [resumen que hace de él Samuel Casanova](https://samuelcasanova.com/2017/12/resumen-continuous-delivery/) .
+
+	![Continuous Delivery](imagenes/TODO-04.jpg)
+
+3. El libro [Continuous Delivery in Java](https://www.amazon.es/Continuous-Delivery-Java-Essential-Production/dp/1491986026) de Daniel Bryant.
+
+	![Continuous Delivery in Java](imagenes/TODO-05.jpg)
+
+4. El libro [Containerizing Continuous Delivery in Java](https://www.nginx.com/resources/library/containerizing-continuous-delivery-java/) de Daniel Bryant.
+
+	![Containerizing Continuous Delivery in Java](imagenes/TODO-06.png)
+
 
 ## ¿Y qué le falta a la guía?
-Actualmente la guía ya cubre todo el proceso de codificación, desde cómo debe escribirse el código fuente Java, que el código se guarda en Git, qué motiva un cambio del código fuente y cómo realizar el cambio, hasta cómo debe entregarse al repositorio Git.
 
-Aún faltan por documentar lo referente al proceso de construcción y tenemos identificados los siguientes hitos por documentar:
+Aparte de lo que ya se ha comentado en el estado actual de la guía, sobre lo que ya tenemos implantado consideramos que aún nos faltaría:
 
-1. Establecer **normas para Pull/Merge Request** (en el documento [Cómo deben ser los commits](Guia-Commits.md)). **Lo estamos rodando para ver qué nos puede interesar** y resultar más práctico, cómodo, rápido y venir bien a la hora de automatizar los pipelines. Hemos localizado algunos links inspiradores:
+1. Establecer **normas para Pull/Merge Request** (en el documento [Cómo deben ser los commits](Guia-Commits.md)). **Lo estamos rodando para ver qué nos puede interesar** y resultar más práctico, cómodo, rápido y venir bien a la hora de automatizar los pipelines. Tenemos localizados algunos links inspiradores:
     * https://geeks.ms/windowsplatform/2017/04/18/como-generar-mejores-pull-requests/
     * https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/
     * https://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/
     * https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md
     * https://medium.com/@hugooodias/the-anatomy-of-a-perfect-pull-request-567382bb6067https://diesdas.digital/wiki/life-as-a-developer/pull-request-guidelines 
-1. **Versionado de las aplicaciones**. Actualmente trabajamos con la política habitual que se aplica a proyectos Java siguiendo [el patrón [Mayor].[Menor].[Parche]-[SNAPSHOT]](../Politicas-de-versionado.md), pero, usando Maven, se queda corta en el medio/largo plazo. Estamos investigando el [Versionado Semántico](https://semver.org/lang/es/) y cómo podríamos adaptarlo a nuestros proyectos de forma automática. 
-    * https://blog.sebastian-daschner.com/entries/cd-friendly-maven-versions
-    * https://axelfontaine.com/blog/dead-burried.html
-    * https://github.com/qoomon/maven-git-versioning-extension
-    * https://gitversion.readthedocs.io/en/latest/
-1. **El ChangeLog**, como un registro por proyecto de los cambios que se introducen en cada versión, de manera automática, pero condicionado al punto anterior. 
+2. **El ChangeLog**, como un registro por proyecto de los cambios que se introducen en cada versión, de manera automática. 
     * https://keepachangelog.com/es-ES/0.3.0/
     * https://danielflower.github.io/maven-gitlog-plugin/index.html
     * https://github.com/tomasbjerre/git-changelog-maven-plugin
     * https://github.com/tomasbjerre/git-changelog-lib  
-1. **Compilación del código fuente**. Aquí hay que hablar de Maven (de momento) y cómo configurarlo para que nos funcione con los proyectos de la CARM y, además, cómo construir y qué deben incluir los ```pom.xml``` . Actualmente funcionamos de facto *(existe un documento en versión 0.2 circulando que cubre lo inmediato)*, pero hay algunas cosas que no estamos haciendo y que luego tienen repercusión en cómo se visualiza el proyecto en la consola de [SonarQube](https://sonarqube.carm.es) o [Nexus](https://nexus.carm.es).
-2. **Calidad del software**. En este apartado hay que hablar de los umbrales mínimos en [SonarQube](https://sonarqube.carm.es) que tenemos en cuenta para tirar para atrás una entrega. De momento estamos rodándolo, simplemente lo pasamos a los proyectos para empezar a llevar una idea de por dónde vamos, *aunque ya tenemos claro que si en 2019 nos llega alguien con Axis1.4 hay que mandarlo a la casilla de salida*. 
-3. **Repositorio de artefactos**. Tenemos que hablar de [Nexus](https://nexus.carm.es) como repositorio de artefactos, cómo llegan aquí los productos tras la compilación, cómo debemos organizar los ```groupId``` en los proyectos y las operaciones a las que actualmente ya damos soporte.
-4. **Licencias**. Es necesario establecer unas [directrices comunes parar todos los proyectos](https://www.barcelona.cat/digitalstandards/es/tech-sovereignty/0.1/public-administration/), que luego tienen repercusión en la compartición de proyectos con otras administraciones.
-5. **Integración continua**. En este punto hay que describir qué hemos automatizado de toda esta guía y hablar de [Jenkins](https://jenkins.carm.es) y [GitLab-CI](https://gitlab.carm.es), que estamos poniendo en marcha desde septiembre y rodándolo.
+3. **Oneflow automático**. Necesitamos automatizar los cambios de rama que nos impone *Oneflow*  cuando publicamos una release (integrar ```master``` en ```develop```), o integramos un *hotfix* en  ```master``` (que también se integre en ```develop```). Esto hasta ahora venimos realizándolo manualmente y nos quita tiempo.
+4. **Documentación técnica y GitLab-Pages**. Para la documentación técnica de los proyectos estamos escribiendo la documentación en Markdown en una rama específica del proyecto, pero aún no está automatizado el proceso de renderizado a HTML, ni configurado GitLab para [soportar GitLab-Pages](https://docs.gitlab.com/ee/user/project/pages/).
 
-Todo esto **son puntos que faltan por publicar en la guía y están implementados en mayor o menor medida**, pero aún es pronto para publicarlos (como documentos) porque no tenemos la suficiente experiencia para poder definir criterios que nos resulten prácticos y sean fáciles de llevar a la práctica y no estamos lo suficientemente leídos.
+
+Quizás que **lo más importante de lo que queda por hacer, es extender estas buenas prácticas a más proyectos en la CARM**: En el último año, han sido muy pocos los que se han unido, y a pesar de ello, los resultados son muy esperazandores e ilusionantes.
+
 
 ### ¿Cómo se desarrolla la guía?
 **Se parte de un hito o una necesidad en el proceso de desarrollo**:
@@ -78,12 +104,3 @@ Todo esto **son puntos que faltan por publicar en la guía y están implementado
 5. Una vez que la solución funciona bien y nos ahorra tiempo, incidencias y problemas, es el momento en el que **ya se puede documentar y publicar en la guía**. 
 
 Al final, **el objetivo de esta guía es el de presentar los acuerdos técnicos que hemos alcanzado en la CARM para trabajar en los proyectos de desarrollo**, y para ello es necesario enumerar en lo que nos hemos basado, qué hemos probado, y de todo ello, con qué nos quedamos. 
-
-## ¿Qué hay más allá?
-Como se ha indicado, la guía solo abarca dos puntos del ciclo de integración continua y deja fuera  **Plan** y **Testing**, este es el más allá.
-
-Actualmente tenemos grandes dificultades para adoptar [metodologías ágiles como Scrum](https://samuelcasanova.com/category/scrum/) para la gestión de proyectos de desarrollo de aplicaciones. Los tableros de [GitLab](https://about.gitlab.com/product/issueboard/)/[GitHub](https://help.github.com/es/articles/about-project-boards) que ya tenemos a nuestra disposición podrían [ayudarnos a empezar](https://www.artansoft.com/2017/11/gestion-de-tareas-gitlab/) a gestionar proyectos de una manera ágil y diferente a como lo hemos estado haciendo hasta ahora. Esto se **refiere al  Plan**, pero no se puede ni plantear, si primero no nos hemos acostumbrado a generar Issues, etiquetarlos correctamente, vincularlos en los commits, en los pull/merge request...
-
-Sobre el **testing**, para los pocos proyectos que tenemos monitorizados con Sonarqube, ya nos indican que el grado de cobertura de los tests está al 0%: **No tenemos cultura de desarrollo de Tests**, y cuando programamos, solo pensamos en implementar lo que se nos pide, sin comprobar siquiera si hace lo que esperaba que hiciera quien lo programó: *ya lo probarán los usuarios en producción...*. Hay que empezar a adoptar [Test-driven development (TDD)](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) en algún proyecto nuevo, para coger la experiencia suficiente que nos ayude a desarrollar una guía.
-
-En los dos casos (*Plan* y *Testing*) **estamos en predisposición de empezar a rodar**, pero para ello hay que escoger un par de proyectos, e ir poco a poco, de manera que los seleccionados tendrán que hacer un esfuerzo extra para documentarse, aprender por su cuenta, equivocarse y sufrir en solitario ese camino que sirva de experiencia al resto. Luego, ya podrá plantearse elaborar guías.
