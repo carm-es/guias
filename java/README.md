@@ -14,7 +14,7 @@ Lea la [Guía de estilo para código Java](Guia-codigo-java.md) en la que se exp
 
 ## Control de versiones *(el Git)*
 
-Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se explica cómo deben gestionarse todos los ficheros de un proyecto, y qué herramientas usar:
+Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se explica cómo deben gestionarse todos los ficheros de un proyecto y qué herramientas usar:
 
 1. Cliente Git a su elección
 2. Cliente Git de Eclipse
@@ -25,7 +25,7 @@ Lea la guía de [Uso del Control de Versiones (SCM)](Guia-SCM.md) en la que se e
 
 ## Gestión del cambio *(los Issues)*
 
-Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál es el punto de partida que nos mueve a cambiar el código fuente de un proyecto y cómo debe **quedar registrado** para resultar eficaz. Después de ello sabrá, 
+Lea la guía [Gestión de issues con Git](Guia-Issues.md) para comprender cuál es el punto de partida que nos mueve a cambiar el código fuente de un proyecto y cómo debe **quedar registrado** para resultar eficaz. Después de ello sabrá, 
 
 1. Cómo y cuando **crear Issues**,
 2. Cómo clasificarlos mediante **Etiquetas**,
@@ -35,7 +35,7 @@ Lea la guía [Gestión de issues con Git](Guia-Issues.md), para comprender cuál
 
 ## Flujo de trabajo  *(las ramas)*
 
-Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método que hemos establecido para, a partir de un Issue, aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
+Lea la guía de [El flujo de trabajo](Guia-Workflow.md) para conocer el método que hemos establecido para, a partir de un Issue, aplicar cambios en el código fuente de los proyectos Java. Descubrirá:
 
 1. Las **ramas** que tendrá el proyecto
 2. El **ciclo de vida** de las ramas y su relación con los Issues
@@ -45,7 +45,7 @@ Lea la guía de [El flujo de trabajo](Guia-Workflow.md), para conocer el método
 
 ## Entrega de código *(los commits)*
 
-Lea la guía [Cómo deben ser los commits](Guia-Commits.md) que describe cómo debe realizarse la actividad de entrega de código dentro del flujo de trabajo del proyecto. Conocerá:
+Lea la guía [Cómo deben ser los commits](Guia-Commits.md), que describe cómo debe realizarse la actividad de entrega de código dentro del flujo de trabajo del proyecto. Conocerá:
 
 1. **Qué debe contener** un commit
 2. **Cuándo** hacer un commit
@@ -60,13 +60,13 @@ saber cómo y cuándo numerar las distintas versiones de su aplicación:
 
 1. **Usamos ```[Major].[Minor].[Patch]```** asociado a *```[NºSprint].[NºFeature].[NºHotfix]```*
 2. Los cambios se aplican: al **aceptar los *MergeRequest* y al comenzar un nuevo sprint**
-3. Cómo **planficar la nueva versión**, mediante los *hitos* y *tableros* de GitLab.
+3. Cómo **planificar la nueva versión**, mediante los *hitos* y *tableros* de GitLab.
 
 
 ## Licencia del software *(libre)*
 
 Lea la guía [Licencias de software](Guia-Licencias.md) para conocer las 
-licencias software que admitimos para tu código, cuando uses
+licencias software que admitimos para tu código cuando uses
 recursos materiales o personales de la CARM.
 
 
@@ -85,7 +85,7 @@ de su aplicación en un paquete distribuible para instalar. Además, encontrará
 Lea la guía sobre el [Repositorio de artefactos](Guia-Nexus.md) para 
 descubrir dónde acaban todos los paquetes que se construyen automáticamente, y
 
-1. Qué hacer cuando **necesite un ```.jar``` que no está internet**
+1. Qué hacer cuando **necesite un ```.jar``` que no está en Internet**
 
 ## Calidad del código *(sonarqube)*
 
@@ -93,13 +93,13 @@ Lea la guía [Calidad del Software](Guia-Sonar.md)
 para conocer los criterios mínimos de calidad que exigimos en las
 entregas de código fuente, y
 
-1. Quién, cómo y cuándo se **actualizan  estos criterios**,
+1. Quién, cómo y cuándo **actualiza estos criterios**,
 2. Cuándo **rechazaremos su código** fuente,
 3. Cómo **autoevaluar su proyecto** antes de entregar
 
 ## Integración continua *(gitlab-ci)*
 
-Lea la guía sobre [Integración continua](Guia-CI.md), para saber cómo hemos automatizado todo el proceso de publicación 
+Lea la guía sobre [Integración continua](Guia-CI.md) para saber cómo hemos automatizado todo el proceso de publicación 
 de una versión con cada cambio en el
 repositorio de código fuente y,
 
