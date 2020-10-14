@@ -17,9 +17,9 @@ Realizar un análisis estático del código ayuda a:
 1. Poner de manifiesto los problemas no funcionales del aplicativo *(estilo del código, complejidad ciclomática...)*
 2. Evidenciar problemas potenciales en etapas tempranas *(bugs, excepciones no capturadas...)*
 3. Prevenir problemas potenciales de forma prematura *(dependencias vulnerables, deuda técnica...)*
-4. Ahorrar costes, al evitar el coste de reparación de los defectos siempre que se detecten pronto, 
+4. Ahorrar costes, al evitar el coste de reparación de los defectos siempre que se detecten pronto 
 
-Y en general, hay que tener siempre en cuenta que **cuanto más tarde se descubra un defecto en un programa, 
+En general, hay que tener siempre en cuenta que **cuanto más tarde se descubra un defecto en un programa, 
 más caro resultará resolverlo**: según el estudio, se habla de
 [30 veces](https://deepsource.io/blog/exponential-cost-of-fixing-bugs/)
 hasta
@@ -32,11 +32,11 @@ El análisis pretende evaluar la calidad del código de un programa, analizando 
 
 * **Rendimiento** *(...que haga un uso eficiente de los recursos...)*, porque los recursos nunca son ilimitados. 
 
-* **Seguridad** *(...que sea lo menos vulnerable posible...)*, porque un sólo ataque puede bloquear toda la aplicación y provocar una fuga de información.
+* **Seguridad** *(...que sea lo menos vulnerable posible...)*, porque un solo ataque puede bloquear toda la aplicación y provocar una fuga de información.
 
 * **Mantenibilidad** *(...que sea fácil de mantener...)*, porque siempre habrá que añadir, modificar o eliminar funcionalidades del programa sin romper lo que funciona.
 
-Los tres primeros buscan minimizar los riesgos de encontrar errores en producción, mientras que el último nos informa del **coste de propiedad de una aplicación**.
+Las tres primeras características buscan minimizar los riesgos de encontrar errores en producción, mientras que la última nos informa del **coste de propiedad de una aplicación**.
 
 En general, cuando las carencias técnicas de una aplicación se llevan al plano financiero, [se habla de **deuda técnica**](https://martinfowler.com/bliki/TechnicalDebt.html), como el **coste del desarrollo para eliminar los riesgos debidos a la calidad del código** en un entorno productivo. 
 
@@ -54,12 +54,12 @@ Si deseas profundizar más en estos conceptos puedes leer:
 
 
 Las buenas prácticas y particularidades de cada lenguaje de programación
-*(no es lo mismo analizar código PHP que Java o PLSQL)*, 
+*(no es lo mismo analizar código PHP que Java o PL/SQL)*, 
 se traducen en reglas y se catalogan según su característica 
 *(confiabilidad, rendimiento, seguridad, mantenibilidad)*. 
 Como ello necesita de un conocimiento profundo de cada lenguaje y de sus buenas prácticas,
 [existen herramientas software](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)
-que implementan estas reglas y están destinadas a poder automatizar el análisis estático del código fuente de una aplicación. 
+que implementan estas reglas para automatizar el análisis estático del código fuente de una aplicación. 
 
 
 De entre todas estas herramientas, 
@@ -73,13 +73,13 @@ para **más de [20 lenguajes](https://www.sonarqube.org/features/multi-languages
 
 El cuadro de mandos agrupa las métricas en 4 grupos:
 
-* **Bugs y Vulnerabilidades**: Muestra errores potenciales y fallos de serguridad, bien en el código fuente o en las librerías de terceros que use.
+* **Bugs y Vulnerabilidades**: Muestra errores potenciales y fallos de seguridad, bien en el código fuente o en las librerías de terceros que use.
 
-* **Code Smells** *(el código huele...)*: Nos informa de la calidad del código fuente atendiendo fundamentalmente a su deuda técnica y no implementar buenas prácticas (que incluye la complejidad ciclomática).
+* **Code Smells** *(el código huele...)*: Nos informa de la calidad del código fuente, atendiendo fundamentalmente a su deuda técnica y a no implementar buenas prácticas (lo que incluye la complejidad ciclomática).
 
-* **Cobertura**: Qué tanto porciento del código ha sido testeado por tests.
+* **Cobertura**: Qué tanto por ciento del código ha sido comprobado por tests.
 
-* **Duplicados**: Considera una duplicidad de código cuando 10 líneas sucesivas de código se encuentran duplicadas
+* **Duplicados**: Considera una duplicidad de código cuando 10 líneas sucesivas de código se encuentran duplicadas.
 
 Y todo está estrechamente relacionado:
 
@@ -95,7 +95,7 @@ Para medirla usa un valor temporal con el poder hacerse una idea del...
 
 * por qué se tarda tanto en incluir ciertos cambios en un proyecto,
 * por qué necesitamos asignar más recursos al proyecto si se quiere amortizar la deuda,
-* por qué es necesario tomar un tiempo en refactorizar
+* por qué es necesario dedicar un tiempo a refactorizar
 
 
 Con cada análisis se evalúan el conjunto de reglas y se obtiene el [**SQALE Rating** *(Software Quality Assessment based on Lifecycle Expectations)*](www.sqale.org):
@@ -105,7 +105,7 @@ Sonarqube se ayuda de una escala de letras y colores *(similar a la de la eficie
 ![Escala SQALE Rating](imagenes/GuiaSonar-002.png)
 
 
-* **A**: *Ratio de Deuda Técnica menor al 10%*. El proyecto está sano, y no necesita hacerle nada especial
+* **A**: *Ratio de Deuda Técnica menor al 10%*. El proyecto está sano, y no necesita hacerle nada especial.
 * **B**: *Ratio de Deuda Técnica entre el 10% y el 20%*. Podemos considerarlo en un estado aceptable, pero atentos a que no empeore. 
 * **C**: *Ratio de Deuda Técnica entre el 21% y el 50%*. El proyecto no tiene buena salud, hay que empezar a tomar medidas correctivas. 
 * **D**: *Ratio de Deuda Técnica entre el 51% y el 100%*. Es urgente tomar acometer medidas que lleven de vuelta el proyecto a zonas más saludables.
@@ -125,7 +125,7 @@ Para conocer mejor cómo funciona SonarQube, cómo configurarlo o cómo se calcu
 
 
 ### Umbrales SQALE en la CARM
-De **forma anual** el *Servicio de Plataformas de la CARM*, revisa el estado global de todos los proyectos y ajusta los *umbrales SQALE* permitidos por Sonarqube y que **consideramos mínimos a cumplir en cualquier entrega de código**:
+De **forma anual** el *Servicio de Integración de Aplicaciones Corporativas de la CARM*, revisa el estado global de todos sus proyectos y ajusta los *umbrales SQALE* permitidos por Sonarqube y que **consideramos mínimos a cumplir en cualquier entrega de código**:
 
 
 Se definen un conjunto de umbrales, en base a dos escenarios:
@@ -155,13 +155,13 @@ En función de los valores obtenidos en cada métrica, Sonarqube marcará cada e
 
 * **<span style="background-color: red; color: white">FAILED / ERROR</span>**: Alguno de los valores de las métricas no supera el umbral mínimo.
 * **<span style="background-color: orange; color: white">WARNING</span>**: Alguno de los valores de las métricas no supera el umbral de confianza.
-* **<span style="background-color: green; color: white">PASSED</span>**: Todos los valores de las métricas superan los umbrales de calidad: tanto mínimos como de confianza.
+* **<span style="background-color: green; color: white">PASSED</span>**: Todos los valores de las métricas superan los umbrales de calidad, tanto mínimos como de confianza.
  
 En caso de que el resultado del **análisis obtenga *FAILED*,  NO se considerará el código fuente con la calidad suficiente y se evitará que se integre en producción**.
 
 
 ### Ejecución manual del análisis
-Si tienes curiosidad por saber qué calidad tiene tu proyecto, puedes ejecutar el análisis de tu proyecto con ayuda de maven, estando ubicado en el directorio donde tengas el ```pom.xml```:
+Si tienes curiosidad por saber qué calidad tiene tu proyecto, puedes ejecutar el análisis de tu proyecto con ayuda de Maven, estando ubicado en el directorio donde tengas el ```pom.xml```:
 
 ```bash
 mvn clean \
@@ -179,12 +179,4 @@ mvn clean \
     -Dsonar.verbose=true
 ```
 
-Si no  usas maven para tu proyecto, siempre [puedes **ejecutar el escaner de sonar**](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/), previa instalación en tu equipo.
-
-
-
-
-
-
-
-
+Si no  usas Maven para tu proyecto, siempre [puedes **ejecutar el escáner de Sonarqube**](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/), previa instalación en tu equipo.
