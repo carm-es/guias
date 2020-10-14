@@ -4,17 +4,17 @@ Todo software tiene siempre una **licencia de uso**, que no deja de ser
 **un contrato entre 
 quien escribió el programa *(autor)* y quien decida usarlo *(usuario)***. 
 
-Este contrato que está
+Este contrato, que está
 sometido a la **propiedad intelectual y derechos de su autor**, 
-contiene además claúsulas orientadas a reconocer o denegar derechos al usuario, y a
+contiene además claúsulas orientadas a reconocer o denegar derechos al usuario y a
 limitar la responsabilidad del autor. 
-Estas claúsulas las elige el desarrollador, el proveedor o quien detente los derechos
-de explotación, y ofrecen en su conjunto una serie de libertades y restricciones 
+Estas cláusulas las elige el desarrollador, el proveedor o quien detente los derechos
+de explotación y ofrecen en su conjunto una serie de libertades y restricciones 
 para el usuario
 a quien se distribuye el software.
 
 Se  entiende por  **software libre y de fuentes abiertas**,
-aquél que se distribuye bajo una licencia tal que permita al usuario:
+aquel que se distribuye bajo una licencia tal que permita al usuario:
 
 * libertad de ejecución y uso donde considere,
 * conocer el código fuente, 
@@ -43,23 +43,18 @@ Las **administraciones públicas actúan como productores y receptores de softwa
 * el acceso de los ciudadanos 
 * y la conservación de la información.
 
-A falta de un marco legislativo concreto y específico que regule 
-el uso del software en la administración pública, 
-**el uso de software libre**
-está ampliamente amparado por la legislación actual, 
-es competente para adquirirlo, utilizarlo e intercambiarlo, así como liberarlo a la comunidad,  como se recoge en los siguientes enlaces:
+El uso del software en la administración pública y,
+en particular, el del **software libre**, está regulado
+en los artículos 157 y 158 de la [ley 40/2015, de 1 
+de octubre, de Régimen Jurídico del Sector Público](https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566#a157)
+así como en los artículos 16 y 17 del Real Decreto 
+4/2010, de 8 de enero, por el que se regula el 
+[Esquema Nacional de 
+Interoperabilidad en el ámbito de la Administración
+Electrónica](https://www.boe.es/buscar/act.php?id=BOE-A-2010-1331#a16).
 
-
-1. **[Software libre y de fuentes abiertas y Administración electrónica](https://administracionelectronica.gob.es/pae_Home/dam/jcr:60deb39a-ef06-4711-ad5a-a6f7903f18f2/MAP_MiguelAmutio_IntervencionTallerswl.pdf)**
-de Miguel A. Amutio Gómez *(Ministerio de Administraciones Públicas)*, en los puntos *4. Marco legal y requisitos de la Administración* y *5. Actuaciones en la Unión Europea*.
-
-2. **[TFG: El Software Libre en las administraciones públicas](http://repositorio.ual.es/bitstream/handle/10835/2412/Trabajo.pdf?sequence=1&isAllowed=y)**
-de José Luis Imbernón Pardo, en el punto *3.1. Regulación legal del software libre en España*
-
-3. **[Software libre y administración pública](https://www.barcelona.cat/digitalstandards/es/tech-sovereignty/0.1/public-administration#marco-legal)**
-del Ayuntamiento de Barcelona.
-
-
+El Esquema Nacional de Interoperabilidad (ENI) se desarrolla en
+diversas [normas técnicas de interoperabilidad](https://administracionelectronica.gob.es/pae_Home/pae_Estrategias/pae_Interoperabilidad_Inicio/pae_Normas_tecnicas_de_interoperabilidad.html), una de las cuales ("*Reutilización y transferencia de tecnología*") trata específicamente la reutilización de activos, para lo que recomienda el uso de la licencia [EUPL](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12), Licencia Pública de la Unión Europea.
 
 ## Software libre en la CARM
 
@@ -70,22 +65,21 @@ de Carlos González Calderón y Oriol Ferran i Riera *(Universitat Oberta de Cat
 
 * **[La Administración Pública española apuesta por el software libre](https://www.datacentermarket.es/mercado/noticias/1112028032609/administracion-publica-espanola-apuesta-software-libre.1.html)**
 
-...desde la CARM **no se han desarrollado iniciativas públicas 
-en defensa del software libre**, 
-pero sí se ha adquirido 
-el compromiso desde esta guía,  que 
-que **todo el software desarrollado o financiado
-con recursos públicos, 
-disponga de una licencia de Software Libre y Código Abierto:**
+...desde la CARM no se ha desarrollado una 
+estrategia pública en defensa del software libre, 
+pero sí se ha adquirido el compromiso por los usuarios
+de esta guía, de que **todo el software desarrollado o 
+financiado con recursos públicos, deba
+disponer de una licencia de Software Libre y Código Abierto:**
 
-> *Si es dinero público debería ser también código público*.
+> *Si es dinero público también debería ser código público*.
 
 Las motivaciones que nos llevan a adquirir este compromiso son:
 
 1. **Ahorro de impuestos**: Aplicaciones similares no tienen que ser programadas desde cero una y otra vez.
-2. **Colaboración**: Los esfuerzos en grandes proyectos se pueden compartir con lo que se gana experiencia y se reducen costos.
-3. **Accesible a todos**: Las aplicaciones pagadas por los ciudadanos deben estar disponibles para todos
-4. **Estimular la innovación**: Con procesos transparentes los otros no tienen que reinventar la rueda.
+2. **Colaboración**: Los esfuerzos en grandes proyectos se pueden compartir, con lo que se gana experiencia y se reducen costes.
+3. **Accesible a todos**: Las aplicaciones pagadas por los ciudadanos deben estar disponibles para todos.
+4. **Estimular la innovación**: Con procesos transparentes, los otros no tienen que reinventar la rueda.
 
 **En GitLab**, estando en los *Detalles del repositorio*, 
 
@@ -100,9 +94,3 @@ Las motivaciones que nos llevan a adquirir este compromiso son:
 3. Pasado un tiempo los cambios aparecen reflejados en los detalles del proyecto.
 
 	![Con licencia](imagenes/GuiaLicencias-003.png)
-
-
-
-
-
-
