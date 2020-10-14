@@ -2,7 +2,7 @@
 
 Cuando se trabaja en el desarrollo de una aplicación, constantemente se está modificando su código fuente para
 añadir una nueva función *(feature)* o corregir un error *(bugfix)* en una característica. Este proceso incremental continuo
-no está exento de errores, y necesitamos un mecanismo que nos permita volver a un punto anterior sin errores y 
+no está exento de errores y necesitamos un mecanismo que nos permita volver a un punto anterior sin errores y 
 nos asegure la trazabilidad de la entrega de cambios.
 Esto se consigue etiquetando con un número distinto cada cambio *(sea feature o bugfix)* acabado y
 entregado al repositorio: Este número es lo que llamamos número de versión o simplemente versión de una aplicación.
@@ -59,29 +59,30 @@ En el diagrama,
 
 * Las líneas horizontales de puntos suspensivos representan la vida de la rama: Si acaban en una cajita indica que la rama muere ahí.
 
-* Las flechas verdes representan *MergeRequests validados*
+* Las flechas verdes representan *MergeRequests validados*.
 
-* Las flechas grises representan ramas que crea el desarrollador a partir de otra *(```git checkout -b XXX```)*
+* Las flechas grises representan ramas que crea el desarrollador a partir de otra *(```git checkout -b XXX```)*.
 
 
 Como se puede ver en el esquema, los **incrementos de la versión se producen cuando 
-se integran hotfixes y feautures en las ramas protegidas**.
+se integran hotfixes y features en las ramas protegidas**.
 
 
 ## Planificación de versiones *(sprints)*
 
 El **equipo de desarrollo de una aplicación estará formado al menos**, por los siguientes actores:
 
-* Un **responsable funcional** o más. Será la persona que conoce el negocio funcional que modela la aplicación, y sirve como interlocutor y canalizador de las demandas de los usuarios.
+* Un **responsable funcional** o más. Será la persona que conoce el negocio funcional que modela la aplicación y sirve como interlocutor y canalizador de las demandas de los usuarios.
 
-* Un **responsable informático del proyecto**, encargado de coordinar el equipo de desarrollo: Hablar con el responsable funcional, canalizar incidencias, participar de la planificación, etiquetar issues, etc... e incluso participar del desarrollo.
+* Un **responsable tecnológico**, encargado de coordinar el equipo de desarrollo: Hablar con el responsable funcional, canalizar incidencias, participar de la planificación, etiquetar issues, etcétera.
 
 * Un **desarrollador** o más, que será quien escriba el código fuente para implementar *features* o corregir *bugfixes*.
 
+En función de las características de la aplicación y el tamaño del equipo algunos de estos roles pueden coincidir en la misma persona (por ejemplo, el responsable tecnológico podría ser también un desarrollador).
 
-De forma periódica, los responsables del equipo se reunirán y partiendo de [la lista de issues abiertos](Guia-Issues.md) para el proyecto:
+De forma periódica, los responsables se reunirán y partiendo de [la lista de issues abiertos](Guia-Issues.md) para el proyecto:
 
-1. Creará **un nuevo [Hito/Milestone en GitLab](https://docs.gitlab.com/ee/user/project/milestones/)** con:
+1. Crearán **un nuevo [Hito/Milestone en GitLab](https://docs.gitlab.com/ee/user/project/milestones/)** con:
 	* la **versión** que se pretende publicar, 
 	* y la **fecha comprometida** para publicarla.
 	
@@ -91,7 +92,7 @@ De forma periódica, los responsables del equipo se reunirán y partiendo de [la
 	* Les **asignarán a todos el Hito/Milestone recién creado**
 	* Les **añadirán la etiqueta ```To Do```**
 	
-3. Se creará **un nuevo [tablero en GitLab](https://about.gitlab.com/stages-devops-lifecycle/issueboard/)** llamado **Próxima versión** que contengan los issues marcados como: 
+3. Se creará **un nuevo [tablero en GitLab](https://about.gitlab.com/stages-devops-lifecycle/issueboard/)** llamado **Próxima versión** que contenga los issues marcados como: 
 	* ```To Do```. De tipo Planificación: Aún no se ha empezado con ello.
 	* ```Doing```. De tipo Planificación: Se está trabajando en ello *(hay un desarrollador trabajando en ello)*
 	* ```Testing```. De tipo Planificación: Instalado en pruebas a falta de validar
@@ -100,13 +101,13 @@ De forma periódica, los responsables del equipo se reunirán y partiendo de [la
 	![Foto tablero](imagenes/GuiaVersiones-003.png)
 
 Esta reunión marcará el comienzo de un nuevo ciclo de desarrollo o *sprint*, para la publicación de nueva versión de la aplicación, 
-en nuestro modesto intento de [adoptar metodologías ágiles](https://samuelcasanova.com/category/scrum/) 
+en nuestro intento de [adoptar metodologías ágiles](https://samuelcasanova.com/category/scrum/) 
 y forzará el **incremento del ```Major``` según nuestra política de versiones**. El ciclo acabará cuando todos los issues que 
 forman parte del Hito estén cerrados.
 
-4. Cuando **un issue sea asignado a un programador**, este deberá eliminar la etiqueta ```To Do``` del issue y añadir ```Doing```
+4. Cuando **un issue sea asignado a un desarrollador**, este deberá eliminar la etiqueta ```To Do``` del issue y añadir ```Doing```
 
-5. Cuando acabe el desarrollador acabe de resolver el issue, instalará su versión en el entorno de pruebas, y entonces deberá eliminar la etiqueta ```Doing``` del issue y añadir ```Testing```.
+5. Cuando el desarrollador acabe de resolver el issue, instalará su versión en el entorno de pruebas, y entonces deberá eliminar la etiqueta ```Doing``` del issue y añadir ```Testing```.
 
 6. Cuando un responsable **verifique que la funcionalidad ha sido completada**, actualizará el issue indicando que valida el issue con sus comentarios.
 
@@ -120,17 +121,4 @@ de minimizar las urgencias y que el equipo de desarrollo esté constantemente *a
 
 Usar la [Gestión de tareas de Gitlab](https://artansoft.com/2017/11/gestion-de-tareas-gitlab/)
 nos permite dar visibilidad a la gestión del proyecto de forma transparente, y poder intercambiar roles: *Si todos los proyectos
-se gestionan igual, cualquier programador o desarrollador puede participar en cualquier proyecto*.
-
-
-
-
-
-
-
-
-
-
-
-
-
+se gestionan igual, cualquier desarrollador puede participar en cualquier proyecto*.
