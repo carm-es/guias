@@ -15,17 +15,17 @@ La discusión está en la rama desde la que se parte y a la que se fusionan, y q
 * [5 types of Git workflow that will help you deliver better code](https://buddy.works/blog/5-types-of-git-workflows)
 * [OneFlow - a Git branching model and workflow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
 
-Para el desarrollo de proyectos Java en CARM apostamos por la **estrategia [OneFlow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow) con la variante ```develop + master ```**, que establece:
+Para el desarrollo de proyectos Java en CARM apostamos por la **estrategia [OneFlow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow) con la variante ```develop + master```**, que establece:
 
 1. La **rama protegida ```master```** contiene el código estable instalado en los servidores de producción.
 2. La **rama protegida  ```develop``` parte de  ```master```** y en ella se integran todas las ramas *feature* y *bugfix* que constituirán la próxima versión. 
 3. La **rama por defecto del proyecto es  ```develop```**.
-4. Para implementar los **issues de tipo *bug***, se crea una nueva rama que parte de ```master```, y una vez implementado **debe fusionarse vía *Pull/Merge Request* en ```master``` y ```develop```**.
-5. Para implementar los **issues de tipo *feature***, se crea una nueva rama que parte de ```develop```, y una vez implementado **debe fusionarse vía *Pull/Merge Request* en ```develop```**. 
+4. Para implementar los **issues de tipo *bug*** se crea una nueva rama que parte de ```master``` y, una vez implementado el issue, **debe fusionarse vía *Pull/Merge Request* en ```master``` y ```develop```**.
+5. Para implementar los **issues de tipo *feature*** se crea una nueva rama que parte de ```develop``` y, una vez implementado el issue, **debe fusionarse vía *Pull/Merge Request* en ```develop```**. 
 
-Luego, cuando se está preparado para **publicar una nueva release de la aplicación** (que integra *features* y *bugfixes* en ```develop```), Oneflow con variante ```develop + master```  permite:
+Luego, cuando se está preparado para **publicar una nueva release de la aplicación** (que integra *features* y *bugfixes* en ```develop```), Oneflow con variante ```develop + master``` permite:
 
-6. Crear una **rama ```release``` que parte de ```develop``` y que habrá que convertir en ```master```** a través de *Pull/Merge Request*
+6. Crear una **rama ```release```, que parte de ```develop``` y que habrá que convertir en ```master```** a través de *Pull/Merge Request*
 7. O bien **convertir ```develop``` en ```master```**  a través de *Pull/Merge Request*
 
 Una vez  ```master``` se instala en los servidores de producción con la nueva versión, se convierte en ```develop``` y se repite todo el ciclo.
@@ -58,10 +58,10 @@ Donde,
 
 No hay problema en crear varias ramas para un mismo Issue *(divide y vencerás)*, **lo importante es conseguir entregar código fiable de forma rápida**, para:
 
-1. dar visibilidad del proceso y mejorar la comunicación (saber que estás trabajando y cómo lo llevas), 
+1. dar visibilidad del proceso y mejorar la comunicación (saber en que estás trabajando y cómo lo llevas), 
 2. mejorar el feedback y detectar errores cuanto antes, 
 3. poder entregar software funcionando en cualquier momento a los usuarios.
 
-Lo ideal es que **las ramas no vivan más de 2 semanas**... son dos semanas sin saber de tí, sin saber que estás haciendo y nos da mucho miedo que vengas al cabo de dos meses con 1GB de código fuente que tengamos que revisar, y comprobar 300 funcionalidades, el estilo del fuente Java de 30000 ficheros... Mejor divide, entrega pronto y así podremos rectificar cosas desde el principio.
+Lo ideal es que **las ramas no vivan más de 2 semanas**... son dos semanas sin saber de ti, sin saber qué estás haciendo y nos da mucho miedo que vengas al cabo de dos meses con 1GB de código fuente que tengamos que revisar, y comprobar 300 funcionalidades, el estilo del fuente Java de 30000 ficheros... Mejor divide, entrega pronto y así podremos rectificar cosas desde el principio.
 
 > *Como siempre, ten en cuenta que en la primera rama en la que te pongas a trabajar, vamos a saber cuánto has leído sobre todo esto, y cómo de en serio te lo tomas*
