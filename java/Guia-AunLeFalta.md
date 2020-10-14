@@ -1,5 +1,5 @@
 # Qué falta para terminar
-> Esta guía **aún está en proceso de desarrollo**,  y todo esto es lo que le falta.
+> Esta guía **aún está en proceso de desarrollo**, y todo esto es lo que le falta.
 
 
 ## El objetivo de la guía
@@ -24,7 +24,7 @@ Si se leen las recomendaciones de cada una de estas instituciones y se profundiz
 * La elección de un Sistema de Control de Versiones,
 * La gestión y organización de los proyectos en el control de versiones,
 * El estilo a usar en la escritura del código fuente,
-* La gestión de Tickets asociados al desarrollo y mantenimiento de aplicaciones,
+* La gestión de tickets asociados al desarrollo y mantenimiento de aplicaciones,
 * La construcción del software desde el código fuente,
 * La gestión de la calidad del software,
 * La gestión de la construcción y despliegue de las aplicaciones,
@@ -41,7 +41,7 @@ En **la parte de desarrollo *(dev)***, tenemos:
 
 * Totalmente **acabada y documentada**: ```code```, ```build```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. Apenas requiere mantenimiento.
 * Por **acabar de documentar**: ```plan```. *La tenemos documentada, pero aplicada en muy pocos proyectos, y sería precipitado suponer que está acabada: Preferimos esperar a que se use en más proyectos y recibir feedback.*
-* Todo **por hacer**: ```test```. *Estamos en fase de recopilación de links, lectura, compresión, pruebas en unos pocos proyectos... aún es pronto para documentar*
+* Todo **por hacer**: ```test```. *Estamos en fase de recopilación de links, lectura, comprensión, pruebas en unos pocos proyectos... aún es pronto para documentar*
 
 En **la parte de operaciones *(ops)***, disponemos:
 
@@ -50,10 +50,10 @@ En **la parte de operaciones *(ops)***, disponemos:
 	* Tanto el despliegue de una aplicación en un entorno determinado
 	* Como las acciones que debe realizar el equipo de operaciones para que un proyecto pueda desplegarse desde Jenkins.
 
-En el Verano de 2020, se empieza a trabajar en:
+En el verano de 2020, se empieza a trabajar en:
 
-1. **Automatizar el deploy en el entorno de pruebas** mediante GitLab-CI con ayuda de contenedores Dockers y un cluster  Swarm
-2. **Cambiar la gestión de la configuración de las aplicaciones**, para usar  [Vault](https://www.vaultproject.io/).
+1. **Automatizar el deploy en el entorno de pruebas** mediante GitLab-CI con ayuda de contenedores Dockers y un cluster Swarm
+2. **Cambiar la gestión de la configuración de las aplicaciones**, para usar [Vault](https://www.vaultproject.io/).
 3. **Generar automáticamente imágenes Docker** de las aplicaciones, de la misma manera que generamos ```.war```
 
 Para todo ello, hemos estado usando como material de apoyo y referencia:
@@ -98,9 +98,9 @@ Quizás que **lo más importante de lo que queda por hacer, es extender estas bu
 ### ¿Cómo se desarrolla la guía?
 **Se parte de un hito o una necesidad en el proceso de desarrollo**:
 1. Se **recopilan links y referencias** que expliquen cómo solucionarla dentro del marco de la integración continua y de las tecnologías ágiles. 
-2. Se **leen estas referencias y se comparten** entre la gente predispuesta que se haya encontrado con esa necesidad/hito, se llega a un consenso de cuál es mejor adoptar
+2. Se **leen estas referencias y se comparten** entre la gente predispuesta que se haya encontrado con esa necesidad/hito, se llega a un consenso de cuál es mejor adoptar.
 3. Se difunde lo suficiente como para **empezar a ponerla en marcha en algún proyecto**, de forma rápida y ajustada a la realidad de las herramientas,  personal y formación del que disponemos.
 4. Pasados **un par de meses** en los que la solución se haya rodado, se evalúa si la experiencia es buena, aceptada por los participantes del proyecto, no genera incidencias y la gente interioriza los cambios. Mientras no se consiga se sigue con el ciclo: leer, compartir, implantar...
 5. Una vez que la solución funciona bien y nos ahorra tiempo, incidencias y problemas, es el momento en el que **ya se puede documentar y publicar en la guía**. 
 
-Al final, **el objetivo de esta guía es el de presentar los acuerdos técnicos que hemos alcanzado en la CARM para trabajar en los proyectos de desarrollo**, y para ello es necesario enumerar en lo que nos hemos basado, qué hemos probado, y de todo ello, con qué nos quedamos. 
+Al final, **el objetivo de esta guía es el de presentar los acuerdos técnicos que hemos alcanzado en la CARM para trabajar en los proyectos de desarrollo**, y para ello es necesario enumerar en lo que nos hemos basado, qué hemos probado, y de todo ello, con qué nos quedamos.
