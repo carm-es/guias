@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Este es el localizador de tu proyecto -->
+  <groupId>es.carm.XXX-PROYECTO-XXX</groupId>
+  <artifactId>XXX-ARTEFACTO-XXX</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+
+  <!-- Con esto se le dice a Maven que tiene que construir un .WAR-->
+  <packaging>war</packaging>
+
+
+  <!-- Configuración para decirle a Maven dónde está nuestro repositorio -->
+  <scm>
+    <url>https://gitlab.carm.es/XX-URL-PROYECTO-XX</url>
+    <connection>scm:git:https://gitlab.carm.es/XX-URL-PROYECTO-XX.git</connection>
+    <developerConnection>scm:git:[push=]https://gitlab.carm.es/XX-URL-PROYECTO-XX.git[fetch=]https://gitlab.carm.es/XX-URL-PROYECTO-XX.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+
+  <!-- Esto le dice a Maven cómo se gestionan los issues de nuestro proyecto -->
+  <issueManagement>
+    <url>https://gitlab.carm.es/XX-URL-PROYECTO-XX/issues</url>
+    <system>GitLab</system>
+  </issueManagement>
+
+
+  <!-- Claves de configuración, para no declararlas por todos sitios del pom.xml
+       Se centralizan aquí, y así luego no hay que estar cambiando por todos
+       sitios el del XML -->
+  <properties>
+
+    <!-- Configuracion de Maven, para no ejecute tests -->
+    <maven.test.skip>true</maven.test.skip>
+
+    <!-- Qué versión de Java usaremos para generar los ByteCodes de la aplicación,
+         y en qué versión debe esperar que esté escrito el código fuente -->
+    <java.version>1.6</java.version>
+
+    <!-- Qué charset usamos en nuestros fuentes. Esto es importante, porque
+         cuando usamos Windows, mete ISO8859-15, y las tildes luego no se 
+         ven bien en la aplicación -->
+    <source.encoding>utf-8</source.encoding>
+
+
+    <!-- Vamos centralizando aquí las versiones de las librerías, que luego
+         para actualizarlas, basta con modificar aquí -->
+    <version.servlet-api>2.4</version.servlet-api>
+    <version.junit>4.11</version.junit>
+
+  </properties>
+
+
+  <!-- Esta es la lista de dependencias que tiene el proyecto para
+       poder construirse -->
+  <dependencies>
+
+    <!-- y aquí se enumeran todas... -->
+
+
+    <!-- Cuando se añade el scope:provided le dice a maven
+     que no la meta en el WAR, que estará ya instalada en
+     el sistema (habitualmente la provee el tomcat) pero
+     se necesita para compilar... -->
+    <!-- dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${version.servlet-api}</version>
+      <scope>provided</scope>
+    </dependency -->
+
+    <!-- Cuando se añade el scope:test le dice a maven
+     que no la meta en el WAR, que sólo se usar para
+     compilar los tests y ejecutarlos. -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+
+
+  <!-- Esto es la parte que le dice a maven cómo construir el proyecto,
+       y qué plugins debe usar para ello -->
+  <build>
+
+
+    <!-- Sección de qué plugins se usarán para construir este proyecto -->
+    <plugins>
+
+      <!-- Este plugin es para compilar los JAVA -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <encoding>${source.encoding}</encoding>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Y este para construir el WAR -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <!-- Con esto se le dice qué tiene que meter en el MANIFIEST.inf -->
+          <archive>
+            <manifestEntries>
+              <Implementation-Title>${project.name}</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+              <Implementation-Vendor>XX-Grupo-CARM-XX</Implementation-Vendor>
+            </manifestEntries>
+          </archive>
+          <!-- Con esto se le dice donde tiene que colocar el context.xml de la aplicación -->
+          <webResources>
+            <resource>
+              <directory>${project.basedir}/src/main/tomcat-context</directory>
+              <targetPath>META-INF</targetPath>
+            </resource>
+          </webResources>
+
+          <!-- Con esto se le dice que nombre debe ponerle al WAR -->
+          <warName>XX-NOMBRE_WAR-XX</warName>
+
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+</project>

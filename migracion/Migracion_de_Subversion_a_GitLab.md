@@ -1,6 +1,6 @@
 # Migración de Subversion a GitLab
 
-En este documento se describe el proceso para **migrar un repositorio Subversion a GitLab**.   Para ilustrar el proceso describiremos todos los pasos que se realizaron para migrar el repositorio (https://vcs.carm.es/svn/expepatri/)[https://vcs.carm.es/websvn/wsvn.php/grupo_PLATAFORMAS_JAVATO.expepatri/] *(Expedientes de Patrimonio)*
+En este documento se describe el proceso para **migrar un repositorio Subversion a GitLab**.   Para ilustrar el proceso describiremos todos los pasos que se realizaron para migrar el repositorio [https://vcs.carm.es/svn/expepatri/]([https://vcs.carm.es/websvn/wsvn.php/grupo_PLATAFORMAS_JAVATO.expepatri/)  *(Expedientes de Patrimonio)*
 
 ![localiza](imagenes/svn2git001.png)
 
@@ -50,7 +50,7 @@ Los proyectos deberían tener el código fuente de una única aplicación bajo e
 También es recomendable que **preguntes a la gente por el proyecto** *(a sistemas, a los desarrolladores que la mantuvieron,...)*, que **investigues la historia** no escrita (en commits) del proyecto, **conoce su reputaciónhttps://vcs.carm.es/svn/expepatri/)**, descubre quién sabe de él, a quién puedes preguntar las dudas... *investiga como si fueras un detective que hace arqueología del código*. El resultado de todas estas investigaciones te permitirá:
 
 1. Identificar mejor el directorio donde están los fuentes y el grueso de la historia (tu principal objetivo)
-2. Tener material para **poder escribir el README.md** del raíz del proyecto en GitLab.
+2. Tener material para **poder escribir el README.md** en la raíz del proyecto GitLab.
 
 
 En el ejemplo que nos ocupa y que sirve de hilo conductor para el relato de este documento, descubrimos que:
@@ -84,7 +84,7 @@ Por tanto, para preparar tu equipo a poder realizar este proceso, tendrás que e
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y subversion git maven git-svn
+sudo apt-get install -y subversion git maven git-svn tree
 ```
 
 ## La migración del repositorio
@@ -103,7 +103,7 @@ svn log -q -r 1:HEAD https://vcs.carm.es/svn/expepatri/ \
  | sort -u > ~/autores-expepatri.txt
 ```
 
-El fichero ```~/autores-expepatri.txt``` tendrá un pinta similar a:
+El fichero ```~/autores-expepatri.txt``` tendrá una pinta similar a:
 
 ```txt
 48476252A 
@@ -112,7 +112,7 @@ root
 (sin autor) 
 ```
 
-Ahora, este fichero habrá que convertirlo a otro   ```~/autores-expepatri-transformado.txt``` con **líneas clave=valor**, que nos servirá para indicarle al proceso qué usuario Subversion se corresponde con qué usuario GitLab, similar al siguiente:
+Ahora, este fichero habrá que convertirlo a otro   ```~/autores-expepatri-transformado.txt``` con **líneas clave=valor**, que nos servirá para indicarle al proceso qué usuario de Subversion se corresponde con qué usuario de GitLab, similar al siguiente:
 
 ```txt
 48476252A = David Gil Galván <dgilg@indra.es>
@@ -121,7 +121,7 @@ root = jenkins <jenkins@carm.es>
 (sin autor) = gitlab-ci <github@listas.carm.es>
 ```
 
-Lo más práctico y rápido será que **pida a los responsables de IDECRI que le faciliten este nuevo fichero**, apartir de ```~/autores-expepatri.txt``` que deberá facilitarles.
+Lo más práctico y rápido será que **pida a los responsables de IDECRI que le generen este nuevo fichero**, apartir de ```~/autores-expepatri.txt```, que deberá facilitarles.
 
 
 ### Crear el repositorio GitLab	
@@ -324,9 +324,132 @@ y si pinchamos en el enlace *Commits* podremos verificar cómo se conserva la hi
 
 ## Mavenización del proyecto
 
-https://gitlab.carm.es/arp43b/perfil/-/issues/1
+De acuerdo a la [guia Java](../java/README.md), el proyecto debe poderse [construir con Maven](../java/Guia-Maven.md). En este punto, hay que asegurar que el proyecto dispone de **un fichero ```pom.xml``` con el que ```maven``` sea capaz de construir el mismo fichero ```.war``` que hay desplegado en los servidores**. 
 
-https://www.adictosaltrabajo.com/2016/11/15/mavenizacion-de-proyectos-legacy/
+La construcción de este fichero ```pom.xml``` es un proceso artesano, pesado y lento, que depende en gran medida de la experiencia de quien lo lleva a cabo y de la cantidad de librerías que tenga el proyecto. 
+
+* [¿Qué significa "Mavenizar un proyecto?](https://stackoverrun.com/es/q/760337)
+* [Mavenización de proyectos legacy](https://www.adictosaltrabajo.com/2016/11/15/mavenizacion-de-proyectos-legacy/)
+* [Guía de migración de proyectos Java a Maven](https://www.viafirma.com/blog-xnoccio/es/guia-de-migracion-de-proyectos-java-a-maven/)
+* [Mavenizar un proyecto Web existente usando project-mavenizer](http://jesfre.blogspot.com/2014/07/mavenizar-un-proyecto-web-existente.html)
+
+
+### Crear el primer issue
+Tal y como [recoge la guía Java](../java/Guia-Issues.md), cualquier cambio que se realice en el código fuente de una aplicación, debe quedar recogido en un Issue. Como nos disponemos a mavenizar el proyecto, lo primero que se debe hacer es *crear el correspondiente Issue*:
+
+![Primer Issue](imagenes/svn2git008.png)
+
+Asegúrese de  **etiquetarlo y asignárselo**.
+
+
+### Estructura de directorios
+Los proyectos Java de la CARM se espera que tengan los siguientes directorios:
+
+* **```aplicacion/``` **, con el código fuente de la aplicación y de sus módulos
+* **```base-datos/``` **, con todos los scripts SQL  DML y DDL que requiera el proyecto 
+* **```docker/``` **, con todo lo que se necesita para crear un docker con la aplicación
+* **```configuracion/``` **, con la configuración de la aplicación para cada entorno.
+
+En este punto, se deberán **mover todos los directorios de código fuente de la aplicación para hacerlos coincidir con esta estructura**.  Siguiendo con el ejemplo que nos ocupa, lo primero será clonar a nuestro equipo el repositorio Git, que migramos en la fase anterior:
+
+```bash
+cd ~/Migracion-svn2git
+git clone https://gitlab.carm.es/ibarrancos/ExpedientesPatrimonio.git
+tree -d 
+```
+
+Después de curiosear el contenido de los diferentes directorios, localizamos los movimientos que deben hacerse para **reorganizar el código de la aplicación**:
+
+```bash
+cd  ~/Migracion-svn2git/ExpedientesPatrimonio
+
+mkdir aplicacion/src/main/java -p
+git mv "05. CSI/02. Fuentes/src/es" aplicacion/src/main/java/
+git mv "05. CSI/02. Fuentes/src/Test"  aplicacion/src/main/java/
+
+mkdir aplicacion/src/main/resources
+git mv "05. CSI/02. Fuentes/src"/log4j.*  aplicacion/src/main/resources/
+
+git mv "05. CSI/02. Fuentes/web"  aplicacion/src/main/webapp
+```
+
+... también los scripts SQL:
+
+```bash
+cd  ~/Migracion-svn2git/ExpedientesPatrimonio
+
+git mv "05. CSI/01. SQL"  base-datos 
+```
+
+...limpiar los directorios que ya no tienen nada aprovechable...
+
+```bash
+cd  ~/Migracion-svn2git/ExpedientesPatrimonio
+
+git rm -fr "05. CSI/02. Fuentes"
+```
+
+...y por último, **entregar al repositorio**:
+
+```bash
+git commit -m 'fix: Reorganización de directorios
+
+Reorganizo el contenido del código fuente del proyecto, siguiendo las
+recomendaciones CARM.
+
+Issue: #1'
+```
+
+Es muy importante que en **el mensaje de cada commit de todo este proceso, añadamos siempre ```Issue: #1```** y así queden asociados todos los cambios que tengan que ver con la mavenización del proyecto en el issue.
+
+### Crear pom.xml a la aplicación
+En esta fase habrá que **crear el fichero ```aplicacion/pom.xml```  capaz de generar el War con la aplicación**.  Para ello, tendrás que:
+
+1. Crear un ```pom.xml``` base capaz de generar un fichero ```.war```
+2. Añadir y modificar las dependencias que necesite al fichero ```pom.xml```
+3. Ejecutar ```mvn clean package```: Si no se genera un ```.war``` volver al paso 2.
+4. Comparar el  ```.war``` que se genera con maven con el fichero  ```.war``` que hay desplegado en los servidores de producción.
+5. Si hay diferencias, volver al paso 2 si no, habremos acabado y se podrán entregar los cambios al repositorio.
+
+
+Para el ```pom.xml``` inicial puedes usar la plantilla  [```templates/pom.xml```](templates/pom.xml), y personalizar todas las ocurrencias de ```XX-LO-QUE-SEA-XX``` por lo que corresponda al proyecto que estás mavenizando. También puedes inspirarte en otros proyectos para comprobar cómo realizar estas sustituciones.
+
+A partir de él, tendrás que ir añadiendo dependencias hasta que compile el proyecto y genere un ```.war``` con la aplicación. Para este proceso iterativo, necesitarás armarte de paciencia para adivinar todas las dependencias del proyecto. Existen varias formas de *"adivinar las dependencias"*, partiendo del listado de ficheros ```.jar``` que se incluyen dentro del War en ```WEB-INF/lib```:
+
+* Buscar en Google el nombre del fichero ```.jar``` seguido de la palabra ```maven```
+* Descomprimir el fichero ```.jar``` y comprobar el contenido del directorio ```META-INF/``` a ver si encontramos una pista...
+* Buscar nombres significativos de las clases que se incluyen en el ```.jar```
+
+Cuando todo lo anterior falla, habrá que subir el fichero  ```.jar``` a [Nexus de la CARM](https://nexus.carm.es) como dependencia de terceros.
+
+En vez de intentar encontrar y añadir la dependencia asociada a cada fichero  ```.jar```, es mucho más rápido y eficiente empezar por las que se necesitan para compilar el proyecto y generar el  ```.war```. Identifícalas mediante:
+
+```bash
+mvn clean package 2>&1 \
+  | grep ERROR \
+  | grep package \
+  | awk -F ' package ' '{print $2}' \
+  | sort -u
+```
+
+Añade primero estas, porque maven ya se encargará de descargar las librerías que dependen de estas de forma recursiva. En el [primer Issue del proyecto ```arp43b/perfil```](https://gitlab.carm.es/arp43b/perfil/-/issues/1) encontrarás cómo se realizó todo este proceso *commit a commit*.
+
+Para poder compilar el proyecto, también necesitará que los ficheros ```.java``` con expresiones _**NO-UTF8** (en Strings, nombres de Constantes, etc)_, se conviertan a UTF8 y así no falle la compilación:
+
+```bash
+cd src/main/java
+
+for i in $(find -type f -exec file -i {} \; | grep iso-8859 | grep 'text/x-java' | awk -F ': ' '{print $1}' | sort -u  )
+do
+   iconv -f iso8859-1 -t utf8 $i > /tmp/a
+   mv /tmp/a $i 
+done
+
+cd -
+```
+
+
+
 
 ## Conversión de la documentación
 
@@ -338,15 +461,33 @@ Pasar a markdown... crear rama...
 Formatear los fuentes, cambiar los ISO a UTF8, dos2unix, etc 
 Ficheros .gitignore, etc...
 
+
+
 ## Configuración
 
-A rama...
+A rama... (de momento a directorio local + pro + des + pru )
+
+
 
 ## Automatización 
 
+Llevar al destino, para que le creen develop o no , y los permisos en las ramas
+
 Gitlab-CI y Jenkins
+
+
 
 ## Docker
 
 ## Para finalizar
 
+Repositorio en modo lectura
+
+
+
+
+
+
+```
+
+```
