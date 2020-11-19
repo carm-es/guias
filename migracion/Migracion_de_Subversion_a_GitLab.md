@@ -1,17 +1,17 @@
 # Migración de Subversion a GitLab
 
-En este documento se describe el proceso para **migrar un repositorio Subversion a GitLab**.   Para ilustrar el proceso describiremos todos los pasos que se realizaron para migrar el repositorio [https://vcs.carm.es/svn/expepatri/]([https://vcs.carm.es/websvn/wsvn.php/grupo_PLATAFORMAS_JAVATO.expepatri/)  *(Expedientes de Patrimonio)*
+En este documento se describe el proceso para **migrar un repositorio Subversion a GitLab**.   Para ilustrar el proceso describiremos todos los pasos que se realizaron para migrar el repositorio [https://vcs.carm.es/svn/expepatri/](https://vcs.carm.es/websvn/wsvn.php/grupo_PLATAFORMAS_JAVATO.expepatri/)  *(Expedientes de Patrimonio)*
 
 ![localiza](imagenes/svn2git001.png)
 
-El proceso que llamamos de migracion, consiste además de coger un repositorio X en Subversion y llevarlo a GitLab, **realizar toda esta serie de tareas adicionales** que permiten adecuar el proyecto al proceso de integración continua y despliegue de la CARM: 
+El proceso que llamamos de migración consiste en, además de coger un repositorio X en Subversion y llevarlo a GitLab, **realizar toda esta serie de tareas adicionales** que permiten adecuar el proyecto [al proceso de desarrollo e integración continua](../java/README.md) de la CARM: 
 
 1. **Conservar la mayor cantidad de historia** de los fuentes de la aplicación
 2. Minimizar el tamaño del repositorio en GitLab y **evitar subir ficheros binarios** *(.jar, .doc, .war, ...etc)*, para lo que será necesario:
 	* **Mavenizar** el proyecto
 	* Convertir **documentación a Markdown** 
 3. **Formatear el código** fuente y convertir los fuentes de charset y CRLF
-4. Escribir un **README.md** que describa de que va el proyecto
+4. Escribir un **README.md** que describa brevemente el proyecto
 5. Añadir el **pipeline GitLab-CI** para que el proyecto se construya automáticamente con cada commit
 6. Añadir al proyecto la **configuración de cada entorno**, e identificar los secretos compartidos 
 7. Gestionar la migración de la **tarea de despliegue desde  Jenkins**
@@ -38,6 +38,8 @@ El primer paso de la migración consiste en llevar el directorio donde está el 
 
 > Identificar **el directorio con código fuente de la aplicación** que se ejecuta en nuestros servidores, con **el máximo de historia**
 
+
+
 Los proyectos deberían tener el código fuente de una única aplicación bajo el directorio ```trunk/``` , pero esto no siempre se cumple:
 
 * Habrá repositorios que no tengan la estructura básica: ```tags/branches/trunk```
@@ -47,10 +49,15 @@ Los proyectos deberían tener el código fuente de una única aplicación bajo e
 * Puede que la versión desplegada en los servidores desde hace años sea la de una rama
 * Puede que el repositorio provenga de una migración desde CVS e incluya cantidad de ficheros binarios
 
-También es recomendable que **preguntes a la gente por el proyecto** *(a sistemas, a los desarrolladores que la mantuvieron,...)*, que **investigues la historia** no escrita (en commits) del proyecto, **conoce su reputaciónhttps://vcs.carm.es/svn/expepatri/)**, descubre quién sabe de él, a quién puedes preguntar las dudas... *investiga como si fueras un detective que hace arqueología del código*. El resultado de todas estas investigaciones te permitirá:
+También es recomendable que **preguntes a la gente por el proyecto** *(a sistemas, a los desarrolladores que la mantuvieron,...)*, que **investigues la historia** no escrita (en commits) del proyecto, **conoce su reputación**, descubre quién sabe de él, a quién puedes preguntar las dudas... *investiga como si fueras un detective que hace arqueología del código*. El resultado de todas estas investigaciones te permitirá:
 
-1. Identificar mejor el directorio donde están los fuentes y el grueso de la historia (tu principal objetivo)
+1. Identificar mejor el directorio donde están los fuentes y el grueso de la historia
 2. Tener material para **poder escribir el README.md** en la raíz del proyecto GitLab.
+
+
+
+Es importante localizar *"el directorio"*, porque si se migrara el repositorio completo de SVN a GIT desde la raíz, se estaría multiplicando el espacio en Git innecesariamente: En SVN las ramas y los tags son copias, que aunque sean referencias en la base de datos de Subversion, al llevarlas a GIT se expandirán y ocuparán el espacio real que requieren.
+
 
 
 En el ejemplo que nos ocupa y que sirve de hilo conductor para el relato de este documento, descubrimos que:
@@ -89,7 +96,7 @@ sudo apt-get install -y subversion git maven git-svn tree
 
 ## La migración del repositorio
 
-Una vez tenemos claro qué debemos migrar comenzaremos con el proceso...
+Una vez tenemos claro qué debemos migrar, comenzaremos con el proceso...
 
 
 ### Extraer los autores de los commits
@@ -345,10 +352,10 @@ Asegúrese de  **etiquetarlo y asignárselo**.
 ### Estructura de directorios
 Los proyectos Java de la CARM se espera que tengan los siguientes directorios:
 
-* **```aplicacion/``` **, con el código fuente de la aplicación y de sus módulos
-* **```base-datos/``` **, con todos los scripts SQL  DML y DDL que requiera el proyecto 
-* **```docker/``` **, con todo lo que se necesita para crear un docker con la aplicación
-* **```configuracion/``` **, con la configuración de la aplicación para cada entorno.
+* **```aplicacion/```**, con el código fuente de la aplicación y de sus módulos
+* **```base-datos/```**, con todos los scripts SQL  DML y DDL que requiera el proyecto 
+* **```docker/```**, con todo lo que se necesita para crear un docker con la aplicación
+* **```configuracion/```**, con la configuración de la aplicación para cada entorno.
 
 En este punto, se deberán **mover todos los directorios de código fuente de la aplicación para hacerlos coincidir con esta estructura**.  Siguiendo con el ejemplo que nos ocupa, lo primero será clonar a nuestro equipo el repositorio Git, que migramos en la fase anterior:
 
@@ -403,12 +410,12 @@ Issue: #1'
 Es muy importante que en **el mensaje de cada commit de todo este proceso, añadamos siempre ```Issue: #1```** y así queden asociados todos los cambios que tengan que ver con la mavenización del proyecto en el issue.
 
 ### Crear pom.xml a la aplicación
-En esta fase habrá que **crear el fichero ```aplicacion/pom.xml```  capaz de generar el War con la aplicación**.  Para ello, tendrás que:
+El siguiente pasa será **crear el fichero ```aplicacion/pom.xml```  capaz de generar el War con la aplicación**.  Para ello, tendrás que:
 
-1. Crear un ```pom.xml``` base capaz de generar un fichero ```.war```
-2. Añadir y modificar las dependencias que necesite al fichero ```pom.xml```
+1. Crear un ```pom.xml``` base, capaz de generar un fichero ```.war```
+2. Añadir las dependencias del proyecto a este fichero ```pom.xml``` 
 3. Ejecutar ```mvn clean package```: Si no se genera un ```.war``` volver al paso 2.
-4. Comparar el  ```.war``` que se genera con maven con el fichero  ```.war``` que hay desplegado en los servidores de producción.
+4. Comparar el  ```.war``` que se generado con el fichero  ```.war``` que hay desplegado en los servidores de producción.
 5. Si hay diferencias, volver al paso 2 si no, habremos acabado y se podrán entregar los cambios al repositorio.
 
 

@@ -12,22 +12,6 @@
   <packaging>war</packaging>
 
 
-  <!-- Configuración para decirle a Maven dónde está nuestro repositorio -->
-  <scm>
-    <url>https://gitlab.carm.es/XX-URL-PROYECTO-XX</url>
-    <connection>scm:git:https://gitlab.carm.es/XX-URL-PROYECTO-XX.git</connection>
-    <developerConnection>scm:git:[push=]https://gitlab.carm.es/XX-URL-PROYECTO-XX.git[fetch=]https://gitlab.carm.es/XX-URL-PROYECTO-XX.git</developerConnection>
-    <tag>HEAD</tag>
-  </scm>
-
-
-  <!-- Esto le dice a Maven cómo se gestionan los issues de nuestro proyecto -->
-  <issueManagement>
-    <url>https://gitlab.carm.es/XX-URL-PROYECTO-XX/issues</url>
-    <system>GitLab</system>
-  </issueManagement>
-
-
   <!-- Claves de configuración, para no declararlas por todos sitios del pom.xml
        Se centralizan aquí, y así luego no hay que estar cambiando por todos
        sitios el del XML -->
