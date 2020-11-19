@@ -91,7 +91,7 @@ Por tanto, para preparar tu equipo a poder realizar este proceso, tendrás que e
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y subversion git maven git-svn tree
+sudo apt-get install -y subversion git maven git-svn tree dos2unix
 ```
 
 ## La migración del repositorio
@@ -456,45 +456,157 @@ cd -
 ```
 
 
-
-
 ## Conversión de la documentación
 
-Pasar a markdown... crear rama...
+**PENDIENTE** de acabar
 
-
-## Preparación del proyecto
-
-Formatear los fuentes, cambiar los ISO a UTF8, dos2unix, etc 
-Ficheros .gitignore, etc...
+- [ ] Explicar cómo crear una nueva rama ```documentacion``` (sin código)
+- [ ] Explicar cómo organizar la documentación *¿usuario, desarrollo, administrador?*
+- [ ] Explicar cómo convertir de Word a Markdown
 
 
 
 ## Configuración
 
-A rama... (de momento a directorio local + pro + des + pru )
+**PENDIENTE** de acabar
+
+- [ ] Explicar cómo crear una nueva rama ```configuracion``` (sin código)
+- [ ] Cómo organizar el contenido : local + pro + des + pru
 
 
 
-## Automatización 
+## Integración continua
+En el siguiente paso, se modificará el proyecto que migramos desde Subversion, para adecuarlo a los requisitos que nos impone la integración continua de la CARM: 
 
-Llevar al destino, para que le creen develop o no , y los permisos en las ramas
+* Código Java formateado según la guía de estilo de Google
+* Charsets UTF8 para evitar Warnings y Errores en los procesos automatizados 
+* Retornos de carro al estilo Unix
+* Evitar binarios, configuraciones de IDEs
 
-Gitlab-CI y Jenkins
+Los procesos automatizados que implementan la integración continua se basan en sistemas GNU/Linux, de ahí algunos de estos requisitos, que buscan evitar sorpresas cuando el programador desarrolla desde Microsoft Windows.
+
+Como es habitual en todo este proceso, deberá **crearse un nuevo Issue** para reunir todos los cambios que se hagan en el código fuente para este fin de adecuar el proyecto a IC, etiquetarlo y asignarlo.
+
+![Issue IC](imagenes/svn2git009.png)
+
+
+### Preparar el proyecto
+
+Lo primero es identificar aquellos ficheros que aún no son UTF8:
+
+```bash
+find aplicacion/ -type f  -exec file -i {} \; \
+  | grep ' charset=iso-8859-1'
+```
+
+Estos ficheros hay que revisarlos uno a uno, antes de decidir si convertirlos a UTF8 o no:
+
+* Puede que sean ficheros ```.html``` que declaran correctamente su charset mediante ```<meta charset="ISO-8859-1">```
+* O ficheros ```.xml``` que declaran correctamente su charset en el prólogo ```<?xml version="1.0" charset="ISO-8859-1">```
+* O ```.jsp``` que declaran correctamente el charset ```<%@ ... pageEncoding="UTF-8"%>```
+
+En general, habrá que convertir estos ficheros si declaran un Charset y sin embargo el comando ```file -i``` nos indica que tienen otro charset distinto. La conversión a UTF8 puede realizarse con el siguiente comando:
+
+```bash
+iconv -f iso8859-1 -t utf8 FICHERO_NO_UTF8 > /tmp/a
+mv /tmp/a FICHERO_NO_UTF8 
+```
+
+Forzar que todos los ficheros tengan retorno de carro de estilo Unix, mediante:
+
+```bash
+find aplicacion -type f -exec dos2unix {} \;
+```
+
+
+Ahora se deberá añadir el fichero ```pom.xml``` desde la plantilla [```templates/seed/pom.xml```](templates/seed/pom.xml) a la raíz del proyecto **(el ```pom.xml``` padre del proyecto)**, y personalizarlo:
+
+1. Para sustituir las ocurrencias de ```XX-LO-QUE-SEA-XX``` por lo que corresponda a nuestro proyecto
+2. Centralizar en él la configuración de propiedades y plugins definidas en el resto de ```pom.xml``` que hay bajo el directorio ```aplicacion/```
+3. Vincular el resto de ```pom.xml``` que cuelgan de ```aplicacion/```, a este nuevo ```pom.xml``` como padre
+
+Revisa otros proyectos ya migrados, para averiguar cómo realizar estas sustituciones. 
+
+Después, se copiará el directorio [```templates/seed/.mvn``` ](templates/seed/.mvn) tal cual  a la raíz del proyecto *(junto al ```pom.xml``` padre)*, con la plantilla de estilo Java de Google, que usaremos para formatear el código fuente. 
+
+Cuando acabe, la ejecución del siguiente comando no debería dar ningún error:
+
+```bash
+mvn install
+```
+
+Ahora, **formatea todo el código fuente** del proyecto mediante:
+
+```bash
+mvn net.revelc.code.formatter:formatter-maven-plugin:format
+```
+
+Por último,  **copia los ficheros  [```templates/seed/.gitattributes```](templates/seed/.gitattributes) y  [```templates/seed/.gitignore```](templates/seed/.gitignore) a la raíz del proyecto**  y añádelos al proyecto:
+
+```bash
+git add -f .gitattributes .gitignore
+```
+
+Todos estos pasos conviene realizarlos en diferentes commits para que quede más legible lo que persiguen estos cambios.
+
+![Varios commits](imagenes/svn2git010.png)
+
+
+### Integrar con el Pipeline-CI
+En este punto estamos en condiciones de **mover el repositorio desde nuestra cuenta de usuario personal a su grupo definitivo en GitLab**:  Si no se tienen permisos en el grupo destino al que llevar el repositorio, habrá que solicitarlo a un administrador.
+
+Esto se consigue accediendo a  la **Configuración General** del repositorio, y dentro del grupo de opciones **Avanzado**, en la opción **Transferir proyecto** elegir el Grupo destino del repositorio y pulsar el botón *Transfer project*.
+
+![transferir](imagenes/svn2git011.png)
+
+Una vez en su grupo definitivo, volver a clonar el proyecto al equipo, para modificar el ```pom.xml```  padre *(de la raíz del proyecto)* y **configurar y descomentar los tag ```<scm>``` e ```<issueManagement>```**  con la URL definitiva del proyecto.
+
+![transferir](imagenes/svn2git012.png)
+
+Y ya por último, **copie el fichero [```templates/seed/.gitlab-ci.yml```](templates/seed/.gitlab-ci.yml)** a la raíz del proyecto para configurarlo con el pipeline GitLab-CI básico:
+
+```bash
+git add -f .gitlab-ci.yml 
+```
+
+Así, cada vez que se haga un *push* al repositorio lanzará la ejecución del pipeline:
+
+![commit y pipeline](imagenes/svn2git013.png)
+
+Este pipeline verifica que el proyecto aplique  todas las recomendaciones técnicas sugeridas en [la Guía de desarrollo para Java](../java/README.md) y en ese caso, generará y publicará los artefactos de la aplicación en el [Nexus de la CARM](https://nexus.carm.es),  desde donde podrán desplegarse en los servidores,
+
+![fases pipeline](imagenes/svn2git014.png)
+
+...además de generar y publicar un informe acerca de la calidad del código del proyecto en [SonarQube](https://sonarqube.carm.es/)
+
+![sonar](imagenes/svn2git015.png)
+
+
+### Configuración para OnFlow
+En caso de que en el proyecto confluyan varios desarrolladores trabajando conjuntamente, habrá que configurar el repositorio para soportar el flujo de trabajo **OneFlow con la variante master+develop**. 
+
+Esto consiste en **añadir una nueva rama ```develop``` al repositorio a partir de ```master```**:
+
+![develop](imagenes/svn2git016.png)
+
+... **configurarla como protegida**, de la misma manera que sucede con ```master``` y **fijarla como la rama por defecto** del proyecto:
+
+![develop permisos](imagenes/svn2git017.png)
 
 
 
-## Docker
+## Despliegue del proyecto
+
+**PENDIENTE** de acabar
+
+- [ ] Sección **Docker**, que cuente cómo crear aquí un docker
+- [ ] Sección **Tareas Jenkins**, que cuente que tareas hay que pedirle el alta, la baja (si existen las de compilación), etc
+
+
 
 ## Para finalizar
 
-Repositorio en modo lectura
+**PENDIENTE** de acabar
 
-
-
-
-
-
-```
-
-```
+- [ ] Explicar que hay solicitar se configure el repo svn en modo sólo lectura
+- [ ] Explicar que se deben cerrar los issues que queden abiertos...

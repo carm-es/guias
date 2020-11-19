@@ -1,0 +1,22 @@
+
+# Variables personalizables para este proyecto
+variables:
+  # Si la descomentamos, entonces aparecerán los logs de toda la descarga de artefactos
+  # Por defecto: Sólo muestra los WARN y ERROR
+  # MAVEN_OPTS_EXTRA: ""
+  # ---
+  # Si descomentamos esta linea, forzamos una version concreta para los plugins de OWASP y SONAR
+  # Por defecto: Está definida en el la ppdades del Grupo "SIAC" -> CI/CD Settings
+  # CALIDAD_VERSION_OWASP: "5.2.1"
+  # CALIDAD_VERSION_SONAR: "3.6.0.1398"
+  # ---
+  # Si descomentamos esta linea, hacemos que sonar pare el pipeline cuando encuentre errores (bugs en las librerías)
+  # Por defecto: Está definida que no pare, que siga (si encuentra que la versión del common-lang tienen errores)
+  # CALIDAD_STOP_ONERROR: "true"
+
+
+# Plantilla del pipeline que usar
+include:
+  - project: 'dockers/ci'
+    file: '/maven/pipelines/maven-basico-sin-changelog.yml'
+
