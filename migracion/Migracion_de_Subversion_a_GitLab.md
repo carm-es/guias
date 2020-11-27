@@ -113,8 +113,8 @@ svn log -q -r 1:HEAD https://vcs.carm.es/svn/expepatri/ \
 El fichero ```~/autores-expepatri.txt``` tendrá una pinta similar a:
 
 ```txt
-48476252A 
-mcm50j 
+*****52A 
+***50j 
 root 
 (sin autor) 
 ```
@@ -122,10 +122,10 @@ root
 Ahora, este fichero habrá que convertirlo a otro   ```~/autores-expepatri-transformado.txt``` con **líneas clave=valor**, que nos servirá para indicarle al proceso qué usuario de Subversion se corresponde con qué usuario de GitLab, similar al siguiente:
 
 ```txt
-48476252A = David Gil Galván <dgilg@indra.es>
-mcm50j = Máximo Conesa <maximo.conesa@carm.es>
-root = jenkins <jenkins@carm.es>
-(sin autor) = gitlab-ci <github@listas.carm.es>
+*****52A = David Gil Galván <dx**@indra.es>
+***50j = Máximo Conesa <m**@carm.es>
+root = jenkins <jenkins**@carm.es>
+(sin autor) = gitlab-ci <git**@listas.carm.es>
 ```
 
 Lo más práctico y rápido será que **pida a los responsables de IDECRI que le generen este nuevo fichero**, apartir de ```~/autores-expepatri.txt```, que deberá facilitarles.
