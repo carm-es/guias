@@ -456,6 +456,65 @@ cd -
 ```
 
 
+### Afinar pom.xml para igual el war
+Con el paso anterior se habrá conseguido generar un fichero ```.war``` con la aplicación, pero **probablemente no desplegará en un Tomcat** por:
+
+1. Faltarán archivos en su lugar correcto:  ```.properties```, ```.hbm.xml```, etc...
+2. Faltarán o sobrarán ficheros  ```.jar```
+
+En este punto del proceso, se **deberá modificar el proyecto hasta conseguir que el ```war``` que generan maven sea prácticamente el mismo que el original**. Esto dependerá de la experiencia de la persona que lo lleve a cabo, y para ayudarle se han preparado algunos shell scripts que le servirán en la tarea. 
+
+El primer script [Paso1-Comparador-Wars.sh](scripts/mvn/Paso1-Comparador-Wars.sh) permite tener una **primera aproximación a los ficheros en los que difieren los _Wars_**, indicando como primer argumento el  _.war original_ y como segundo, el _.war que construye Maven_ a partir del ```pom.xml``` que generamos :
+
+```bash
+bash Paso1-Comparador-Wars.sh Original-App.war  aplicacion/target/App.war
+```
+
+![diff01](imagenes/svn2git018.png)
+
+Todas las **líneas que empiecen por el signo ```+```** son ficheros que están en el _.war de maven_ y no estaban en el original. Lo habitual será encontrar ```META-INF/maven/``` (que lo añade Maven al construir el paquete) y  ```META-INF/context.xml```  con el contexto de la aplicación. 
+
+Todas las **líneas que empiecen por el signo ```-```** son ficheros que estaban el _war original_ y ya no están en el _.war que genera maven_.
+
+Habrá revisar cada una de estas diferencias, o porque falte o sobre el archivo, y limitar las diferencias sólo al directorio ```WEB-INF/lib/``` y ```META-INF/```. En nuestro ejemplo, nosotros observamos que:
+
+1. Los ficheros ```.hbm.xml``` debían estar en el WAR, por lo que los movimos al directorio ```aplicacion/src/main/resources/es/carm/modelo/```
+2. Los ficheros ```.jrxml``` son el fuente de los informes ```.jasper``` (binario compilado). En principio los dejamos en el WAR.
+3. El fichero  ```.faces-config.mex```  sobraba del WAR, ya lo excluía el ```build.xml``` que usaba ANT.
+4. Los ficheros ```.properties``` debían estar en el WAR, por lo que los movimos al directorio ```aplicacion/src/main/resources/es/carm/comun/```
+
+
+El segundo script [Paso2-Comparador-Wars.sh](scripts/mvn/Paso2-Comparador-Wars.sh) permite obtener una **mejor aproximación a los JARS en los que difieren los _Wars_**, indicando como argumentos con su ruta absoluta el  _.war original_ y  _.war que construye Maven_ :
+
+```bash
+bash Paso2-Comparador-Wars.sh Original-App.war  aplicacion/target/App.war
+```
+
+![diff02](imagenes/svn2git019.png)
+
+Este script ejecuta un ```sum``` de todos los ficheros ```WEB-INF/lib/*.jar```  que hay en los _Wars_, y muestra tres secciones:
+
+1. La lista de ficheros y sus correspondientes ```sum``` del  ```.war``` original.
+2. La lista de ficheros y sus correspondientes ```sum``` del  ```.war``` que genera Maven.
+3. Las diferencias entre las dos listas...
+
+Como antes, habrá que determinar qué ficheros faltan y/o sobran en el _.war de Maven_. La ventaja de usar ```sum``` es que obtiene la huella digital de cada archivo, y esta será la misma aunque el fichero tenga un nombre diferente:
+
+![diff02](imagenes/svn2git020.png)
+
+
+También descubrirá librerías duplicadas en el _war original_ , que maven simplifica y sólo incluirá una de ellas y siempre la más reciente.
+
+![diff03](imagenes/svn2git021.png)
+
+...y al revés: Librerías que maven determina una versión (por dependencias heredadas) y sin embargo el _war original_ tiene más actualizadas:
+
+![diff04](imagenes/svn2git022.png)
+
+Con todo esto, habrá que modificar el  ```pom.xml``` hasta conseguir minimizar las diferencias, **que despliegue en Tomcat y que funcione como lo hacía la aplicación original**.
+
+
+
 ## Conversión de la documentación
 
 **PENDIENTE** de acabar
