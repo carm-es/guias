@@ -82,6 +82,7 @@ Para poder realizar todo este trabajo necesitarás tener instalado en tu equipo:
 3. Las utilidades git-svn, que permiten realizar la conversión entre repositorios
 4. Maven 3.5 o superior
 5. Java SDK 1.7 o superior
+6. Docker
 
 Para poder ilustrar cada uno de los comandos que habrá que ir ejecutando, vamos a **suponer que todo el proceso se realiza sobre un equipo Linux con Debian 10**, que si siempre podrás instalar en una máquina virtual en tu equipo o usar a [través de WSL](https://docs.microsoft.com/es-es/windows/wsl/install-win10).
 
@@ -93,6 +94,8 @@ Por tanto, para preparar tu equipo a poder realizar este proceso, tendrás que e
 sudo apt-get update
 sudo apt-get install -y subversion git maven git-svn tree dos2unix pandoc
 ```
+
+Instalar docker siguiendo la guía oficial https://docs.docker.com/engine/install/debian/
 
 ## La migración del repositorio
 
@@ -756,11 +759,93 @@ Esto consiste en **añadir una nueva rama ```develop``` al repositorio a partir 
 
 ## Despliegue del proyecto
 
-**PENDIENTE** de acabar
+En este paso se debe preparar todo lo necesario para poder desplegar y ejecutar la aplicación en la red de la CARM:
 
-- [ ] Sección **Docker**, que cuente cómo crear aquí un docker
-- [ ] Sección **Tareas Jenkins**, que cuente que tareas hay que pedirle el alta, la baja (si existen las de compilación), etc
+* bien, sobre un **contenedor docker** en cualquier equipo conectado físicamente a la red o través de una VPN, 
+* o bien, en los **servidores de la CARM** junto al resto de la infraestructura, a través de Jenkins.
 
+### Despliegue en Tomcat sobre docker (local)
+Para aquellas aplicaciones Java que generan un fichero ```.war``` se puede **[usar la plantilla ```templates/docker/```](templates/docker/) y copiarla a nuestra rama ```master```**. Después de copiar el directorio, habrá que revisar y valorar si debe aplicar alguno de los siguientes cambios:
+
+* ```bin/setenv.sh```. Este fichero contiene las opciones con las que se arrancará el servicio de Tomcat. 
+* ```hosts/host.aliases```.  En este fichero deberá añadir todas las direcciones IP y los nombres de aquellos servidores a los que necesite conectar a través de la VPN: _servidores de bases de datos, otros endpoints de la red de la CARM, etc_.
+* ```conf/server.xml```. En este fichero deberá configurar los Pools de conexiones a las diferentes bases de datos, y otras configuraciones de Tomcat.
+* ```conf/context.xml```. Si la aplicación necesitara una configuración especial para el contexto.
+* Buscar todas las ocurrencias de ```XXXXXX``` y reemplazarlas por el nombre de nuestra aplicación _(en nuestro ejemplo: ```ExpedientesPatrimonio```)_
+* Buscar todas las ocurrencias de ```AAAAAA``` y reemplazarlas por el ```groupID``` de maven de nuestra aplicación  _(en nuestro ejemplo: ```patrimonio.expedientes```, y lo leemos del fichero ```aplicacion/pom.xml```)_ 
+* Buscar todas las ocurrencias de ```DDDDDD``` y reemplazarlas por el ```artifactID``` de maven de nuestra aplicación  _(en nuestro ejemplo: ```expepatri```, y lo leemos del fichero ```aplicacion/pom.xml```)_
+* Buscar todas las ocurrencias de ```WWWWWW``` y reemplazarlas por el nombre del fichero ```.war``` que genera maven con nuestra aplicación  _(en nuestro ejemplo: ```expepatri.war```, y lo leemos del fichero ```aplicacion/pom.xml```)_ 
+
+
+Para comprobar que se genera correctamente la imagen docker, habrá que ejecutar los siguientes comandos:
+
+```bash
+# Primero generar los Wars de la aplicación
+mvn clean install
+
+# Obtener la versión
+VRS=$( mvn help:evaluate -Dexpression=project.version | grep -v '\[' | grep '^[0-9]*.*' )
+
+# Ahora generar la imagen docker
+cd docker
+mvn clean \
+    -DskipTests \
+    -Ddistribution.version=$VRS \
+    -Prelease install docker:build 
+
+cd -
+```
+
+Una vez se genere la imagen docker en nuestro equipo, al ejecutar ```docker image ls``` deberá aparecer en primer lugar:
+
+```
+REPOSITORY                                       TAG                 IMAGE ID            CREATED             SIZE
+app-expepatri                                    1.1-SNAPSHOT        0cbc537b84d1        9 seconds ago       130MB
+registry-gitlab.carm.es/dockers/srv/tomcat-8.5   latest              870af59d8813        8 months ago        103MB
+hello-world                                      latest              bf756fb1ae65        11 months ago       13.3kB
+```
+
+
+Luego se podrá  **ejecutar desde el equipo**, mediante el comando:
+
+```
+docker run  -p 8080:8080 --name test app-expepatri:$VRS
+```
+
+Con este comando se está indicando:
+
+* ```run```: Ejecutar la imagen
+* ```-p 8080:8080```: Mapear el puerto 8080 de nuestro equipo al 8080 que escucha el Tomcat del contenedor, por lo que la aplicación podrá usarse en [http://localhost:8080/expepatri/](http://localhost:8080/expepatri/)
+* ```--name test```: Al contenedor le llamaremos ```test```
+* El último argumento es el nombre de la imagen docker que se quiere ejecutar, que coincidirá con el nombre de la imagen que generamos con maven.
+
+Para detener la ejecución del contenedor bastará con ejecutar:
+
+```
+docker stop test
+```
+
+Y para volverla a iniciarla:
+
+```
+docker start test
+```
+
+Si reutilizamos el nombre del contenedor ```test``` para distintas imágenes, tendremos que ejecutar antes de cada ```docker run ...```:
+
+```
+docker rm test
+```
+
+
+### Tareas de despliegue Jenkins
+Para poder desplegar la aplicación con Jenkins en los servidores de la CARM, deberá **crear un nuevo ticket en GLPI** con las siguientes características:
+
+* **Categoría**: ```Alojamiento de aplicaciones >  Java, tomcat, jboss, node js, oas y weblogic```
+* **Título**: Escribar un motivo similar a: _```[JENKINS] Crear tareas de despliegue y configuración APLICACION_XXXXX```_
+* **Descripción**: Detalle su solicitud, indicando claramente la ruta en NEXUS de la CARM en la que encontrar los ```-SNAPSHOTS``` de y ```RELEASES``` de la aplicación.
+
+![localiza](imagenes/svn2git023.png)
 
 
 ## Para finalizar

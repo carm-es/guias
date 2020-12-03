@@ -1,0 +1,17 @@
+
+# Entorno desarrollo
+10.166.184.43  devapli.carm.es
+
+# Entorno de pruebas
+147.84.179.217 jad-pru.carm.es
+147.84.179.126 sso-pru.carm.es
+147.84.179.168 pase-pru.carm.es
+147.84.179.217 centroautorizaciones-pru.carm.es
+147.84.179.106 eatest.carm.es
+147.84.179.217 jinformes-pru.carm.es
+
+# Entorno de produccion
+147.84.179.109 www.carm.es
+10.166.172.125 relay.carm.es
+10.166.172.17  listas.carm.es
+

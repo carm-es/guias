@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- INSPIRACION: https://github.com/Alfresco/acs-packaging -->
+
+  <groupId>es.carm.AAAAAA</groupId>
+  <artifactId>docker</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <distribution.version>${project.version}</distribution.version>
+    <image.name>app-XXXXXX</image.name>
+    <image.registry>registry-gitlab.carm.es/siac/XXXXXX</image.registry>
+    <dependency.fabric8.version>0.33.0</dependency.fabric8.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>es.carm.AAAAAA</groupId>
+      <artifactId>DDDDDD</artifactId>
+      <version>${distribution.version}</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <!-- COPIAR CONFIGURACION DOCKER -->
+          <execution>
+            <id>copiar-configuracion</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>../configuracion/local</directory>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+              <outputDirectory>${project.build.directory}/conf</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.2</version>
+        <executions>
+          <!-- DESCARGA DE WARS DE LA APLICACION -->
+          <execution>
+            <id>descarga-dependencias</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>es.carm.AAAAAA</groupId>
+                  <artifactId>DDDDDD</artifactId>
+                  <version>${distribution.version}</version>
+                  <type>war</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/wars</outputDirectory>
+                  <destFileName>WWWWWW</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <!-- DESCARGA DE LIBRERIAS DEL TOMCAT -->
+          <execution>
+            <id>descarga-librerias</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.oracle</groupId>
+                  <artifactId>ojdbc6</artifactId>
+                  <version>11.2.0.4.0</version>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <!-- CONSTRUCCION DE LA IMAGEN DOCKER -->
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${dependency.fabric8.version}</version>
+        <configuration>
+          <images>
+            <image>
+              <name>${image.name}</name>
+              <build>
+                <dockerFileDir>${project.basedir}/</dockerFileDir>
+              </build>
+            </image>
+          </images>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <profiles>
+
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>${dependency.fabric8.version}</version>
+            <configuration>
+              <images>
+                <image>
+                  <name>${image.name}:${distribution.version}</name>
+                  <registry>${image.registry}</registry>
+                  <build>
+                    <dockerFileDir>${project.basedir}/</dockerFileDir>
+                  </build>
+                </image>
+                <image>
+                  <name>${image.name}:${distribution.version}</name>
+                  <build>
+                    <dockerFileDir>${project.basedir}/</dockerFileDir>
+                  </build>
+                </image>
+              </images>
+            </configuration>
+            <executions>
+              <execution>
+                <id>build-push-image</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>build</goal>
+                  <goal>push</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+</project>
