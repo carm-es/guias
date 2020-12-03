@@ -91,7 +91,7 @@ Por tanto, para preparar tu equipo a poder realizar este proceso, tendrás que e
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y subversion git maven git-svn tree dos2unix
+sudo apt-get install -y subversion git maven git-svn tree dos2unix pandoc
 ```
 
 ## La migración del repositorio
@@ -527,11 +527,111 @@ Con todo esto, habrá que modificar el  ```pom.xml``` hasta conseguir minimizar 
 
 ## Configuración
 
-**PENDIENTE** de acabar
+Siguiendo con la [guia Java](../guias/java/Guia-Configuracion.md), el proyecto deberá recoger la configuración de la aplicación en los diferentes entornos de la siguiente manera:
 
-- [ ] Explicar cómo crear una nueva rama ```configuracion``` (sin código)
-- [ ] Cómo organizar el contenido : local + pro + des + pru
+1. Un directorio ```configuracion/local/``` en la rama ```master``` con toda la configuración que necesita el docker con la aplicación para arrancar.
+2. Una rama  ```config``` que tenga a su vez un directorio ```configuracion/```, con un subdirectorio por entorno CARM en el que desplegarla: ```des/``` , ```pru/```, ```pro/```.
 
+Los ficheros de todos estos directorios asumimos que el despliegue los dejará en el directorio ```$CATALINA_HOME/conf/XXXX```, donde ```XXXX``` será el nombre de nuestra aplicación, que para nuestro ejemplo se convertirá en ```$CATALINA_HOME/conf/ExpedientesPatrimonio```
+
+La labor en esta fase consiste en localizar los ficheros de configuración para cada entorno y llevarlos a esta estructura.
+
+
+### Repositorio SIN configuración
+
+Al migrar el repositorio desde Sbuversion a GitLab nos **encontramos que no existe  el directorio ```configuracion/``` en la rama ```trunk```**,  tendremos que pedir a sistemas la configuración de la aplicación para cada uno de los entornos, y si no, habbrá que investigar en el código fuente y la documentación para crearla.
+
+El primer paso será **crear la estructura de directorios en nuestra rama ```master```**:
+
+```bash
+for i in local pro pru
+do
+   mkdir -p configuracion/$i
+done
+```
+
+Luego habrá que **copiar en cada directorios los ficheros correspondientes a ese entorno**, y por último entregar a git.
+
+```bash
+git add configuracion
+
+git commit -m "chore: Añadir configuración
+Añado al proyecto la semilla de configuración.
+Issue: #1"
+
+git push
+```
+
+### Repositorio CON configuración
+
+En caso de que nos **encontremos que el repositorio ya tiene el directorio ```configuracion/``` en la rama ```trunk```**,  o bien vengamos del paso anterior, deberań realizarse los siguientes pasos:
+
+En primer lugar **crear una nueva rama ```config``` y borrar todo su contenido excepto el directorio ```configuracion/```**:
+
+```bash
+# Crear la rama...
+git checkout -b config
+
+# Borrar todo excepto configuracion...
+
+# Generar un fichero con los candidatos a borrar
+ls -1a | grep -v '\.$' \
+| grep -v '\.git$' \
+| grep -v 'configuracion' \
+> /tmp/lista
+
+# Recorrer el fichero y borrarlos del git...
+exec 7< /tmp/lista
+while read -u 7 linea
+do
+   git rm -fr "$linea"
+done
+exec 7<&-
+
+# Borrar el fichero temporal
+rm -f /tmp/lista
+```
+
+Luego **eliminar el directorio ```configuracion/local```**  si existiera,
+
+```bash
+git rm -fr configuracion/local
+```
+
+Y después **publicar la rama ```config``` en el repositorio**:
+```bash
+git commit -m "chore: Crear rama de configuración
+
+Se lleva toda la configuración a una rama independiente.
+Issue: #1"
+
+git push --set-upstream origin config
+```
+
+Ahora, volver a la rama ```develop``` o ```master```, en la que estuviéramos para **borrar del git la configuración que no sea ```local```**:
+
+```bash
+# Volver a la en la que estábamos...
+git checkout develop
+
+# Borrar toda la configuracion, excepto local/
+cd configuracion/
+for i in $(ls -1 | grep -v local)
+do
+    git rm -fr "$i"
+done
+```
+
+Y ya por último, **entregar a GitLab**:
+
+```bash
+git commit -m "chore: Eliminar configuración no-local
+
+Elimino los directorios con configuración que no aplica a local
+Issue: #1"
+
+git push
+```
 
 
 ## Integración continua
