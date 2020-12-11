@@ -9,7 +9,7 @@ La configuración de cada aplicación **se almacena en su repositorio de código
 En el proceso de despliegue de la aplicación, **Jenkins copia el contenido del directorio ```/configuracion/XXXX/``` en ```$CATALINA_HOME/conf/YYYY``` de los servidores que ejecutarán la aplicación**, donde:
 
 * ```XXXX``` es el entorno en el que se va a desplegar y tendrá uno de los siguientes valores: ```produccion```, ```pruebas``` o ```desarrollo```.
-*  ```YYYY``` es el nombre de la aplicación *(ejemplo: tramel, sandra, etc...)*
+*  ```YYYY``` es el nombre del artefacto de la aplicación *(ejemplo: tramel, sandra, etc..., que suele coincidir con el nombre del WAR)*
 
 
 ## Requisitos de la configuración

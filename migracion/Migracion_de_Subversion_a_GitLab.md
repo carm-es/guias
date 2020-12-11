@@ -530,12 +530,12 @@ Con todo esto, habrá que modificar el  ```pom.xml``` hasta conseguir minimizar 
 
 ## Configuración
 
-Siguiendo con la [guia Java](../guias/java/Guia-Configuracion.md), el proyecto deberá recoger la configuración de la aplicación en los diferentes entornos de la siguiente manera:
+Siguiendo con la [guia Java](../java/Guia-Configuracion.md), el proyecto deberá recoger la configuración de la aplicación en los diferentes entornos de la siguiente manera:
 
 1. Un directorio ```configuracion/local/``` en la rama ```master``` con toda la configuración que necesita el docker con la aplicación para arrancar.
 2. Una rama  ```config``` que tenga a su vez un directorio ```configuracion/```, con un subdirectorio por entorno CARM en el que desplegarla: ```des/``` , ```pru/```, ```pro/```.
 
-Los ficheros de todos estos directorios asumimos que el despliegue los dejará en el directorio ```$CATALINA_HOME/conf/XXXX```, donde ```XXXX``` será el nombre de nuestra aplicación, que para nuestro ejemplo se convertirá en ```$CATALINA_HOME/conf/ExpedientesPatrimonio```
+Los ficheros de todos estos directorios asumimos que el despliegue los dejará en el directorio ```$CATALINA_HOME/conf/XXXX```, donde ```XXXX``` será el nombre del artefacto de nuestra aplicación, que para nuestro ejemplo se convertirá en ```$CATALINA_HOME/conf/expepatri```
 
 La labor en esta fase consiste en localizar los ficheros de configuración para cada entorno y llevarlos a esta estructura.
 
