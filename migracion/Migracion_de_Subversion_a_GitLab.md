@@ -756,6 +756,14 @@ Esto consiste en **añadir una nueva rama ```develop``` al repositorio a partir 
 ![develop permisos](imagenes/svn2git017.png)
 
 
+### Limpieza de ramas obsoletas
+
+![stale branches](imagenes/svn2git025.png)
+
+El proceso de migración desde Subversion podría arrastrar o resucitar ramas obsoletas que ya no tienen validez. GitLab las clasifica como *Stale branches*.  El término *Stale* se traduce como *rancio*, algo que no se ha  tocado sospechosamente en mucho tiempo y podría ser obsoleto o estar roto: **Mejor eliminarlas**.
+
+
+
 
 ## Despliegue del proyecto
 
@@ -842,11 +850,22 @@ docker rm test
 Para poder desplegar la aplicación con Jenkins en los servidores de la CARM, deberá **crear un nuevo ticket en GLPI** con las siguientes características:
 
 * **Categoría**: ```Alojamiento de aplicaciones >  Java, tomcat, jboss, node js, oas y weblogic```
-* **Título**: Escribar un motivo similar a: _```[JENKINS] Crear tareas de despliegue y configuración APLICACION_XXXXX```_
+* **Título**: Escribir un motivo similar a: _```[JENKINS] Crear tareas de despliegue y configuración APLICACION_XXXXX```_
 * **Descripción**: Detalle su solicitud, indicando claramente la ruta en NEXUS de la CARM en la que encontrar los ```-SNAPSHOTS``` de y ```RELEASES``` de la aplicación.
 
 ![localiza](imagenes/svn2git023.png)
 
+Si **ya existía la tarea de despligue**, habrá que solicitar en el ticket que la actualicen para que en vez de usar Subversion, use GitLab, indicando la URL del repositorio del proyecto. 
+
+
+### Tarea de compilación
+Si la aplicación hasta la migración se compilaba mediante una tarea de Jenkins, deberá **crear un nuevo ticket en GLPI** con las siguientes características:
+
+* **Categoría**: ```Alojamiento de aplicaciones >  Java, tomcat, jboss, node js, oas y weblogic```
+* **Título**: Escribir un motivo similar a: _```[JENKINS] Eliminar tarea de compilación APLICACION_XXXXX```_
+* **Descripción**: Detalle su solicitud, indicando claramente el Link a la tarea Jenkins que eliminar, puesto que a partir de ahora se compilará automáticamente con cada push al repositorio, vía GitLab-CI.
+
+![Tarea de compilación](imagenes/svn2git024.png)
 
 ## Para finalizar
 
