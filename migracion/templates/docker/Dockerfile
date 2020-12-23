@@ -1,7 +1,7 @@
 
 
 # Imagen de referencia de Tomcat que gestiona Sistemas
-FROM registry-gitlab.carm.es/dockers/srv/tomcat-8.5:latest
+FROM docker-registry.carm.es/carm/cicd/dockers/srv/tomcat-8.5:latest
 
 ENV TZ=Europe/Madrid
 # ---------

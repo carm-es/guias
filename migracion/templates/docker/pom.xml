@@ -11,7 +11,7 @@
   <properties>
     <distribution.version>${project.version}</distribution.version>
     <image.name>app-XXXXXX</image.name>
-    <image.registry>registry-gitlab.carm.es/siac/XXXXXX</image.registry>
+    <docker.imagepath>docker-registry.carm.es/carm</docker.imagepath>
     <dependency.fabric8.version>0.33.0</dependency.fabric8.version>
   </properties>
 

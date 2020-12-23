@@ -807,10 +807,10 @@ cd -
 Una vez se genere la imagen docker en nuestro equipo, al ejecutar ```docker image ls``` deberá aparecer en primer lugar:
 
 ```
-REPOSITORY                                       TAG                 IMAGE ID            CREATED             SIZE
-app-expepatri                                    1.1-SNAPSHOT        0cbc537b84d1        9 seconds ago       130MB
-registry-gitlab.carm.es/dockers/srv/tomcat-8.5   latest              870af59d8813        8 months ago        103MB
-hello-world                                      latest              bf756fb1ae65        11 months ago       13.3kB
+REPOSITORY                                                 TAG                 IMAGE ID            CREATED             SIZE
+app-expepatri                                              1.1-SNAPSHOT        0cbc537b84d1        9 seconds ago       130MB
+docker-registry.carm.es/carm/cicd/dockers/srv/tomcat-8.5   latest              870af59d8813        8 months ago        103MB
+hello-world                                                latest              bf756fb1ae65        11 months ago       13.3kB
 ```
 
 
