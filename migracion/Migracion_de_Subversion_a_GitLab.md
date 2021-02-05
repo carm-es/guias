@@ -533,7 +533,7 @@ Con todo esto, habrá que modificar el  ```pom.xml``` hasta conseguir minimizar 
 Siguiendo con la [guia Java](../java/Guia-Configuracion.md), el proyecto deberá recoger la configuración de la aplicación en los diferentes entornos de la siguiente manera:
 
 1. Un directorio ```configuracion/local/``` en la rama ```master``` con toda la configuración que necesita el docker con la aplicación para arrancar.
-2. Una rama  ```config``` que tenga a su vez un directorio ```configuracion/```, con un subdirectorio por entorno CARM en el que desplegarla: ```des/``` , ```pru/```, ```pro/```.
+2. Una rama  ```config``` que tenga a su vez un directorio ```configuracion/```, con un subdirectorio por entorno CARM en el que desplegarla: ```desarrollo/``` , ```pruebas/```, ```produccion/```.
 
 Los ficheros de todos estos directorios asumimos que el despliegue los dejará en el directorio ```$CATALINA_HOME/conf/XXXX```, donde ```XXXX``` será el nombre del artefacto de nuestra aplicación, que para nuestro ejemplo se convertirá en ```$CATALINA_HOME/conf/expepatri```
 
@@ -547,7 +547,7 @@ Al migrar el repositorio desde Sbuversion a GitLab nos **encontramos que no exis
 El primer paso será **crear la estructura de directorios en nuestra rama ```master```**:
 
 ```bash
-for i in local pro pru
+for i in local produccion pruebas
 do
    mkdir -p configuracion/$i
 done

@@ -1,6 +1,6 @@
 # Configuración de las aplicaciones
 
-La configuración de cada aplicación **se almacena en su repositorio de código fuente bajo el directorio ```/configuracion```**. En él se tendrá un subdirectorio por cada entorno en el que pueda desplegarse la aplicación:
+La configuración de cada aplicación **se almacena en su repositorio de código fuente en una rama ```config``` bajo el directorio ```/configuracion```**. En él se tendrá un subdirectorio por cada entorno en el que pueda desplegarse la aplicación:
 
 * ```/configuracion/produccion/``` con la configuración de la aplicación que deberá desplegarse en producción,
 * ```/configuracion/pruebas/``` con la configuración que desplegar en el entorno de pruebas,
@@ -10,6 +10,8 @@ En el proceso de despliegue de la aplicación, **Jenkins copia el contenido del 
 
 * ```XXXX``` es el entorno en el que se va a desplegar y tendrá uno de los siguientes valores: ```produccion```, ```pruebas``` o ```desarrollo```.
 *  ```YYYY``` es el nombre del artefacto de la aplicación *(ejemplo: tramel, sandra, etc..., que suele coincidir con el nombre del WAR)*
+
+Luego en las ramas habituales (```master``` y/o ```develop```) se podrá tener el directorio ```/configuracion/local/``` con la plantilla de configuración que poder usar tanto en el equipo local del desarrollador como en el docker de la aplicación.
 
 
 ## Requisitos de la configuración
