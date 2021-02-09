@@ -694,6 +694,10 @@ Estos ficheros hay que revisarlos uno a uno, antes de decidir si convertirlos a 
 * Puede que sean ficheros ```.html``` que declaran correctamente su charset mediante ```<meta charset="ISO-8859-1">```
 * O ficheros ```.xml``` que declaran correctamente su charset en el prólogo ```<?xml version="1.0" charset="ISO-8859-1">```
 * O ```.jsp``` que declaran correctamente el charset ```<%@ ... pageEncoding="UTF-8"%>```
+* Para los ficheros ```.properties```, hay que tener en cuenta:
+  * Antes de Java 9, la codificación utilizada en un fichero de propiedades es ISO-8859-1, no UTF-8 (se puede mantener, para estos proyectos, la codificación por defecto, ISO-8859-1, en este tipo de ficheros).
+    * Si la aplicación usa un idioma que no usa ISO-8859-1, entonces se debe usar la herramienta ```native2ascii``` para procesar los ficheros de propiedades codificados en UTF-8 al formato ascii con caracteres Unicode de escape. Con Maven, se puede [utilizar el plugin *native2ascii-maven-plugin*](https://github.com/mojohaus/native2ascii-maven-plugin), especificando que el encoding origen es UTF-8.
+  * A partir de Java 9, los ficheros de propiedades se codifican por defecto en UTF-8.
 
 En general, habrá que convertir estos ficheros si declaran un Charset y sin embargo el comando ```file -i``` nos indica que tienen otro charset distinto. La conversión a UTF8 puede realizarse con el siguiente comando:
 
