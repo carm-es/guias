@@ -55,7 +55,7 @@ Para ello, se creará un fichero en ```/configuracion/desarrollo/``` por cada ar
 ...donde:
 
 * ```AAAA``` es el nombre del fichero de configuración
-* ```EXT``` es la extensión que tuviera el fichero de configuración *(ejemplo. ```.xml```, ```.properties```)*
+* ```EXT``` es la extensión que tuviera el fichero de configuración *(ejemplo   ```.properties```)*
 * ```concatenar``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.concatenar.EXT```, que deben instanciar.
 
 
@@ -149,3 +149,76 @@ En resumen: Llevar todos los parámetros de configuración *"sensibles"* del fic
 
 
 Luego, al configurar la tarea de despliegue en Jenkins para la aplicación, el equipo de operaciones implementará que, después de copiar la configuración de la aplicación en el servidor, resuelva el contenido de todos los ficheros ```*.concatenar.*``` y los concatene a sus respectivos ```*.*``` .
+
+
+### Secretos en ficheros estructurados _(.xml, .yaml)_
+
+
+Todo lo expuesto, aplica muy bien a ficheros *```.properties```* y similares, para los que se puede construir el fichero final que usará nuestra aplicación, simplemente concatenando dos ficheros: uno que conoce el equipo de desarrollo y otro (con los secretos) que conoce el equipo de operaciones. El problema aparece cuando la configuración se especifica mediante ficheros con contenido estructurado, como *```.xml```* ó *```.yaml```*, para los que construir el fichero final, no se limita a concatenar 2 ficheros.
+
+Imaginar por ejemplo un fichero ```config.xml``` con el siguiente contenido:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Repositories>
+   <!-- Repositorio de documentos electronicos -->
+   <Repository id="3" alias="ge_docs" default="true">
+      <Properties>
+         <Property name="ALFRESCO_IP_ADDRESS">alfresco-nodo1-pru.carm.es</Property>
+         <Property name="ALFRESCO_PORT">8080</Property>
+         <Property name="ALFRESCO_USER">superadmin</Property>
+         <Property name="ALFRESCO_PASSWORD">pokemon</Property>
+
+         <Property name="ALFRESCO_STORE_NAMESPACE">Store</Property>
+         <Property name="ALFRESCO_FILE_KEY">document_name</Property>
+         <Property name="ALFRESCO_ASPECTS">{ge.model}aspectDocumento</Property>
+         <Property name="ALFRESCO_REPOSITORY_WEBSCRIPT_URL">http://localhost:8080/alfresco/service/ieci/repository/ge</Property>
+
+         <Property name="DOCUMENT_NAME_TOKEN">documentName</Property>
+      </Properties>
+   </Repository>
+</Repositories>
+```
+
+Para este fichero, los secretos son:
+
+1. El nodo de Alfresco: ```alfresco-nodo1-pru.carm.es```
+2. El puerto:  ```8080``` (que aparece en dos lugares)
+3. El usuario: ```superadmin```
+4. La contraseña: ```pokemon```
+
+
+En vez de concatenar ficheros, lo que en estos casos se hace, es sustituir variables por su valor. Para ello, se especificarán en un fichero con extensión ```.sustituir.properties``` todas las variables y su valor para el entorno de desarrollo. Así, para nuestro ejemplo, **crearemos en la rama ```config``` un nuevo fichero ```/configuracion/desarrollo/config.xml.sustituir.properties```** con el siguiente contenido:
+
+
+```
+alfresco.servidor=alfresco-nodo1-pru.carm.es
+alfresco.puerto=8080
+alfresco.usuario=superadmin
+alfresco.passwd=pokemon
+```
+
+...y adaptaremos el fichero ```/configuracion/desarrollo/config.xml``` para indicar **dónde aplicar estas sustituciones usando ```{${NOMBRE_VARIABLE}}```**:
+
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Repositories>
+   <!-- Repositorio de documentos electronicos -->
+   <Repository id="3" alias="ge_docs" default="true">
+      <Properties>
+         <Property name="ALFRESCO_IP_ADDRESS">{${alfresco.servidor}}</Property>
+         <Property name="ALFRESCO_PORT">{${alfresco.puerto}}</Property>
+         <Property name="ALFRESCO_USER">{${alfresco.usuario}}</Property>
+         <Property name="ALFRESCO_PASSWORD">{${alfresco.passwd}}</Property>
+
+         <Property name="ALFRESCO_STORE_NAMESPACE">Store</Property>
+         <Property name="ALFRESCO_FILE_KEY">document_name</Property>
+         <Property name="ALFRESCO_ASPECTS">{ge.model}aspectDocumento</Property>
+         <Property name="ALFRESCO_REPOSITORY_WEBSCRIPT_URL">http://localhost:{${alfresco.puerto}}/alfresco/service/ieci/repository/ge</Property>
+
+         <Property name="DOCUMENT_NAME_TOKEN">documentName</Property>
+      </Properties>
+   </Repository>
+</Repositories>
+```
