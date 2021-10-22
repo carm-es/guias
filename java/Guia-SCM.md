@@ -82,6 +82,7 @@ Esta guía no pretende ser un manual de Git, sino presentar lo mínimo necesario
 4. [Git - la guía sencilla](https://rogerdudler.github.io/git-guide/index.es.html) Chuleta con los comandos que más usarás en el día a día: **Imprescindible**
 5. [Git para usuarios de SVN](https://blog.openalfa.com/git-para-usuarios-de-svn): Si te manejas bien con Subversion, esta guía te traduce lo que solías hacer con SVN a cómo se hace con Git *(un pelín breve, pero muy útil para empezar)**
 6. [El libro oficial](https://git-scm.com/book/es/v2): Para convertirse en maestro de Git.
+7. [learngitbranching.js.org](https://learngitbranching.js.org/?locale=es_ES): Tutorial interactivo para aprender Git jugando.
 
 Una vez se conoce la herramienta que usaremos para gestionar todo el código fuente del proyecto en el que trabajaremos, el flujo de trabajo de nuestro día a día, será el siguiente:
 
