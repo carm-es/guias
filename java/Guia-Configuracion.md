@@ -188,7 +188,21 @@ Para este fichero, los secretos son:
 4. La contraseña: ```pokemon```
 
 
-En vez de concatenar ficheros, lo que en estos casos se hace, es sustituir variables por su valor. Para ello, se especificarán en un fichero con extensión ```.sustituir.properties``` todas las variables y su valor para el entorno de desarrollo. Así, para nuestro ejemplo, **crearemos en la rama ```config``` un nuevo fichero ```/configuracion/desarrollo/config.xml.sustituir.properties```** con el siguiente contenido:
+En vez de concatenar ficheros, lo que en estos casos se hace, es sustituir variables por su valor. Para ello, se especificarán en un fichero ```*.sustituir.*``` todas las variables y su valor para el entorno de desarrollo:
+
+
+<h2 style="text-align: center"<code>AAAA.sustituir.EXT</code></h2>
+
+
+...donde:
+
+* ```AAAA``` es el nombre del fichero de configuración
+* ```EXT``` es la extensión que tuviera el fichero de configuración *(ejemplo   ```.xml```, ```.yaml``` )*
+* ```sustituir``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.sustituir.EXT```, que deberán instanciar.
+
+
+
+Así, para nuestro ejemplo, **crearemos en la rama ```config``` un nuevo fichero ```/configuracion/desarrollo/config.sustituir.xml```** con el siguiente contenido:
 
 
 ```
