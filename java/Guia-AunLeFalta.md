@@ -31,71 +31,52 @@ Si se leen las recomendaciones de cada una de estas instituciones y se profundiz
 
 ...y, para todo ello, se describen las herramientas que se usarán en cada una de las instituciones.
 
-## Septiembre 2020: ¿en qué punto estamos?
+## Septiembre 2022: ¿en qué punto estamos?
 
 Cuando comenzamos a desarrollar esta guía de buenas prácticas, nos fijamos como principal objetivo adaptar las prácticas que propone la integración y entrega continua *(CI/CD)* a la realidad del desarrollo Java en la CARM con las herramientas de las que disponíamos: Desde entonces **hemos estado trabajando en modelar el proceso**:
 
-![CI/CD](imagenes/TODO-03.png)
+![CI/CD](imagenes/TODO-04.png)
 
 En **la parte de desarrollo *(dev)***, tenemos:
 
-* Totalmente **acabada y documentada**: ```code```, ```build```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. Apenas requiere mantenimiento.
-* Por **acabar de documentar**: ```plan```. *La tenemos documentada, pero aplicada en muy pocos proyectos, y sería precipitado suponer que está acabada: Preferimos esperar a que se use en más proyectos y recibir feedback.*
-* Todo **por hacer**: ```test```. *Estamos en fase de recopilación de links, lectura, comprensión, pruebas en unos pocos proyectos... aún es pronto para documentar*
+* Totalmente **acabada y documentada**: ```code```, ```build```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. 
+* Por **acabar de implantar**: ```plan```. *Estamos trabajando en su difusión, cada vez son más los proyectos que adoptan este estilo de planificación.*
+* Estamos **en ello**: ```test```. *Estamos trabajando en un proyecto en maximizar la cobertura de test unitarios (con Junit5) y la integración de tests con Selenium en el pipeline, que nos ayude  definir el modelo.*
 
 En **la parte de operaciones *(ops)***, disponemos:
 
-* Totalmente **acabada y documentada**: ```release```, ```deploy```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional. El  **```deploy``` es totalmente manual**:
+* Totalmente **acabada y documentada**: ```release```, ```deploy```. Los proyectos que la usan no reportan incidencias, son autónomos y es plenamente funcional.  El ```deploy```: 
+	* En el entorno de pruebas es automático _(con GitLab)_
+	* En el entorno de producción es manual  _(tanto con GitLab como con Jenkins)_
 
-	* Tanto el despliegue de una aplicación en un entorno determinado
-	* Como las acciones que debe realizar el equipo de operaciones para que un proyecto pueda desplegarse desde Jenkins.
+En **la parte de seguridad *(sec)***,  tenemos integrado el escaneo de vulnerabilidades de todos los artefactos, _tanto Java como docker_.
 
-En el verano de 2020, se empieza a trabajar en:
 
-1. **Automatizar el deploy en el entorno de pruebas** mediante GitLab-CI con ayuda de contenedores Dockers y un cluster Swarm
-2. **Cambiar la gestión de la configuración de las aplicaciones**, para usar [Vault](https://www.vaultproject.io/).
-3. **Generar automáticamente imágenes Docker** de las aplicaciones, de la misma manera que generamos ```.war```
 
-Para todo ello, hemos estado usando como material de apoyo y referencia:
 
-1.  El artículo *[Continuous Development: How Iterative Processes Can Improve Your Code](https://deploybot.com/blog/continuous-development)*,  a modo introductorio.
+En el verano de 2022, se empieza a trabajar en:
 
-2.  El libro  [Continuous Delivery de Jez Humble y David Farley](https://www.amazon.es/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/)   y el [resumen que hace de él Samuel Casanova](https://samuelcasanova.com/2017/12/resumen-continuous-delivery/) .
+1. **Actualizar la numeración del versionado** de los artefactos por un modelo propio
+2. **Integrar tests** tanto unitarios como de aceptación e integridad (con Selenium)
+3. **Mejorar los pipelines** para controlar más aspectos de los que contempla la guía _(numero de ramas en los proyectos, gestión automatizada de etiquetas de los issues, etc)_
 
-	![Continuous Delivery](imagenes/TODO-04.jpg)
 
-3. El libro [Continuous Delivery in Java](https://www.amazon.es/Continuous-Delivery-Java-Essential-Production/dp/1491986026) de Daniel Bryant.
-
-	![Continuous Delivery in Java](imagenes/TODO-05.jpg)
-
-4. El libro [Containerizing Continuous Delivery in Java](https://www.nginx.com/resources/library/containerizing-continuous-delivery-java/) de Daniel Bryant.
-
-	![Containerizing Continuous Delivery in Java](imagenes/TODO-06.png)
 
 
 ## ¿Y qué le falta a la guía?
 
 Aparte de lo que ya se ha comentado en el estado actual de la guía, sobre lo que ya tenemos implantado consideramos que aún nos faltaría:
 
-1. Establecer **normas para Pull/Merge Request** (en el documento [Cómo deben ser los commits](Guia-Commits.md)). **Lo estamos rodando para ver qué nos puede interesar** y resultar más práctico, cómodo, rápido y venir bien a la hora de automatizar los pipelines. Tenemos localizados algunos links inspiradores:
-    * https://geeks.ms/windowsplatform/2017/04/18/como-generar-mejores-pull-requests/
-    * https://www.braintreepayments.com/blog/effective-pull-requests-a-guide/
-    * https://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/
-    * https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md
-    * https://medium.com/@hugooodias/the-anatomy-of-a-perfect-pull-request-567382bb6067https://diesdas.digital/wiki/life-as-a-developer/pull-request-guidelines 
-2. **El ChangeLog**, como un registro por proyecto de los cambios que se introducen en cada versión, de manera automática. 
-    * https://keepachangelog.com/es-ES/0.3.0/
-    * https://danielflower.github.io/maven-gitlog-plugin/index.html
-    * https://github.com/tomasbjerre/git-changelog-maven-plugin
-    * https://github.com/tomasbjerre/git-changelog-lib  
-3. **Oneflow automático**. Necesitamos automatizar los cambios de rama que nos impone *Oneflow*  cuando publicamos una release (integrar ```master``` en ```develop```), o integramos un *hotfix* en  ```master``` (que también se integre en ```develop```). Esto hasta ahora venimos realizándolo manualmente y nos quita tiempo.
-4. **Documentación técnica y GitLab-Pages**. Para la documentación técnica de los proyectos estamos escribiendo la documentación en Markdown en una rama específica del proyecto, pero aún no está automatizado el proceso de renderizado a HTML, ni configurado GitLab para [soportar GitLab-Pages](https://docs.gitlab.com/ee/user/project/pages/).
+1. **El ChangeLog**, como un registro por proyecto de los cambios que se introducen en cada versión, de manera automática basado en los issues que conforman cada _Hito/Milestone_. 
+2. **Documentación técnica y GitLab-Pages**. Para la documentación técnica de los proyectos estamos escribiendo la documentación en Markdown en una rama específica del proyecto, pero aún no está automatizado el proceso de renderizado a HTML, ni configurado GitLab para [soportar GitLab-Pages](https://docs.gitlab.com/ee/user/project/pages/).
 
 
-Quizás que **lo más importante de lo que queda por hacer, es extender estas buenas prácticas a más proyectos en la CARM**: En el último año, han sido muy pocos los que se han unido, y a pesar de ello, los resultados son muy esperazandores e ilusionantes.
+Quizás que **lo más importante de lo que queda por hacer, es extender estas buenas prácticas a más proyectos en la CARM**:  Aunque cada vez son más los proyectos que integran el pipeline-CI, aún son pocos los que usan el pipeline-CD.
+
 
 
 ### ¿Cómo se desarrolla la guía?
+
 **Se parte de un hito o una necesidad en el proceso de desarrollo**:
 1. Se **recopilan links y referencias** que expliquen cómo solucionarla dentro del marco de la integración continua y de las tecnologías ágiles. 
 2. Se **leen estas referencias y se comparten** entre la gente predispuesta que se haya encontrado con esa necesidad/hito, se llega a un consenso de cuál es mejor adoptar.
