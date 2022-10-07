@@ -83,9 +83,11 @@ de su aplicación en un paquete distribuible para instalar. Además, encontrará
 ## Repositorio de artefactos *(nexus)*
 
 Lea la guía sobre el [Repositorio de artefactos](Guia-Nexus.md) para 
-descubrir dónde acaban todos los paquetes que se construyen automáticamente, y
+descubrir dónde acaban todos los paquetes y contenedores _docker_ que se construyen automáticamente, y
 
 1. Qué hacer cuando **necesite un ```.jar``` que no está en Internet**
+1. Qué hacer cuando necesite **usar un `docker` de internet**
+1. Cómo **ejecutar en su equipo la aplicación** que se despliega en los servidores de la CARM
 
 ## Calidad del código *(sonarqube)*
 
