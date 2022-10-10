@@ -48,19 +48,19 @@ Las normas mínimas comunes para cualquier proyecto Java serán:
 
 > *Considera que, con el primer issue que crees, vamos a saber cuánto has leído y cómo de en serio te tomas todo esto*
 
-### Etiquetas
-Las etiquetas mínimas serán las que proponen [GitHub](https://help.github.com/es/articles/about-labels)/[GitLab](https://docs.gitlab.com/ee/user/project/labels.html) de forma predeterminada:
 
-* <span style="background-color:red; color: white;">&nbsp;bug </span>: Indica un problema inesperado o un comportamiento no intencionado
-* <span style="background-color:red; color: white;">&nbsp;confirmed </span>: Indica que el bug se puede reproducir como indica el Issue
-* <span style="background-color:red; color: white;">&nbsp;critical </span>: Por culpa de ese issue, los usuarios no pueden trabajar
-* <span style="background-color:blue; color: white;">&nbsp;discussion </span>: Actas de reunión, debates o hilos de conversación donde se debate el rumbo de cambios que debe tomar la aplicación
-* <span style="background-color:blue; color: white;">&nbsp;suggestion </span>: Propuesta de cambio de mejora para la aplicación, una nueva funcionalidad
-* <span style="background-color:green; color: white;">&nbsp;enhancement </span>: Mejora o feature por implementar, nuevas funcionalidades 
-* <span style="background-color:gray; color: white;">&nbsp;documentation </span>: Indica una necesidad de mejoras o adiciones a la documentación
-* <span style="background-color:gray; color: white;">&nbsp;support </span>: Preguntas sobre el uso de la aplicación, dudas... 
+### Menciones
+Usa las menciones siempre que puedas:
 
-Estas se ampliarán cuando el responsable lo considere, siguiendo el **código de colores** que propone *[What is the Issues Label Standard (WIP)](https://github.com/moimikey/issues-label-standard/)*:
+* Mención a **usuarios**: *Ejemplos: @login, @admin...*
+* Mención a **otros issues**: *Ejemplos: #14, #45...*
+* Mención a **etiquetas**: *Ejemplos: ~bug, ~documentation...*
+
+
+## Etiquetado de issues
+Las etiquetas en  [GitHub](https://docs.github.com/es/issues/using-labels-and-milestones-to-track-work/managing-labels)/[GitLab](https://docs.gitlab.com/ee/user/project/labels.html) son marcas que añadimos a los issues que sirven para categorizarlos y organizar su resolución.
+
+Estas marcas contienen una o dos palabras y un color de fondo que se ajusta al siguiente  **código de colores**  propuesto por *[What is the Issues Label Standard (WIP)](https://github.com/moimikey/issues-label-standard/)*:
 
 * **Amarillo**: Cambios sin impacto aparente
 * **Naranja**: Cambios que podrían tener impacto en la aplicación, como refactorizaciones, cambios en la configuración para mejorar el rendimiento, actualizaciones de librerías... 
@@ -71,14 +71,84 @@ Estas se ampliarán cuando el responsable lo considere, siguiendo el **código d
 * **Gris**: Cambios que no tienen que ver con el código, sino con la documentación, ayuda, issues duplicados, inválidos, etc...
 * **Negro**: Usar solo para los cambios de versión.
 
-En general, el **etiquetado de issues** se puede hacer en cualquier momento mientras el **issue esté abierto**, pero debería estar acabado cuando se cierre.
+De manera predeterminada, usamos las etiquetas que GitLab genera por defecto para cada proyeto y además añadimos 4 más que nos informan de la prioridad o urgencia con la que resolver:
 
- > *Considera que en el primer issue que cierres, vamos a saber cuánto has leído y cómo de en serio te tomas todo esto*
+![Cuadro resumen](imagenes/GuiaIssues-001.png "Cuadro resumen de las etiquetas")
 
-### Menciones
-Usa las menciones siempre que puedas:
 
-* Mención a **usuarios**: *Ejemplos: @login, @admin...*
-* Mención a **otros issues**: *Ejemplos: #14, #45...*
-* Mención a **etiquetas**: *Ejemplos: ~bug, ~documentation...*
+Todos los nuevos Issues deberán etiquetarse atendiendo a las siguientes reglas:
+
+1. **Prioridad**: Se les etiquetará con **una o ninguna** de las 4 posibles etiquetas de prioridad.
+2. **Planificación**: Siempre deberán tener una y solo una etiqueta de planificación, para  indicar el estado de su resolución. Inicialmente siempre ~"To Do", y conforme avance su desarrollo se cambiarán desde el tablero Kanban.
+4. **Tipo**: Obligatoriamente **se etiquetará inicialmente como ~"bug"** *(en caso de un error en la aplicación)* **o ~"enhancement"** *(en caso de una nueva funcionalidad)*.  En el caso de ~"bug", se añadirá la etiqueta ~"confirmed", cuando se añada un seguimiento al Issue que explique cómo poder reproducir el error.
+5. **Gestión**: No será obligatorio asignar alguna de estas etiquetas, pero en caso de hacerse serán **excluyentes con la prioridad,  la planificación y el tipo**.
+
+
+
+Este conjunto de etiquetas se podrá ampliar cuando el responsable del proyecto lo considere oportuno.
+
+### Prioridad
+
+La etiqueta de prioridad, informa de la **urgencia con la que debe resolver el Issue** al que sea asocia:
+
+* **~"UMA"**: Urgencia muy alta, se traduce con que debe resolver para la próxima RELEASE
+* **~"UA"**: Urgencia alta, se traduce con que debe planificarse para la siguiente RELEASE a la que está en curso
+* **~"UM"**: Urgencia media, se traduce con que debe planificarse *(cambiar la prioridad)* en los próximos 6 meses *(desde que se registró el issue)*
+* **~"UB"**: Urgencia baja, se traduce con que debe planificarse en los próximos 12 meses *(desde su registro)*
+
+
+
+No será obligatorio asignar una prioridad a todos los issues, lo que sí que no se podrá es tener dos prioridades definidas para el mismo Issue.
+
+
+### Planificación
+
+Este grupo de etiquetas nos **informan del estado de resolución del issue**, y deben actualizarse aplicando las siguientes reglas:
+
+* **~"To Do"**: Indica que el Issue está por hacer. Cuando se dé de alta un nuevo Issue, habrá que asignarle siempre esta etiqueta.
+* **~"Doing"**: Indica que se está trabajando en ese issue y **tiene asignado un técnico y se ha creado la rama asociada**.
+* **~"Testing"**: Cuando la rama asociada al Issue se haya desplegado en el entorno de pruebas y se esté comprobando que el issue está cerrado.
+* **~"Tested"**: Cuando se haya comprobado que el issue está resuelto y la rama asociada fusionada en `develop`
+
+Los issues sólo deberán tener una de estas etiquetas de grupo y las transiciones de estado  conviene hacerlas arrastrando los issues entre los paneles del tablero Kanban principal. 
+
+
+
+### Tipo
+
+Este grupo de etiquetas, nos habla de la naturaleza del issue, y sólo podrán ser:
+
+* **~"bug"**: cuando el issue se refiera a un error o mal funcionamiento de la aplicación, y su resolución dará lugar una nueva rama que empezará por `bug/` *(de acuerdo con la guía https://github.com/carm-es/guias/blob/master/java/Guia-Workflow.md)*
+
+* **~"enhancement"**: cuando el issue se refiera a una nueva funcionalidad de la aplicación, y su resolución dará lugar una nueva rama que empezará por `feat/` *(de acuerdo con la 
+
+El issue tendrá obligatoriamente sólo una de estas dos etiquetas, y en el caso de que se trate de un ~"bug" y hayamos indicado en un nuevo seguimiento **cómo se reproducir el error**, le añadiremos además la etiqueta  ~"confirmed".
+
+
+
+
+### Gestión: Soporte
+
+Estas etiquetas se usarán en los tickets cuando:
+
+* **~"documentation"**: cuando el issue se refiera a la documentación del proyecto.
+* **~"support"**: cuando el issue esté referido a una pregunta que debe responderse sobre el proyecto.
+
+Estas etiquetas no deberían estar asociadas a cambios en el código de la aplicación.
+
+
+
+
+### Gestión: Análisis
+
+Estas etiquetas se usarán en los tickets cuando:
+
+* **~"discussion"**: cuando el issue se refiera a un análisis o cambio de requisitos de la aplicación.
+* **~"suggestion"**: cuando recoja una sugerencia sobre la aplicación.
+
+Estas etiquetas no son compatibles con ~"bug" ni ~"enhancement" *(cambios en el código de la aplicación)*: cuando se usen en un issue, a partir de él se crearán y enlazarán nuevos issues que impliquen cambios en el código.
+
+
+El uso de la etiqueta **~"Bloqueada"**, se usará para indicar que un issue no se resolverá de momento en espera de que se resuelva algún tema ajeno al proyecto.
+
 
