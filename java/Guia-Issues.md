@@ -91,10 +91,10 @@ Este conjunto de etiquetas se podrá ampliar cuando el responsable del proyecto 
 
 La etiqueta de prioridad, informa de la **urgencia con la que debe resolver el Issue** al que sea asocia:
 
-* **~"UMA"**: Urgencia muy alta, se traduce con que debe resolver para la próxima RELEASE
-* **~"UA"**: Urgencia alta, se traduce con que debe planificarse para la siguiente RELEASE a la que está en curso
-* **~"UM"**: Urgencia media, se traduce con que debe planificarse *(cambiar la prioridad)* en los próximos 6 meses *(desde que se registró el issue)*
-* **~"UB"**: Urgencia baja, se traduce con que debe planificarse en los próximos 12 meses *(desde su registro)*
+* https://github.com/carm-es/guias/labels/UMA: Urgencia muy alta, se traduce con que debe resolver para la próxima RELEASE
+* https://github.com/carm-es/guias/labels/UA: Urgencia alta, se traduce con que debe planificarse para la siguiente RELEASE a la que está en curso
+* https://github.com/carm-es/guias/labels/UM: Urgencia media, se traduce con que debe planificarse *(cambiar la prioridad)* en los próximos 6 meses *(desde que se registró el issue)*
+* https://github.com/carm-es/guias/labels/UB: Urgencia baja, se traduce con que debe planificarse en los próximos 12 meses *(desde su registro)*
 
 
 
@@ -107,8 +107,8 @@ Este grupo de etiquetas nos **informan del estado de resolución del issue**, y 
 
 * https://github.com/carm-es/guias/labels/To%20Do: Indica que el Issue está por hacer. Cuando se dé de alta un nuevo Issue, habrá que asignarle siempre esta etiqueta.
 * https://github.com/carm-es/guias/labels/Doing: Indica que se está trabajando en ese issue y **tiene asignado un técnico y se ha creado la rama asociada**.
-* **~"Testing"**: Cuando la rama asociada al Issue se haya desplegado en el entorno de pruebas y se esté comprobando que el issue está cerrado.
-* **~"Tested"**: Cuando se haya comprobado que el issue está resuelto y la rama asociada fusionada en `develop`
+* https://github.com/carm-es/guias/labels/Testing: Cuando la rama asociada al Issue se haya desplegado en el entorno de pruebas y se esté comprobando que el issue está cerrado.
+* https://github.com/carm-es/guias/labels/Tested: Cuando se haya comprobado que el issue está resuelto y la rama asociada fusionada en `develop`
 
 Los issues sólo deberán tener una de estas etiquetas de grupo y las transiciones de estado  conviene hacerlas arrastrando los issues entre los paneles del tablero Kanban principal. 
 
@@ -131,8 +131,8 @@ El issue tendrá obligatoriamente sólo una de estas dos etiquetas, y en el caso
 
 Estas etiquetas se usarán en los tickets cuando:
 
-* **~"documentation"**: cuando el issue se refiera a la documentación del proyecto.
-* **~"support"**: cuando el issue esté referido a una pregunta que debe responderse sobre el proyecto.
+* https://github.com/carm-es/guias/labels/documentation: cuando el issue se refiera a la documentación del proyecto.
+* https://github.com/carm-es/guias/labels/support: cuando el issue esté referido a una pregunta que debe responderse sobre el proyecto.
 
 Estas etiquetas no deberían estar asociadas a cambios en el código de la aplicación.
 
@@ -143,12 +143,12 @@ Estas etiquetas no deberían estar asociadas a cambios en el código de la aplic
 
 Estas etiquetas se usarán en los tickets cuando:
 
-* **~"discussion"**: cuando el issue se refiera a un análisis o cambio de requisitos de la aplicación.
-* **~"suggestion"**: cuando recoja una sugerencia sobre la aplicación.
+* https://github.com/carm-es/guias/labels/discussion: cuando el issue se refiera a un análisis o cambio de requisitos de la aplicación.
+* https://github.com/carm-es/guias/labels/suggestion: cuando recoja una sugerencia sobre la aplicación.
 
 Estas etiquetas no son compatibles con https://github.com/carm-es/guias/labels/bug ni https://github.com/carm-es/guias/labels/enhancement *(cambios en el código de la aplicación)*: cuando se usen en un issue, a partir de él se crearán y enlazarán nuevos issues que impliquen cambios en el código.
 
 
-El uso de la etiqueta **~"Bloqueada"**, se usará para indicar que un issue no se resolverá de momento en espera de que se resuelva algún tema ajeno al proyecto.
+El uso de la etiqueta https://github.com/carm-es/guias/labels/Bloqueada, se usará para indicar que un issue no se resolverá de momento en espera de que se resuelva algún tema ajeno al proyecto.
 
 
