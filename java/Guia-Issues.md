@@ -79,8 +79,8 @@ De manera predeterminada, usamos las etiquetas que GitLab genera por defecto par
 Todos los nuevos Issues deberán etiquetarse atendiendo a las siguientes reglas:
 
 1. **Prioridad**: Se les etiquetará con **una o ninguna** de las 4 posibles etiquetas de prioridad.
-2. **Planificación**: Siempre deberán tener una y solo una etiqueta de planificación, para  indicar el estado de su resolución. Inicialmente siempre ~"To Do", y conforme avance su desarrollo se cambiarán desde el tablero Kanban.
-4. **Tipo**: Obligatoriamente **se etiquetará inicialmente como ~"bug"** *(en caso de un error en la aplicación)* **o ~"enhancement"** *(en caso de una nueva funcionalidad)*.  En el caso de ~"bug", se añadirá la etiqueta ~"confirmed", cuando se añada un seguimiento al Issue que explique cómo poder reproducir el error.
+2. **Planificación**: Siempre deberán tener una y solo una etiqueta de planificación, para  indicar el estado de su resolución. Inicialmente siempre https://github.com/carm-es/guias/labels/To%20Do, y conforme avance su desarrollo se cambiarán desde el tablero Kanban.
+4. **Tipo**: Obligatoriamente **se etiquetará inicialmente como https://github.com/carm-es/guias/labels/bug** *(en caso de un error en la aplicación)* **o https://github.com/carm-es/guias/labels/enhancement** *(en caso de una nueva funcionalidad)*.  En el caso de https://github.com/carm-es/guias/labels/bug, se añadirá la etiqueta https://github.com/carm-es/guias/labels/confirmed, cuando se añada un seguimiento al Issue que explique cómo poder reproducir el error.
 5. **Gestión**: No será obligatorio asignar alguna de estas etiquetas, pero en caso de hacerse serán **excluyentes con la prioridad,  la planificación y el tipo**.
 
 
@@ -105,8 +105,8 @@ No será obligatorio asignar una prioridad a todos los issues, lo que sí que no
 
 Este grupo de etiquetas nos **informan del estado de resolución del issue**, y deben actualizarse aplicando las siguientes reglas:
 
-* **~"To Do"**: Indica que el Issue está por hacer. Cuando se dé de alta un nuevo Issue, habrá que asignarle siempre esta etiqueta.
-* **~"Doing"**: Indica que se está trabajando en ese issue y **tiene asignado un técnico y se ha creado la rama asociada**.
+* https://github.com/carm-es/guias/labels/To%20Do: Indica que el Issue está por hacer. Cuando se dé de alta un nuevo Issue, habrá que asignarle siempre esta etiqueta.
+* https://github.com/carm-es/guias/labels/Doing: Indica que se está trabajando en ese issue y **tiene asignado un técnico y se ha creado la rama asociada**.
 * **~"Testing"**: Cuando la rama asociada al Issue se haya desplegado en el entorno de pruebas y se esté comprobando que el issue está cerrado.
 * **~"Tested"**: Cuando se haya comprobado que el issue está resuelto y la rama asociada fusionada en `develop`
 
@@ -118,11 +118,11 @@ Los issues sólo deberán tener una de estas etiquetas de grupo y las transicion
 
 Este grupo de etiquetas, nos habla de la naturaleza del issue, y sólo podrán ser:
 
-* **~"bug"**: cuando el issue se refiera a un error o mal funcionamiento de la aplicación, y su resolución dará lugar una nueva rama que empezará por `bug/` *(de acuerdo con la guía https://github.com/carm-es/guias/blob/master/java/Guia-Workflow.md)*
+* https://github.com/carm-es/guias/labels/bug: cuando el issue se refiera a un error o mal funcionamiento de la aplicación, y su resolución dará lugar una nueva rama que empezará por `bug/` *(de acuerdo con la guía https://github.com/carm-es/guias/blob/master/java/Guia-Workflow.md)*
 
-* **~"enhancement"**: cuando el issue se refiera a una nueva funcionalidad de la aplicación, y su resolución dará lugar una nueva rama que empezará por `feat/` *(de acuerdo con la 
+* https://github.com/carm-es/guias/labels/enhancement: cuando el issue se refiera a una nueva funcionalidad de la aplicación, y su resolución dará lugar una nueva rama que empezará por `feat/` *(de acuerdo con la 
 
-El issue tendrá obligatoriamente sólo una de estas dos etiquetas, y en el caso de que se trate de un ~"bug" y hayamos indicado en un nuevo seguimiento **cómo se reproducir el error**, le añadiremos además la etiqueta  ~"confirmed".
+El issue tendrá obligatoriamente sólo una de estas dos etiquetas, y en el caso de que se trate de un https://github.com/carm-es/guias/labels/bug y hayamos indicado en un nuevo seguimiento **cómo se reproducir el error**, le añadiremos además la etiqueta  https://github.com/carm-es/guias/labels/confirmed.
 
 
 
@@ -146,7 +146,7 @@ Estas etiquetas se usarán en los tickets cuando:
 * **~"discussion"**: cuando el issue se refiera a un análisis o cambio de requisitos de la aplicación.
 * **~"suggestion"**: cuando recoja una sugerencia sobre la aplicación.
 
-Estas etiquetas no son compatibles con ~"bug" ni ~"enhancement" *(cambios en el código de la aplicación)*: cuando se usen en un issue, a partir de él se crearán y enlazarán nuevos issues que impliquen cambios en el código.
+Estas etiquetas no son compatibles con https://github.com/carm-es/guias/labels/bug ni https://github.com/carm-es/guias/labels/enhancement *(cambios en el código de la aplicación)*: cuando se usen en un issue, a partir de él se crearán y enlazarán nuevos issues que impliquen cambios en el código.
 
 
 El uso de la etiqueta **~"Bloqueada"**, se usará para indicar que un issue no se resolverá de momento en espera de que se resuelva algún tema ajeno al proyecto.
