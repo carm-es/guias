@@ -127,6 +127,7 @@ entorno donde se despliegue:
 1. Cómo diferenciar la **configuración por entornos**
 2. Cómo **declarar parámetros *"sensibles"*** a la seguridad *(secretos)*
 3. Qué **configuraciones puede incluir en el ```.war```** 
+4. Qué es **`vault`** y por qué lo usamos
 
 
 ### ...y todavía faltaría...
