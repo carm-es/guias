@@ -157,7 +157,7 @@ Estos contenedores se almacerán en la misma ruta que nuestro proyecto en gitlab
 
 La **única diferencia estará en la configuración**: Cuando el contenedor docker se ejecute en los servidores de la CARM leerá la configuración del [VAULT](https://vault-admin.carm.es/ui/vault/secrets/apps/list) según el entorno donde se despliegue, mientras que cuando lo ejecutemos en local, usará la configuración que dejamos en el directorio del repositorio `configuracion/local`.  Esto **ayudará a depurar errores del tipo _"...en mi equipo funciona!"_** cuando se despliegue nuestra aplicación en los servidores.
 
-Obviamente, siempre podrán existir diferencias entre lo que hay en `vault` y lo que se indicó en `configuracion/local`, pero para evitar errores en el despligue por estas diferencias, existe **el fichero de contrato (`/config.yml`)**, donde se declara todo lo que se espera exista en `vault`, antes de desplegar el contenedor en los servidores.
+Obviamente, siempre podrán existir diferencias entre lo que hay en `vault` y lo que se indicó en `configuracion/local`, pero para evitar errores en el despligue por estas diferencias, existe **el fichero de contrato (`/carm-contract.yml`)**, donde se declara todo lo que se espera exista en `vault`, antes de desplegar el contenedor en los servidores.
 
 
 

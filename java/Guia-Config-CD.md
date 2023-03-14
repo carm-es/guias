@@ -2,13 +2,13 @@
 
 El [despliegue manual con Jenkins](Guia-Config-CI.md) se fundamenta en construir los ficheros de configuración y copiarlos a los directorios del servidor, justo en el momento del despliegue. El despliegue automático desde el pipeline-CD de GitLab, **se basa en construir el contenedor docker con los ficheros de configuración parametrizados a modo de plantilla**, en su lugar definitivo, y justo en el momento de despliegue, **consultar [https://vault-admin.carm.es](https://vault-admin.carm.es/ui/vault/secrets/apps/) para poder aplicar el valor** a estos parámetros _(plantillados)_ y a las variables de entorno que sean necesarias.
 
-Para ello, es necesario declarar en un fichero _yaml_ `config.yml` de la raíz del proyecto en el repositorio:
+Para ello, es necesario declarar en un fichero _yaml_ `carm-contract.yml` de la raíz del proyecto en el repositorio:
 
 * qué valores debe leer del vault
 * en qué ficheros debe aplicarles el valor que leyó del `vault`
 * y qué variables de entorno debe instanciar 
 
-Este **fichero `config.yml` lo llamamos _fichero del contrato_** y permite además, indicar quién debe definir cada uno de estos parámetros en `vault`: si el equipo de desarrollo _(developer)_ o el equipo de operaciones _(operator)_. Si alguno de estos equipos se olvidó de configurar un parámetro para alguno de los entornos de ejecución, el contrato no se cumplirá y la aplicación no se desplegará en ese entorno.
+Este **fichero `carm-contract.yml` lo llamamos _fichero del contrato_** y permite además, indicar quién debe definir cada uno de estos parámetros en `vault`: si el equipo de desarrollo _(developer)_ o el equipo de operaciones _(operator)_. Si alguno de estos equipos se olvidó de configurar un parámetro para alguno de los entornos de ejecución, el contrato no se cumplirá y la aplicación no se desplegará en ese entorno.
 
 
 
@@ -22,11 +22,11 @@ Esto es aplicable a los entornos basados en _clusters docker swarm_ que gestiona
 
 
 
-## El fichero del contrato `config.yml`
+## El fichero del contrato `carm-contract.yml`
 
 Como ya se ha apuntado, el fichero del contrato permite **declarar qué parámetros se definen en el `vault`, sobre qué ficheros se aplicará su valor y qué variables de entorno se deben instanciar** en el despliegue.
 
-![config.yml](imagenes/GuiaConfigCD-001.png)
+![carm-contract.yml](imagenes/GuiaConfigCD-001.png)
 
 
 

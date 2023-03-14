@@ -85,7 +85,7 @@ En la CARM implementamos despliegue continuo **únicamente en el entorno de prue
 Aparte, el repositorio de la aplicación tendrá que cumplir los siguientes requisitos:
 1. **Alojado en [GitLab](https://gitlab.carm.es)**
 2. Contendrá un **`directorio docker/` que incluya un fichero `docker-compose.yml`** con la configuración para _docker swarm_ de la arquitectura de la aplicación
-3. El fichero **`config.yml`** en la raíz del proyecto con el _contrato de la configuración_
+3. El fichero **`carm-contract.yml`** en la raíz del proyecto con el _contrato de la configuración_
 4. El fichero **`gitlab-ci.yml`**  correspondiente al _pipeline-CD_
 5. Un directorio en la rama principal de la aplicación,  con la configuración que se necesita para ejecutar la aplicación en local mediante docker. 
 
