@@ -50,13 +50,13 @@ Por lo general, el valor de todos estos parámetros los conoce el equipo de oper
 
 Para ello, se creará un fichero en ```/configuracion/desarrollo/``` por cada archivo ```AAAA.EXT``` de configuración con propiedades sensibles llamado:
 
-<h2 style="text-align: center"<code>AAAA.concatenar.EXT</code></h2>
+<h2 style="text-align: center"<code>AAAA.EXT.concatenar.properties</code></h2>
 
 ...donde:
 
 * ```AAAA``` es el nombre del fichero de configuración
 * ```EXT``` es la extensión que tuviera el fichero de configuración *(ejemplo   ```.properties```)*
-* ```concatenar``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.concatenar.EXT```, que deben instanciar.
+* ```concatenar.properties``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.EXT.concatenar.properties```, que deben instanciar.
 
 
 Ilustremos todo esto con un ejemplo. Imaginemos que nuestra aplicación tiene el siguiente fichero de configuración llamado  ```mi-app.properties```, que en nuestro equipo y en el entorno de desarrollo funciona perfectamente:
@@ -136,7 +136,7 @@ Y por último, para el entorno de desarrollo *(**aunque no exista para nuestra a
 	notificacion=pedrito@empresa.com
 	```
 
-2. ```/configuracion/desarrollo/mi-app.concatenar.properties``` con el siguiente contenido:
+2. ```/configuracion/desarrollo/mi-app.properties.concatenar.properties``` con el siguiente contenido:
 
 	```
 	# Servidor SMTP
@@ -145,10 +145,10 @@ Y por último, para el entorno de desarrollo *(**aunque no exista para nuestra a
 	stmp_password=pokemon
 	```
 
-En resumen: Llevar todos los parámetros de configuración *"sensibles"* del fichero  ```mi-app.properties```  *(```AAAA.EXT```)*  a  ```mi-app.concatenar.properties```  *(```AAAA.concatenar.EXT```)* pero solo para ```/configuracion/desarrollo/``` , y en general, hacerlo con todos los ficheros de configuración que incluyan configuración sensible.
+En resumen: Llevar todos los parámetros de configuración *"sensibles"* del fichero  ```mi-app.properties```  *(```AAAA.EXT```)*  a  ```mi-app.properties.concatenar.properties```  *(```AAAA.EXT.concatenar.properties```)* pero solo para ```/configuracion/desarrollo/``` , y en general, hacerlo con todos los ficheros de configuración que incluyan configuración sensible.
 
 
-Luego, al configurar la tarea de despliegue en Jenkins para la aplicación, el equipo de operaciones implementará que, después de copiar la configuración de la aplicación en el servidor, resuelva el contenido de todos los ficheros ```*.concatenar.*``` y los concatene a sus respectivos ```*.*``` .
+Luego, al configurar la tarea de despliegue en Jenkins para la aplicación, el equipo de operaciones implementará que, después de copiar la configuración de la aplicación en el servidor, resuelva el contenido de todos los ficheros ```*.*.concatenar.properties``` y los concatene a sus respectivos ```*.*``` .
 
 
 ### Secretos en ficheros estructurados _(.xml, .yaml)_
@@ -188,21 +188,21 @@ Para este fichero, los secretos son:
 4. La contraseña: ```pokemon```
 
 
-En vez de concatenar ficheros, lo que en estos casos se hace, es sustituir variables por su valor. Para ello, se especificarán en un fichero ```*.sustituir.*``` todas las variables y su valor para el entorno de desarrollo:
+En vez de concatenar ficheros, lo que en estos casos se hace, es sustituir variables por su valor. Para ello, se especificarán en un fichero ```*.*.sustituir.properties``` todas las variables y su valor para el entorno de desarrollo:
 
 
-<h2 style="text-align: center"<code>AAAA.sustituir.EXT</code></h2>
+<h2 style="text-align: center"<code>AAAA.EXT.sustituir.properties</code></h2>
 
 
 ...donde:
 
 * ```AAAA``` es el nombre del fichero de configuración
 * ```EXT``` es la extensión que tuviera el fichero de configuración *(ejemplo   ```.xml```, ```.yaml``` )*
-* ```sustituir``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.sustituir.EXT```, que deberán instanciar.
+* ```sustituir.properties``` es una marca que indica al equipo de operaciones que el fichero  ```AAAA.EXT``` tiene propiedades sensibles declaradas en ```AAAA.EXT.sustituir.properties```, que deberán instanciar.
 
 
 
-Así, para nuestro ejemplo, **crearemos en la rama ```config``` un nuevo fichero ```/configuracion/desarrollo/config.sustituir.xml```** con el siguiente contenido:
+Así, para nuestro ejemplo, **crearemos en la rama ```config``` un nuevo fichero ```/configuracion/desarrollo/config.xml.sustituir.properties```** con el siguiente contenido:
 
 
 ```
