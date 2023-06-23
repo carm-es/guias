@@ -129,6 +129,11 @@ entorno donde se despliegue:
 3. Qué **configuraciones puede incluir en el ```.war```** 
 4. Qué es **`vault`** y por qué lo usamos
 
+## Marco de trabajo para aplicaciones web
+Lea la guía [Marco de trabajo para aplicaciones web](./framework/framework.md) para conocer el marco de trabajo recomendado para el desarrollo ágil de aplicaciones web en java.
+1.	Por qué se ha escogido el marco tecnológico propuesto
+2.	Breve comparación con otros marcos tecnológicos
+3.	Qué tecnologías, herramientas y utilidades se utilizan
 
 ### ...y todavía faltaría...
 > Esta guía **está aún está en desarrollo** y en el documento *"[Qué falta para terminar](Guia-AunLeFalta.md)"* se explica lo que está pendiente de publicar.
