@@ -127,5 +127,34 @@ Springboot: Google, Microsoft, Accenture, Amazon, Intuit, JPMorgan Chase & Co, C
 3. Gran cantidad de código repetitivo: dificulta el debugging
 4. Puede incluir dependencias no utilizadas: gran tamaño de archivos binarios de despliegue
 
+## ¿Que refleja Google Trends en cuanto a la discusión Vue.js / Angular / React?
+Que a nivel mundial se refleja que se está consultando algo más por React, aunque los primeros paises son Indonesia/Nepal/Bangladés.. 
+
+![Imagen google trends](imagenes/googletrd_8.png)
+
+Si filtramos por España están mas o menos a la par:
+
+![Imagen google trends](imagenes/googletrd_9.png)
+
+Si filtramos por Alemania:
+
+![Imagen google trends](imagenes/googletrd_10.png)
+
+O filtramos por Italia:
+
+![Imagen google trends](imagenes/googletrd_11.png)
+
+En Estados Unidos si que hay algo más de diferencia y se ve una leve caída de Angular, pero está muy por encima de Vue y Next.js que son dos framework también altamente utilizados:
+
+![Imagen google trends](imagenes/googletrd_12.png)
+
+Y para demostrar que esto tampoco tiene tanta importancia comparamos con jQuery, viendo que aún estando jQuery muy por debajo de Angular nadie duda de jQuery ya que al final son sólo tendencias de búsqueda:
+
+![Imagen google trends](imagenes/googletrd_13.png)
+
+## Conclusiones
+Tanto Angular como SpringBoot son dos marcos técnologicos ampliamente utilizados y siguen en la cima de las tecnologías más populares, nos aportan bastantes ventajas y como hemos visto además han sido utilizados por grandes empresas lo cual nos aporta confianza y tranquilidad.
+
+
 
 
