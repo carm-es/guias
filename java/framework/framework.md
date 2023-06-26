@@ -8,3 +8,11 @@ Para la elección de las tecnologías hemos tenido en cuenta que dentro de los d
 ## ¿Por qué utilizar Angular/SpringBoot?
 En este [artículo](razonamientofrmw.md) podrás encontrar algunas de las razones por las que hemos escogido utilizar Angular/SpringBoot.
 
+## ¿Cómo empezar con Angular/SpringBoot ?
+Para comenzar lo primero que tenemos que hacer es crear un proyecto, podríamos crear el proyecto o bien directamente desde la página online de Spring [https://start.spring.io/](https://start.spring.io/) y ya trabajar con la herramienta que a cada uno le guste o bien otra opción y para nosotros la más interesante es instalarse Spring Tool que no es más que un plugin que se instala en el IDE, existe tanto para eclipse como para Visual Studio Code.
+
+Para instalarse Spring Tool hay que ir a la web [https://spring.io/tools](https://spring.io/tools) y descargarse la versión adecuada tanto para el IDE como para el sistema operativo que cada uno tenga.
+
+![Spring Tool](imagenes/springtool_14.png)
+
+
