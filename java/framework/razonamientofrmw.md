@@ -148,7 +148,7 @@ En Estados Unidos si que hay algo más de diferencia y se ve una leve caída de 
 
 ![Imagen google trends](imagenes/googletrd_12.png)
 
-Y para demostrar que esto tampoco tiene tanta importancia comparamos con jQuery, viendo que aún estando jQuery muy por debajo de Angular nadie duda de jQuery ya que al final son sólo tendencias de búsqueda:
+Y por último comparamos con jQuery, viendo que Angular está por encima con respecto a jQuery siendo este último una librería bastante utilizada:
 
 ![Imagen google trends](imagenes/googletrd_13.png)
 
