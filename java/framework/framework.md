@@ -1,0 +1,4 @@
+# Marco de trabajo para aplicaciones web
+En los siguientes apartados intentaremos explicar el por qué se han escogido las tecnologías Angular y SpringBoot para conformar el marco de trabajo para el desarrollo de aplicaciones web.
+Tenemos que tener en cuenta que dentro de los distintos departamentos de informática de la CARM se han llevado a cabo multitud de proyectos en java y por lo que muchos de los técnicos tanto de la CARM como de las empresas que han trabajado para la CARM tienen formación en dicho lenguaje y se sienten cómodos con él.
+Estudiaremos las tendencias del mercado y veremos cuáles son las tecnologías más populares, comprobaremos si las tecnologías escogidas están entre las más populares y si siguen estando de actualidad, lo cual facilitará el encontrar técnicos cualificados tanto dentro de la organización como fuera de ella.
