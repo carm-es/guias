@@ -62,11 +62,17 @@ En Visual Studio Code:
 ### Visual Studio Code
 
 - [Angular Language Service (Extensión de VSCode)](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)     
-
+- [SonarLint](https://www.sonarsource.com/products/sonarlint/features/visual-studio/)
+- [Telosys](https://marketplace.visualstudio.com/items?itemName=telosysteam.telosys)
+  
 ### Spring tool Suite
 
-- SonarLint 7.12
-- Telosys code generator
+- [SonarLint](https://www.sonarsource.com/products/sonarlint/features/eclipse/)
+- [Telosys code generator](https://marketplace.eclipse.org/content/telosys-code-generator-java-javascript-python-nodejs-php-c-javaee-spring-jax-rs-vuejs)
+
+### Plugin Navegador
+- Plugin Angular
+- Plugin Wave
 
 
 
