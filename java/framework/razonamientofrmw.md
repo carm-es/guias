@@ -1,18 +1,18 @@
 # Tecnologías del marco de trabajo para aplicaciones web
-En los siguientes apartados intentaremos explicar el por qué se han escogido las tecnologías **Angular y SpringBoot** para conformar el marco de trabajo para el desarrollo de aplicaciones web.
+En los siguientes apartados intentaremos explicar el por qué se han escogido las tecnologías **Angular y Spring Boot** para conformar el marco de trabajo para el desarrollo de aplicaciones web.
 
-## ¿Por qué utilizar SpringBoot?
-En este [artículo](https://www.arteco-consulting.com/post/por-que-debes-usar-spring-boot) podrás encontrar algunas de las razones por las que utilizar SpringBoot:
-1. SpringBoot es gratis
-2. SpringBoot funciona sobre la JVM
-3. SpringBoot permite hacer Webs y Microservicios
-4. SpringBoot es rápido
-5. SpringBoot tiene un gran ecosistema
-6. SpringBoot tiene un gran número de programadores
+## ¿Por qué utilizar Spring Boot?
+En este [artículo](https://www.arteco-consulting.com/post/por-que-debes-usar-spring-boot) podrás encontrar algunas de las razones por las que utilizar Spring Boot:
+1. Spring Boot es gratis
+2. Spring Boot funciona sobre la JVM
+3. Spring Boot permite hacer Webs y Microservicios
+4. Spring Boot es rápido
+5. Spring Boot tiene un gran ecosistema
+6. Spring Boot tiene un gran número de programadores
 7. Spring Boot viene con baterías incluidas
-8. SpringBoot es políglota
-9. SpringBoot tiene soporte de las principales empresas
-10. SpringBoot está en continua evolución
+8. Spring Boot es políglota
+9. Spring Boot tiene soporte de las principales empresas
+10. Spring Boot está en continua evolución
 
 ## ¿Por qué utilizar Angular?
 En este  [artículo](https://cynoteck.com/es/blog-post/reasons-to-use-angular-for-your-web-app/) podrás encontrar algunas de las razones por las que utilizar Angular:
@@ -76,22 +76,22 @@ Es cierto que en este caso Java no aparece entre los diez primeros, aunque es po
 
 ![Imagen de stackoverflow](imagenes/stackover_7.png)
 
-## Comparación Node.js vs SpringBoot
+## Comparación Node.js vs Spring Boot
 Las siguientes opciones están altamente extendidas y están dentro de los lenguajes de programación y framework más utilizados:
 
 - Angular / Nestjs / Node.js --> Es el framework utilizado por ejemplo en el marco de trabajo "Umbela" dentro de la CARM.
 
-- Angular / SpringBoot desplegado en un Tomcat --> Es el framework que se propone en este apartado.
+- Angular / Spring Boot desplegado en un Tomcat --> Es el framework que se propone en este apartado.
 
 En ambos marcos de trabajo se utiliza Angular como frontal, por lo que aunque como hemos visto hay otros marcos de trabajo Javascripts ampliamente utilizados como react, vue.js, next.js, etc... su nivel de popularidad, soporte y potencia son similares a Angular y de este último en la CARM ya hay bastantes desarrollos, se ha dado formación al personal de IT y no se ha encontrado ninguna limitación importante que haga que nos replanteemos el uso de otro framework. 
 
 En el siguiente [artículo](https://medium.com/@ktufernando/node-js-vs-spring-boot-cu%C3%A1l-elegir-5a687cd1abae) podemos encontrar información sobre ambos marcos tecnológicos así como las ventajas e inconvenientes generales de cada uno de los marcos de trabajo (hay muchas páginas similares en internet que vienen a decir lo mismo).
 
-**Tanto Node.js como Springboot han sido utilizado por importantes empresas:**
+**Tanto Node.js como Spring Boot han sido utilizado por importantes empresas:**
 
 Node.js:  Medium, Netflix, Uber, Linkedin, Paypal, Ebay, NASA.
 
-Springboot: Google, Microsoft, Accenture, Amazon, Intuit, JPMorgan Chase & Co, Capital One
+Spring Boot: Google, Microsoft, Accenture, Amazon, Intuit, JPMorgan Chase & Co, Capital One
 
 **Pros y contras de Node.js:**
 
@@ -110,7 +110,7 @@ Springboot: Google, Microsoft, Accenture, Amazon, Intuit, JPMorgan Chase & Co, C
 3. No es lo mejor para el cómputo pesado: cuellos de botella en el rendimiento.
 4. “Callback hell”: resultado de demasiadas funciones asincrónicas encadenadas.
 
-**Pros y contras de Springboot:**
+**Pros y contras de Spring Boot:**
 
 *Pros*
 
@@ -153,7 +153,7 @@ Y por último comparamos con jQuery, viendo que Angular está por encima con res
 ![Imagen google trends](imagenes/googletrd_13.png)
 
 ## Conclusiones
-Tanto Angular como SpringBoot son dos marcos técnologicos ampliamente utilizados y siguen en la cima de las tecnologías más populares, nos aportan bastantes ventajas y como hemos visto además han sido utilizados por grandes empresas lo cual nos aporta confianza y tranquilidad.
+Tanto Angular como Spring Boot son dos marcos técnologicos ampliamente utilizados y siguen en la cima de las tecnologías más populares, nos aportan bastantes ventajas y como hemos visto además han sido utilizados por grandes empresas lo cual nos aporta confianza y tranquilidad.
 
 
 
