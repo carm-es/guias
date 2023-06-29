@@ -22,7 +22,8 @@ Antes de empezar con Angular, échale un vistazo a los siguientes recursos:
 3.	Documentación sobre librerías de componentes:
     - [PrimeNG](https://primeng.org/)
     - [Angular Material](https://material.angular.io/)
-
+4.  Blog de Angular (https://blog.angular.io/)
+5.  [Herramientas para desarrolladores Angular](https://angular.io/guide/devtools) entre las que podrás encontrar un plugin para instalarlo en el Navegador.
 
 ## ¿Se podría utilizar algún Asistente RAD?
 Pues SI!. Hemos visto varios proyectos para generar código a partir de la Base de Datos o de Modelos de Datos como g9 Database Import, hibernate tools (Indigo), jHipster pero esos no nos han convencido. Sin embargo, nos ha gustado mucho Telosys Code Generator, creemos que sería una buena herramienta para agilizar el desarrollo de aplicaciones.
@@ -47,6 +48,16 @@ En Visual Studio Code:
 
 ![Telosys](imagenes/plugtelosys_16.png)
 
+## Plugin recomendados para los IDE
+
+### Visual Studio Code
+
+- [Angular Language Service (Extensión de VSCode)](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)     
+
+### Spring tool Suite
+
+- SonarLint 7.12
+- Telosys code generator
 
 
 
