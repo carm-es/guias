@@ -63,7 +63,7 @@ En Visual Studio Code:
 
 - [Angular Language Service (Extensión de VSCode)](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)     
 - [SonarLint](https://www.sonarsource.com/products/sonarlint/features/visual-studio/)
-- [Telosys](https://marketplace.visualstudio.com/items?itemName=telosysteam.telosys)
+- [Telosys](https://marketplace.visualstudio.com/items?itemName=telosysteam.telosys) / [Telosys-cli](https://www.telosys.org/cli.html). Nosotros recomendamos utilizarlo desde Spring tool Suite, pero si lo quieres usar, estos son los enlaces.
   
 ### Spring tool Suite
 
@@ -71,8 +71,8 @@ En Visual Studio Code:
 - [Telosys code generator](https://marketplace.eclipse.org/content/telosys-code-generator-java-javascript-python-nodejs-php-c-javaee-spring-jax-rs-vuejs)
 
 ### Plugin Navegador
-- Plugin Angular
-- Plugin Wave
+- [Plugin Angular](https://chrome.google.com/webstore/detail/angular-developer-tools/ienfalfjdbdpebioblfackkekamfmbnh)
+- [Plugin Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh). Con este plugin los desarrolladores pueden ir revisando la accesibilidad a la vez que desarrollan.
 
 
 
