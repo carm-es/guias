@@ -70,7 +70,7 @@ En Visual Studio Code:
 - [SonarLint](https://www.sonarsource.com/products/sonarlint/features/eclipse/)
 - [Telosys code generator](https://marketplace.eclipse.org/content/telosys-code-generator-java-javascript-python-nodejs-php-c-javaee-spring-jax-rs-vuejs)
 
-### Plugin Navegador
+### Plugin Navegador (Chrome)
 - [Plugin Angular](https://chrome.google.com/webstore/detail/angular-developer-tools/ienfalfjdbdpebioblfackkekamfmbnh)
 - [Plugin Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh). Con este plugin los desarrolladores pueden ir revisando la accesibilidad a la vez que desarrollan.
 
