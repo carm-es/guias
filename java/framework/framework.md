@@ -15,6 +15,15 @@ Para instalarse Spring Tool hay que ir a la web [https://spring.io/tools](https:
 
 ![Spring Tool](imagenes/springtool_14.png)
 
+### Recursos de Angular
+Antes de empezar con Angular, échale un vistazo a los siguientes recursos:
+1.	[Tutoriales para aprender angular](https://angular.io/tutorial)
+2.	[Documentación del Angular CLI](https://angular.io/cli)
+3.	Documentación sobre librerías de componentes:
+    - [PrimeNG](https://primeng.org/)
+    - [Angular Material](https://material.angular.io/)
+
+
 ## ¿Se podría utilizar algún Asistente RAD?
 Pues SI!. Hemos visto varios proyectos para generar código a partir de la Base de Datos o de Modelos de Datos como g9 Database Import, hibernate tools (Indigo), jHipster pero esos no nos han convencido. Sin embargo, nos ha gustado mucho Telosys Code Generator, creemos que sería una buena herramienta para agilizar el desarrollo de aplicaciones.
 
