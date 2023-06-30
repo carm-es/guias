@@ -18,7 +18,7 @@ En Visual Studio Code:
 
 ![Telosys](imagenes/plugtelosys_16.png)
 
-En Visual Studio Code sólo se utiliza el plugin para autocompletar los ficheros, si queremos hacer generación de código tendremos que utilizar [Telosys-CLI](https://www.telosys.org/cli.html).
+En Visual Studio Code sólo se utiliza el plugin para autocompletar los ficheros, si queremos hacer generación de código en Visual Studio Code tendríamos que utilizar [Telosys-CLI](https://www.telosys.org/cli.html). Aunque, creemos que es más práctico el plugin de eclipse y que se podría configurar también Telosys en el proyecto del FrontEnd idependientemente de que la preferencia del desarrollador para el desarrollo FrontEnd sea Visual Studio Code.
 
 A la hora de crear el modelo de Telosys (ficheros .dbrep) a partir de la conexión de la base de datos una forma de poder incluir el modelo de varias tablas sería la siguiente:
 
