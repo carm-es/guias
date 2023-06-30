@@ -37,7 +37,7 @@ Antes de empezar con Angular, échale un vistazo a los siguientes recursos:
 ## ¿Se podría utilizar algún Asistente RAD?
 Pues SI!. Hemos visto varios proyectos para generar código a partir de la Base de Datos o de Modelos de Datos como g9 Database Import, hibernate tools (Indigo), jHipster pero esos no nos han convencido. Sin embargo, nos ha gustado mucho Telosys Code Generator, creemos que sería una buena herramienta para agilizar el desarrollo de aplicaciones.
 
-**Telosys Code Generator**
+###Telosys Code Generator
 
 Telosys [https://www.telosys.org/](https://www.telosys.org/) utiliza plantillas velocity para generar código. Hemos encontrado varios proyectos en gitHub.com donde se pueden encontrar plantillas para generar código:
 
@@ -56,6 +56,12 @@ En eclipse (Spring Tool Suite):
 En Visual Studio Code:
 
 ![Telosys](imagenes/plugtelosys_16.png)
+
+En Visual Studio Code sólo se utiliza el plugin para autocompletar los ficheros, si queremos hacer generación de código tendremos que utilizar [Telosys-CLI](https://www.telosys.org/cli.html).
+
+A la hora de crear el modelo de Telosys (ficheros .dbrep) a partir de la conexión de la base de datos una forma de poder incluir el modelo de varias tablas sería la siguiente:
+
+![Telosys](imagenes/telosys_17.png)
 
 ## Plugin recomendados para los IDE
 
