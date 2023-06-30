@@ -39,7 +39,7 @@ Pues SI!. Hemos visto varios proyectos para generar código a partir de la Base 
 
 jHipster en partícular no nos ha convencido porque introduce dependencias en el proyecto, Telosys deja un proyecto más limpio, además de que al parecer las actualizaciones del proyecto con jHipster pueden ser algo tediosas.
 
-En este [artículo](telosys.md) podrás encontrar información de utilidad para empezara a utilizar Telosys en tus proyectos y agilizar el desarrollo automatizando tareas repetitivas.
+**En este [artículo](telosys.md) podrás encontrar información de utilidad para empezar a utilizar Telosys Code Generator** en tus proyectos y agilizar el desarrollo automatizando tareas repetitivas.
 
 ## Plugin recomendados para los IDE
 
