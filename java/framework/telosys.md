@@ -6,7 +6,9 @@ Telosys [https://www.telosys.org/](https://www.telosys.org/) utiliza plantillas 
 
   En el siguiente artículo [https://boottechnologies-ci.medium.com/quick-spring-boot-microservice-api-using-telosys-generator-bc29327c06ab](https://boottechnologies-ci.medium.com/quick-spring-boot-microservice-api-using-telosys-generator-bc29327c06ab) encontramos un tutorial para generar código a partir de los objetos de la base de datos utilizando las plantillas telosys.
 
-- **Angular** (https://github.com/telosys-templates-v3/angular4-rest-frontend).
+- **Angular** [https://github.com/telosys-templates-v3/angular4-rest-frontend](https://github.com/telosys-templates-v3/angular4-rest-frontend): **También nos ha gustado tanto que hemos creado un fork de este proyecto y lo hemos modificado para Angular 16.0.0** puedes descargarte las plantillas de [https://github.com/carm-es/angular-rest-frontend/](https://github.com/carm-es/angular-rest-frontend/)
+
+Debes tener en cuenta que **de momento estos proyectos son sólo pruebas de concepto** de la potencia que tiene Telosys, es decir que estas plantillas deberan revisarse y evolucionarse para que se ajusten al código que realmente queremos generar.
 
 Telosys tiene plugin tanto para eclipse como para visual studio code
 
