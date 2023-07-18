@@ -15,6 +15,8 @@ Para instalarse Spring Tool hay que ir a la web [https://spring.io/tools](https:
 
 ![Spring Tool](imagenes/springtool_14.png)
 
+En este [enlace](https://www.youtube.com/watch?v=o_HV_FCs-Z0) podemos ver un pequeño tutorial de como crear una aplicación web Full Stack con Spring Boot y Angular
+
 ### Recursos de Angular
 Antes de empezar con Angular, échale un vistazo a los siguientes recursos:
 1.  [Documentación de Angular](https://angular.io/docs)
