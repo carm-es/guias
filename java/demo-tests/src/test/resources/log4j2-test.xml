@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+<Configuration status="debug">
+-->
+<Configuration>
+    <Appenders>
+        <Console name="Consola" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.testcontainers" level="ERROR" additivity="false">
+            <AppenderRef ref="Consola"/>
+        </Logger>
+        <Logger name="es.carm" level="DEBUG" additivity="false">
+            <AppenderRef ref="Consola"/>
+        </Logger>
+        <Root level="ERROR" additivity="false">
+            <AppenderRef ref="Consola"/>
+        </Root>
+    </Loggers>
+</Configuration>

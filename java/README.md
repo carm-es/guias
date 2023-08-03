@@ -129,6 +129,15 @@ entorno donde se despliegue:
 3. Qué **configuraciones puede incluir en el ```.war```** 
 4. Qué es **`vault`** y por qué lo usamos
 
+
+## Tests software
+
+Lea la guía sobre [Cómo escribir tests](Guia-Tests.md) para las aplicaciones Java y conozca:
+
+1. Cómo crear y ejecutar **test unitarios** en su proyecto,
+2. Cómo crear y ejecutar **test de integración y aceptación** _(solo gitlab-cd)_
+
+
 ## Marco de trabajo para aplicaciones web
 Lea la guía [Marco de trabajo para aplicaciones web](./framework/framework.md) para conocer el marco de trabajo recomendado para el desarrollo ágil de aplicaciones web en java.
 1.	Por qué se ha escogido el marco tecnológico propuesto
