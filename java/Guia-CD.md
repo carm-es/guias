@@ -171,3 +171,12 @@ Otra segunda **modalidad automática**, programando la ejecución del pipeline a
 Mantener activa esta programación con la misma versión, permite **además mantener programado a una hora determinada el reinicio de la aplicación**. 
 
 Como ya debe conocer, las _Etiquetas_ o _tags_ de nuestra aplicación **se generarán con cada fusión a `master`**., que al mismo tiempo publican una RELEASE en [nexus](https://nexus.carm.es).
+
+
+De manera predeterminada, este despliegue en el entorno de producción sólo podrán realizarlo miembros con Rol _Maintainer_ u _Owner_. Este comportamiento se puede modificar **indicando en rol mínimo necesario para ello, como valor numérico en la variable `PROJECT_DEPLOY_MIN_ACL_PROD` del fichero `.gitlab-ci.yml`** de su repositorio, de acuerdo con los valores definidos en https://docs.gitlab.com/ee/api/members.html
+
+* Si define `PROJECT_DEPLOY_MIN_ACL_PROD=50` estará configurando que sólo los _Owner_ podrán desplegar en producción,
+* mientras que si define `PROJECT_DEPLOY_MIN_ACL_PROD=10` permitirá que cualquiera con acceso al repositorio pueda desplegar en producción.
+
+
+	
