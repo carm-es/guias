@@ -137,6 +137,13 @@ Lea la guía sobre [Cómo escribir tests](Guia-Tests.md) para las aplicaciones J
 1. Cómo crear y ejecutar **test unitarios** en su proyecto,
 2. Cómo crear y ejecutar **test de integración y aceptación** _(solo gitlab-cd)_
 
+## Configuración de logs
+
+Lea la guía para la [Configuración de logs ](Guia-Logs.md) asi conocerá:
+ 
+1. Cómo configurar el log de su aplicación 
+2. Cómoo visualizar el log en la plataforma de [Gestión de Logs](https://logs-panel-nopro.carm.es). 
+
 
 ## Marco de trabajo para aplicaciones web
 Lea la guía [Marco de trabajo para aplicaciones web](./framework/framework.md) para conocer el marco de trabajo recomendado para el desarrollo ágil de aplicaciones web en java.
