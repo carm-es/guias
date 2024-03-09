@@ -33,7 +33,7 @@
     <!-- Vamos centralizando aquí las versiones de las librerías, que luego
          para actualizarlas, basta con modificar aquí -->
     <version.servlet-api>2.4</version.servlet-api>
-    <version.junit>4.11</version.junit>
+    <version.junit>4.13.1</version.junit>
 
   </properties>
 
