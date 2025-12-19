@@ -21,7 +21,7 @@
     <junit4.version>4.13.2</junit4.version>
     <org.seleniumhq.version>4.9.1</org.seleniumhq.version>
 
-    <log4j2.version>2.20.0</log4j2.version>
+    <log4j2.version>2.25.3</log4j2.version>
   </properties>
 
   <dependencies>
